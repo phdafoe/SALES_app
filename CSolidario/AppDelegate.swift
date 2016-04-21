@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initialize Parse.
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "qHIxCfdB4nPSsqd1NU2mOYo1ScwPa6oYUDT5TLjM"
+            $0.clientKey = "di3oZ4IZ7sqZZUQKdsQ1ODz3mTzuoYDdizkcyLqG"
+            $0.server = "https://parseapi.back4app.com/"
+        }
+        Parse.initializeWithConfiguration(configuration)
+        
+        //Notificacion Parse
+        let userNotificationTypes: UIUserNotificationType = [.Alert, .Badge, .Sound]
+        let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
+        
         return true
+    }
+    
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        // Store the deviceToken in the current Installation and save it to Parse
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackground()
+        
+        print("Dispositivo Registrado")
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        
+        print("Dispositivo no Registrado")
     }
 
     func applicationWillResignActive(application: UIApplication) {
