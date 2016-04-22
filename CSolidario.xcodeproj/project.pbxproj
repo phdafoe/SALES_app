@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		638E37BA1CC97D4B00E64C9D /* Pods_CSolidario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */; };
+		638E37BB1CC97D4B00E64C9D /* Pods_CSolidario.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63C430A21CC9730E005519BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430A11CC9730E005519BE /* AppDelegate.swift */; };
 		63C430A91CC9730E005519BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C430A81CC9730E005519BE /* Assets.xcassets */; };
 		63C430AC1CC9730E005519BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C430AA1CC9730E005519BE /* LaunchScreen.storyboard */; };
@@ -105,9 +107,29 @@
 		63C4317A1CC97558005519BE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431731CC97558005519BE /* SystemConfiguration.framework */; };
 		63C4317C1CC97567005519BE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4317B1CC97567005519BE /* libz.tbd */; };
 		63C4317E1CC9756F005519BE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4317D1CC9756F005519BE /* libsqlite3.tbd */; };
+		63C431811CC976BF005519BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 63C431801CC976BF005519BE /* Podfile */; };
+		63C431831CC97B06005519BE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431821CC97B06005519BE /* SwiftyJSON.framework */; };
+		63C431841CC97B06005519BE /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431821CC97B06005519BE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F0FED43CBC6D347332B8253C /* Pods_CSolidario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		63C431851CC97B07005519BE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				63C431841CC97B06005519BE /* SwiftyJSON.framework in Embed Frameworks */,
+				638E37BB1CC97D4B00E64C9D /* Pods_CSolidario.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0EF1A9D973292872D2CF6A37 /* Pods-CSolidario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.debug.xcconfig"; sourceTree = "<group>"; };
 		63C4309E1CC9730D005519BE /* CSolidario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSolidario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C430A11CC9730E005519BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63C430A81CC9730E005519BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,6 +232,10 @@
 		63C431731CC97558005519BE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		63C4317B1CC97567005519BE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		63C4317D1CC9756F005519BE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		63C431801CC976BF005519BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		63C431821CC97B06005519BE /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftyJSON.framework; path = "/Users/David/Library/Developer/Xcode/DerivedData/CSolidario-arobwizoesbrdvcnttuwvvzeragc/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<absolute>"; };
+		85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSolidario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,26 +247,41 @@
 				63C4317C1CC97567005519BE /* libz.tbd in Frameworks */,
 				63C431741CC97558005519BE /* AudioToolbox.framework in Frameworks */,
 				63C431751CC97558005519BE /* CFNetwork.framework in Frameworks */,
+				63C431831CC97B06005519BE /* SwiftyJSON.framework in Frameworks */,
 				63C431761CC97558005519BE /* CoreGraphics.framework in Frameworks */,
 				63C431771CC97558005519BE /* CoreLocation.framework in Frameworks */,
+				638E37BA1CC97D4B00E64C9D /* Pods_CSolidario.framework in Frameworks */,
 				63C431781CC97558005519BE /* Security.framework in Frameworks */,
 				63C431791CC97558005519BE /* StoreKit.framework in Frameworks */,
 				63C4317A1CC97558005519BE /* SystemConfiguration.framework in Frameworks */,
 				63C4316B1CC97522005519BE /* ParseUI.framework in Frameworks */,
 				63C4316A1CC97522005519BE /* Parse.framework in Frameworks */,
 				63C431691CC97522005519BE /* Bolts.framework in Frameworks */,
+				F0FED43CBC6D347332B8253C /* Pods_CSolidario.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		279E1E498555C03F132061D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63C430951CC9730D005519BE = {
 			isa = PBXGroup;
 			children = (
+				63C431821CC97B06005519BE /* SwiftyJSON.framework */,
+				63C431801CC976BF005519BE /* Podfile */,
 				63C4317F1CC9759D005519BE /* APPLE */,
 				63C430A01CC9730E005519BE /* CSolidario */,
 				63C4309F1CC9730D005519BE /* Products */,
+				E565097C66715B879E5DD0EF /* Pods */,
+				279E1E498555C03F132061D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -455,6 +496,15 @@
 			name = APPLE;
 			sourceTree = "<group>";
 		};
+		E565097C66715B879E5DD0EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EF1A9D973292872D2CF6A37 /* Pods-CSolidario.debug.xcconfig */,
+				CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -462,9 +512,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63C430B01CC9730E005519BE /* Build configuration list for PBXNativeTarget "CSolidario" */;
 			buildPhases = (
+				3F8D916CB79BD735D8D6E27D /* Check Pods Manifest.lock */,
 				63C4309A1CC9730D005519BE /* Sources */,
 				63C4309B1CC9730D005519BE /* Frameworks */,
 				63C4309C1CC9730D005519BE /* Resources */,
+				2D9C1F1BD7BE560E6DE9EC66 /* Embed Pods Frameworks */,
+				F49777045DB88F9DD7E3244D /* Copy Pods Resources */,
+				63C431851CC97B07005519BE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -487,6 +541,7 @@
 				TargetAttributes = {
 					63C4309D1CC9730D005519BE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = HGV75A95KZ;
 					};
 				};
 			};
@@ -532,6 +587,7 @@
 				63C431391CC97450005519BE /* AJ_5.png in Resources */,
 				63C431401CC97450005519BE /* cupones@2x.png in Resources */,
 				63C4313E1CC97450005519BE /* camera.png in Resources */,
+				63C431811CC976BF005519BE /* Podfile in Resources */,
 				63C431561CC97450005519BE /* rateApp@2x.png in Resources */,
 				63C430AC1CC9730E005519BE /* LaunchScreen.storyboard in Resources */,
 				63C431451CC97450005519BE /* icon87x87@3x.png in Resources */,
@@ -565,6 +621,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D9C1F1BD7BE560E6DE9EC66 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F8D916CB79BD735D8D6E27D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F49777045DB88F9DD7E3244D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63C4309A1CC9730D005519BE /* Sources */ = {
@@ -663,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -702,7 +806,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -711,9 +815,12 @@
 		};
 		63C430B11CC9730E005519BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EF1A9D973292872D2CF6A37 /* Pods-CSolidario.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CSolidario",
@@ -723,6 +830,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -730,9 +838,12 @@
 		};
 		63C430B21CC9730E005519BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CSolidario",
@@ -742,6 +853,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 			};
 			name = Release;
@@ -765,6 +877,7 @@
 				63C430B21CC9730E005519BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
