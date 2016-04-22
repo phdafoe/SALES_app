@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         
+         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        
         return true
     }
     

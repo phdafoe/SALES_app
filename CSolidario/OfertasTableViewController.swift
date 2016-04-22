@@ -119,10 +119,12 @@ class OfertasTableViewController: UITableViewController {
         let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
 
         detalleOfertasVC.detalleImagenOfertaData = imageData
-        detalleOfertasVC.detalleNombreOfertaData = ofertasModel.tipo
+        detalleOfertasVC.detalleNombreOfertaData = ofertasModel.titulo
         detalleOfertasVC.detalleFechaFinData = ofertasModel.fechaValidez
         detalleOfertasVC.detalleMasInformacionData = ofertasModel.descripcion
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
+        detalleOfertasVC.qrData = ofertasModel.tipo
+        detalleOfertasVC.codeBarData = ofertasModel.tipo
         
         //DETALLE ASOCIADO
         detalleOfertasVC.detalleImagenAsociado = imageData
@@ -134,6 +136,7 @@ class OfertasTableViewController: UITableViewController {
         detalleOfertasVC.detalleTelefonoFijoAsociado = ofertasModel.asociado?.telefonoFijo
         detalleOfertasVC.detalleTelefonoMovilAsociado = ofertasModel.asociado?.telefonoMovil
         detalleOfertasVC.detalleWebAsociado = ofertasModel.asociado?.web
+        
 
         navigationController?.pushViewController(detalleOfertasVC, animated: true)
         

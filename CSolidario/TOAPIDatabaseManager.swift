@@ -129,11 +129,10 @@ class TOAPIDatabaseManager: NSObject {
     
     
     
-
+    //AQUI TENGO QUE GESTIONAR EL VALOR NIL OJO
     //MARK: - GET MOVIMIENTOS
     func  getMovimientos(idCliente : String) -> [TOMovimientoModel]{
 
-        //let idCliente = PFUser.currentUser()!["databaseID"] as! String
 
         var arrayMovimientoModel = [TOMovimientoModel]()
         let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idcliente=" + idCliente + "&p=" + PUNTOS_SERVICE)
@@ -141,7 +140,7 @@ class TOAPIDatabaseManager: NSObject {
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
         numberOfRows = readableJSON["puntos"].count
-        
+
         for index in 0...numberOfRows - 1 {
             
             let dataModel = TOMovimientoModel(aFecha: getString("puntos", index: index, nombre: "fecha", nombreObjeto: readableJSON, segundoNivel: nil),
@@ -241,7 +240,6 @@ class TOAPIDatabaseManager: NSObject {
     //MARK: - GET SAVEUSER
     func getSaveUser(parseID : String) -> String{
         
-        //let parseID = PFUser.currentUser()!["parseID"] as! String
         let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?parseid=" + parseID + "&p=" + NUEVOCLIENTE_SERVICE)
         let id = NSData(contentsOfURL: url!)
         return String(id)
@@ -260,6 +258,7 @@ class TOAPIDatabaseManager: NSObject {
             }
             
         }else{
+            
             if let stringResult = nombreObjeto[array][index][nombre].string{
                 return stringResult
             }else{
