@@ -107,8 +107,7 @@ class TOAPIDatabaseManager: NSObject {
         numberOfRows = readableJSON["asociaciones"].count
         
         for index in 0...numberOfRows - 1{
-            
-            //let data = TOPromocionModel()
+
             let dataModel = TOAsociacionModel(aId: getString("asociaciones", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
                                               aNombre: getString("asociaciones", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil),
                                               aDescripcion: getString("asociaciones", index: index, nombre: "descripcion", nombreObjeto: readableJSON, segundoNivel: nil),
