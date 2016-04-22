@@ -14,15 +14,20 @@ class RegistrerViewController: UIViewController {
     
     //MARK: - VARIABLES LOCALES GLOBALES
     var photoSelected = false
-    var movimientos = [TOMovimientoModel]()
+    //var movimientos = [TOMovimientoModel]()
+    var saveNewUser = TOUsuarioModel?()
     
     var parseId : String?
     var id : String?
     var totalPuntos : Int?
     
+    var idLocalidadSeleccionada : String = "6"
+    var idAsociacionSeleccionada : String = ""
     
-    var locationData = ["Alcalá de Henares","Alcobendas","Alcorcón","Coslada", "Móstoles", "San Sebastián de los Reyes", "Torrejón de Ardoz"]
-    var AssociationData = ["Reparto entre todas","ADAP", "APARKAM", "Mis Amigos Especiales", "Ninguna"]
+
+    
+    var locationData = [TOLocalidadModel]()
+    var AssociationData = [TOAsociacionModel]()
 
     
     //MARK: - IBOUTLET
@@ -50,9 +55,10 @@ class RegistrerViewController: UIViewController {
         }else{
             
             //Fase 2 iCoSelf -> Aqui traemos desde parse del registro del usuario
+            
             let user = PFUser()
-            user["idLocalidad"] = myLocationCity.text
-            user["asociacion"] = myAssociationSend.text
+            user["idLocalidad"] = idLocalidadSeleccionada
+            user["asociacion"] = idAsociacionSeleccionada
             user["nombre"] = myNameTF.text
             user["apellidos"] = myLastNameTF.text
             user["telefonoMovil"] = myPhoneNumberTF.text
@@ -93,6 +99,7 @@ class RegistrerViewController: UIViewController {
                 } else {
                     
                     self.signUpAndPostImage()
+                    self.saveUserID()
                     self.geoPointParse()
                     
                 }
@@ -112,23 +119,24 @@ class RegistrerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-        
-        
+        locationData = TOAPIDatabaseManager.sharedInstance.getLocalidades()
         
         
         let pickerViewLocationData = UIPickerView()
         pickerViewLocationData.delegate = self
         pickerViewLocationData.tag = 1
         myLocationCity.inputView = pickerViewLocationData
-        myLocationCity.text = locationData[0]
+        myLocationCity.text = locationData[0].nombre
         
+        AssociationData = TOAPIDatabaseManager.sharedInstance.getAsociaciones(idLocalidadSeleccionada)
         
         let pickerViewAssociationData = UIPickerView()
         pickerViewAssociationData.delegate = self
         pickerViewAssociationData.tag = 2
         myAssociationSend.inputView = pickerViewAssociationData
-        myAssociationSend.text = AssociationData[0]
+        myAssociationSend.text = AssociationData[0].nombre
 
         myImageView.layer.cornerRadius = myImageView.frame.size.width / 2
         myImageView.clipsToBounds = true
@@ -172,9 +180,7 @@ class RegistrerViewController: UIViewController {
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
         
         postImage["imagenURL"] = imageFile
-        
         postImage["username"] = PFUser.currentUser()?.username
-        
         postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success{
                 self.displayAlertVC("Publicacion completada", messageData: "Tu foto ha sido publicada")
@@ -184,6 +190,8 @@ class RegistrerViewController: UIViewController {
             self.photoSelected = false
             self.myImageView.image = UIImage(named: "placeholderPerson.png")
         })
+        
+        
         
         //OJO EL TIPO DE SEGUE TIENE QUE SER MODAL Y NO PUSH GENERA UN PROBLEMA DE SOPORTE
         self.performSegueWithIdentifier("jumpToViewContoller", sender: self)
@@ -218,6 +226,15 @@ class RegistrerViewController: UIViewController {
             }
             
         }
+    }
+    
+    
+    func saveUserID(){
+        
+        let databaseID = TOAPIDatabaseManager.sharedInstance.getSaveUser((PFUser.currentUser()?.objectId)!)
+        let myUser = PFUser.currentUser()
+        myUser!["databaseID"] = databaseID
+        myUser?.saveInBackground() 
     }
 
     //MARK: - DOWNKEYBOARD
@@ -285,14 +302,19 @@ extension RegistrerViewController : UIImagePickerControllerDelegate, UINavigatio
 //MARK: - PICKERVIEW DELEGATE
 extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
+    
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
         if pickerView.tag == 1{
+            
             return locationData.count
+            
         }else{
+            
             return AssociationData.count
         }
     }
@@ -300,9 +322,12 @@ extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1{
-            return locationData[row]
+            
+            return locationData[row].nombre
+            
         }else{
-            return AssociationData[row]
+            
+            return AssociationData[row].nombre
         }
     }
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -311,9 +336,14 @@ extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 1{
-        self.myLocationCity.text = self.locationData[row]
+         
+        self.myLocationCity.text = self.locationData[row].nombre!
+        self.idLocalidadSeleccionada = self.locationData[row].id!
+            
         }else{
-        self.myAssociationSend.text = self.AssociationData[row]
+            
+        self.myAssociationSend.text = self.AssociationData[row].nombre!
+        self.idAsociacionSeleccionada = self.AssociationData[row].id!
         }
         
     }  

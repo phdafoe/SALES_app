@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         installation.saveInBackground()
         
         print("Dispositivo Registrado")
+        print(deviceToken)
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

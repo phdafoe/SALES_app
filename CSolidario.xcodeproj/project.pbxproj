@@ -94,7 +94,6 @@
 		63C4315C1CC97450005519BE /* technology.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C4312F1CC97450005519BE /* technology.png */; };
 		63C4315D1CC97450005519BE /* tusofertas-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C431301CC97450005519BE /* tusofertas-logo.png */; };
 		63C4315E1CC97450005519BE /* tusOfertas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C431311CC97450005519BE /* tusOfertas@2x.png */; };
-		63C431641CC97479005519BE /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C431631CC97479005519BE /* SWRevealViewController.m */; };
 		63C431691CC97522005519BE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431661CC97522005519BE /* Bolts.framework */; };
 		63C4316A1CC97522005519BE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431671CC97522005519BE /* Parse.framework */; };
 		63C4316B1CC97522005519BE /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431681CC97522005519BE /* ParseUI.framework */; };
@@ -103,14 +102,14 @@
 		63C431761CC97558005519BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4316F1CC97558005519BE /* CoreGraphics.framework */; };
 		63C431771CC97558005519BE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431701CC97558005519BE /* CoreLocation.framework */; };
 		63C431781CC97558005519BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431711CC97558005519BE /* Security.framework */; };
-		63C431791CC97558005519BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431721CC97558005519BE /* StoreKit.framework */; };
 		63C4317A1CC97558005519BE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431731CC97558005519BE /* SystemConfiguration.framework */; };
 		63C4317C1CC97567005519BE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4317B1CC97567005519BE /* libz.tbd */; };
 		63C4317E1CC9756F005519BE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4317D1CC9756F005519BE /* libsqlite3.tbd */; };
 		63C431811CC976BF005519BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 63C431801CC976BF005519BE /* Podfile */; };
 		63C431831CC97B06005519BE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431821CC97B06005519BE /* SwiftyJSON.framework */; };
 		63C431841CC97B06005519BE /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431821CC97B06005519BE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F0FED43CBC6D347332B8253C /* Pods_CSolidario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */; };
+		63F22F6A1CC9FE1900F49248 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F22F691CC9FE1900F49248 /* SWRevealViewController.m */; };
+		63F22F701CCA0A7400F49248 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F22F6F1CCA0A7400F49248 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -217,9 +216,6 @@
 		63C4312F1CC97450005519BE /* technology.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technology.png; sourceTree = "<group>"; };
 		63C431301CC97450005519BE /* tusofertas-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tusofertas-logo.png"; sourceTree = "<group>"; };
 		63C431311CC97450005519BE /* tusOfertas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tusOfertas@2x.png"; sourceTree = "<group>"; };
-		63C431601CC97478005519BE /* CSolidario-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSolidario-Bridging-Header.h"; sourceTree = "<group>"; };
-		63C431621CC97479005519BE /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		63C431631CC97479005519BE /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		63C431661CC97522005519BE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		63C431671CC97522005519BE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		63C431681CC97522005519BE /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -228,12 +224,15 @@
 		63C4316F1CC97558005519BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		63C431701CC97558005519BE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		63C431711CC97558005519BE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		63C431721CC97558005519BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		63C431731CC97558005519BE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		63C4317B1CC97567005519BE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		63C4317D1CC9756F005519BE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		63C431801CC976BF005519BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		63C431821CC97B06005519BE /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftyJSON.framework; path = "/Users/David/Library/Developer/Xcode/DerivedData/CSolidario-arobwizoesbrdvcnttuwvvzeragc/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<absolute>"; };
+		63F22F681CC9FE1900F49248 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		63F22F691CC9FE1900F49248 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		63F22F6C1CC9FE8600F49248 /* CSolidario-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSolidario-Bridging-Header.h"; sourceTree = "<group>"; };
+		63F22F6F1CCA0A7400F49248 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSolidario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F22F701CCA0A7400F49248 /* MapKit.framework in Frameworks */,
 				63C4317E1CC9756F005519BE /* libsqlite3.tbd in Frameworks */,
 				63C4317C1CC97567005519BE /* libz.tbd in Frameworks */,
 				63C431741CC97558005519BE /* AudioToolbox.framework in Frameworks */,
@@ -252,12 +252,10 @@
 				63C431771CC97558005519BE /* CoreLocation.framework in Frameworks */,
 				638E37BA1CC97D4B00E64C9D /* Pods_CSolidario.framework in Frameworks */,
 				63C431781CC97558005519BE /* Security.framework in Frameworks */,
-				63C431791CC97558005519BE /* StoreKit.framework in Frameworks */,
 				63C4317A1CC97558005519BE /* SystemConfiguration.framework in Frameworks */,
 				63C4316B1CC97522005519BE /* ParseUI.framework in Frameworks */,
 				63C4316A1CC97522005519BE /* Parse.framework in Frameworks */,
 				63C431691CC97522005519BE /* Bolts.framework in Frameworks */,
-				F0FED43CBC6D347332B8253C /* Pods_CSolidario.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +265,7 @@
 		279E1E498555C03F132061D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63F22F6F1CCA0A7400F49248 /* MapKit.framework */,
 				85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */,
 			);
 			name = Frameworks;
@@ -463,9 +462,9 @@
 		63C431651CC974B8005519BE /* OBJC */ = {
 			isa = PBXGroup;
 			children = (
-				63C431601CC97478005519BE /* CSolidario-Bridging-Header.h */,
-				63C431621CC97479005519BE /* SWRevealViewController.h */,
-				63C431631CC97479005519BE /* SWRevealViewController.m */,
+				63F22F6C1CC9FE8600F49248 /* CSolidario-Bridging-Header.h */,
+				63F22F681CC9FE1900F49248 /* SWRevealViewController.h */,
+				63F22F691CC9FE1900F49248 /* SWRevealViewController.m */,
 			);
 			name = OBJC;
 			sourceTree = "<group>";
@@ -490,7 +489,6 @@
 				63C4316F1CC97558005519BE /* CoreGraphics.framework */,
 				63C431701CC97558005519BE /* CoreLocation.framework */,
 				63C431711CC97558005519BE /* Security.framework */,
-				63C431721CC97558005519BE /* StoreKit.framework */,
 				63C431731CC97558005519BE /* SystemConfiguration.framework */,
 			);
 			name = APPLE;
@@ -541,7 +539,14 @@
 				TargetAttributes = {
 					63C4309D1CC9730D005519BE = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = HGV75A95KZ;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -676,7 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63C430E41CC97369005519BE /* DetalleCuponesViewController.swift in Sources */,
-				63C431641CC97479005519BE /* SWRevealViewController.m in Sources */,
+				63F22F6A1CC9FE1900F49248 /* SWRevealViewController.m in Sources */,
 				63C430EC1CC97369005519BE /* QRConcursosViewController.swift in Sources */,
 				63C430D91CC97369005519BE /* AsociacionesTableViewCell.swift in Sources */,
 				63C430FC1CC97369005519BE /* TOUsuarioModel.swift in Sources */,
@@ -748,7 +753,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -770,6 +776,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -793,7 +800,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -808,6 +816,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -827,7 +836,7 @@
 				);
 				INFOPLIST_FILE = CSolidario/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -850,7 +859,7 @@
 				);
 				INFOPLIST_FILE = CSolidario/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

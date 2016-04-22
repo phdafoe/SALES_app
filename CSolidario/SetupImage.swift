@@ -33,10 +33,14 @@ public class ImageLoader{
             }
             
             let downloadTask : NSURLSessionDataTask = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)!, completionHandler: { (dataSource, response, error) -> Void in
+                
                 if error != nil{
                     completionHandler(image: nil, url: urlString)
                     return
+                    
                 }
+                
+                
                 if dataSource != nil{
                     let imageDownload = UIImage(data: dataSource!)
                     self.cache.setObject(dataSource!, forKey: urlString)

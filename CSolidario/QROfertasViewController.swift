@@ -18,9 +18,11 @@ class QROfertasViewController: UIViewController {
     var qrcodeImage : CIImage!
     
     var arrayBanners = [TOBannersModel]()
+    var urlString : String?
+    var indexActual : Int = 0
+    
     var timer = NSTimer()
-    let GIF_HEIGHT = 200;
-    let GIF_WIDHT = 720;
+
     let BANNERS = "banners"
     let BASE_BANNER_URL = "http://app.clubsinergias.es/uploads/banners"
 
@@ -33,6 +35,12 @@ class QROfertasViewController: UIViewController {
     @IBOutlet weak var myQRDataImageViewIV: UIImageView!
     @IBOutlet weak var myQRDataButton: UIButton!
     
+    @IBAction func myButtonWebGif(sender: AnyObject) {
+        
+        //Dato para pasar
+        //arrayBanners[indexActual].targetURL
+        
+    }
     
     @IBOutlet weak var myBannerWebView: UIWebView!
     
@@ -78,31 +86,34 @@ class QROfertasViewController: UIViewController {
         
         //BANNER
         arrayBanners = TOAPIDatabaseManager.sharedInstance.getBanners(PFUser.currentUser()!["idLocalidad"] as! String)
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(QROfertasViewController.runBanner), userInfo: nil, repeats: true)
+        runBanner()
+        timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(QROfertasViewController.runBanner), userInfo: nil, repeats: true)
         
     }
     
     func runBanner(){
+        
+        urlString = getURL(arrayBanners[indexActual].id!, imagenURL: arrayBanners[indexActual].imagenURL!)
 
-        let url = NSURL(string: "https://media.giphy.com/media/10juQ7fAaQjuHS/giphy.gif")
+
+        let url = NSURL(string: urlString!)
         let request = NSURLRequest(URL: url!)
         myBannerWebView.loadRequest(request)
         
         print(url)
 
         
-        if arrayBanners.count > actualPosition + 1{
-            actualPosition += 1;
+        if arrayBanners.count > indexActual + 1{
+            indexActual += 1;
         } else {
-            actualPosition = 0;
+            indexActual = 0;
         }
         
     }
     
-    func getURL( imagenURL : String) -> String{
+    func getURL(id : String,  imagenURL : String) -> String{
         
-        return BASE_BANNER_URL + "/" + imagenURL
+        return BASE_BANNER_URL + "/"  + id + "/" + imagenURL
         
     }
     
