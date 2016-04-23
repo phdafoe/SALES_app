@@ -124,6 +124,10 @@ class ConcursosTableViewController: UITableViewController {
         detalleOfertasVC.detalleMasInformacionData = ofertasModel.descripcion
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
         
+        //ID DE SOCIO OJO
+        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        
         
         
         //DETALLE ASOCIADO

@@ -22,8 +22,8 @@ class OfertasTableViewCell: UITableViewCell {
         
         
         myImageLogoIV.layer.cornerRadius = myImageLogoIV.frame.width / 16
-        myImageLogoIV.layer.borderColor = UIColor.whiteColor().CGColor
-        myImageLogoIV.layer.borderWidth = 1.0
+        myImageLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myImageLogoIV.layer.borderWidth = 1.5
         myImageLogoIV.layer.shadowColor = UIColor.blackColor().CGColor
         myImageLogoIV.layer.shadowOffset = CGSizeMake(0, 15)
 

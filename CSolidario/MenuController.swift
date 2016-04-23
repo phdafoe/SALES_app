@@ -20,6 +20,10 @@ class MenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myImageProfileIV.layer.cornerRadius = myImageProfileIV.frame.size.width / 2
+        myImageProfileIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myImageProfileIV.layer.borderWidth = 1.5
+        myImageProfileIV.layer.shadowColor = UIColor.blackColor().CGColor
+        myImageProfileIV.layer.shadowOffset = CGSizeMake(0, 15)
         myImageProfileIV.clipsToBounds = true
         findAndGetDataFromImageProfile()
     }

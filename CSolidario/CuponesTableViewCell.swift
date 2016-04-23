@@ -22,8 +22,8 @@ class CuponesTableViewCell: UITableViewCell {
         
         
         myLogoIV.layer.cornerRadius = myLogoIV.frame.width / 16
-        myLogoIV.layer.borderColor = UIColor.whiteColor().CGColor
-        myLogoIV.layer.borderWidth = 1.0
+        myLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myLogoIV.layer.borderWidth = 1.5
         myLogoIV.layer.shadowColor = UIColor.blackColor().CGColor
         myLogoIV.layer.shadowOffset = CGSizeMake(0, 15)
 

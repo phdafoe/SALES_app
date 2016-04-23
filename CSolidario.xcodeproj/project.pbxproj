@@ -15,8 +15,6 @@
 		63C430B41CC97338005519BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C430B31CC97338005519BE /* Main.storyboard */; };
 		63C430D91CC97369005519BE /* AsociacionesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430B51CC97369005519BE /* AsociacionesTableViewCell.swift */; };
 		63C430DA1CC97369005519BE /* AsociacionesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430B61CC97369005519BE /* AsociacionesTableViewController.swift */; };
-		63C430DB1CC97369005519BE /* CBConcursosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430B71CC97369005519BE /* CBConcursosViewController.swift */; };
-		63C430DC1CC97369005519BE /* CBCuponesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430B81CC97369005519BE /* CBCuponesViewController.swift */; };
 		63C430DE1CC97369005519BE /* ConcursosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430BA1CC97369005519BE /* ConcursosTableViewCell.swift */; };
 		63C430DF1CC97369005519BE /* ConcursosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430BB1CC97369005519BE /* ConcursosTableViewController.swift */; };
 		63C430E01CC97369005519BE /* CuponesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430BC1CC97369005519BE /* CuponesTableViewCell.swift */; };
@@ -31,8 +29,6 @@
 		63C430E91CC97369005519BE /* MovimientosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430C51CC97369005519BE /* MovimientosTableViewController.swift */; };
 		63C430EA1CC97369005519BE /* OfertasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430C61CC97369005519BE /* OfertasTableViewCell.swift */; };
 		63C430EB1CC97369005519BE /* OfertasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430C71CC97369005519BE /* OfertasTableViewController.swift */; };
-		63C430EC1CC97369005519BE /* QRConcursosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430C81CC97369005519BE /* QRConcursosViewController.swift */; };
-		63C430ED1CC97369005519BE /* QRCuponesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430C91CC97369005519BE /* QRCuponesViewController.swift */; };
 		63C430EF1CC97369005519BE /* RegistrerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430CB1CC97369005519BE /* RegistrerViewController.swift */; };
 		63C430F01CC97369005519BE /* SetupImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430CC1CC97369005519BE /* SetupImage.swift */; };
 		63C430F11CC97369005519BE /* TerminosYCondicionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430CD1CC97369005519BE /* TerminosYCondicionesViewController.swift */; };
@@ -114,6 +110,9 @@
 		63F22F781CCAAFE500F49248 /* backgroundMan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F22F741CCAAFE500F49248 /* backgroundMan@2x.png */; };
 		63F22F981CCACE3500F49248 /* cerrasX@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F22F971CCACE3500F49248 /* cerrasX@2x.png */; };
 		63F22F9A1CCACEAA00F49248 /* WebDetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F22F991CCACEAA00F49248 /* WebDetalleViewController.swift */; };
+		63F8E47C1CCBCB4A009BBDBE /* iconoFondoImagenes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F8E47B1CCBCB4A009BBDBE /* iconoFondoImagenes.png */; };
+		63F8E47E1CCBD540009BBDBE /* MiperfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8E47D1CCBD540009BBDBE /* MiperfilViewController.swift */; };
+		63F8E4801CCBDCC6009BBDBE /* AsociadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8E47F1CCBDCC6009BBDBE /* AsociadoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,8 +140,6 @@
 		63C430B31CC97338005519BE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		63C430B51CC97369005519BE /* AsociacionesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsociacionesTableViewCell.swift; sourceTree = "<group>"; };
 		63C430B61CC97369005519BE /* AsociacionesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsociacionesTableViewController.swift; sourceTree = "<group>"; };
-		63C430B71CC97369005519BE /* CBConcursosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBConcursosViewController.swift; sourceTree = "<group>"; };
-		63C430B81CC97369005519BE /* CBCuponesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCuponesViewController.swift; sourceTree = "<group>"; };
 		63C430BA1CC97369005519BE /* ConcursosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcursosTableViewCell.swift; sourceTree = "<group>"; };
 		63C430BB1CC97369005519BE /* ConcursosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcursosTableViewController.swift; sourceTree = "<group>"; };
 		63C430BC1CC97369005519BE /* CuponesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuponesTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,8 +154,6 @@
 		63C430C51CC97369005519BE /* MovimientosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimientosTableViewController.swift; sourceTree = "<group>"; };
 		63C430C61CC97369005519BE /* OfertasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfertasTableViewCell.swift; sourceTree = "<group>"; };
 		63C430C71CC97369005519BE /* OfertasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfertasTableViewController.swift; sourceTree = "<group>"; };
-		63C430C81CC97369005519BE /* QRConcursosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRConcursosViewController.swift; sourceTree = "<group>"; };
-		63C430C91CC97369005519BE /* QRCuponesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCuponesViewController.swift; sourceTree = "<group>"; };
 		63C430CB1CC97369005519BE /* RegistrerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrerViewController.swift; sourceTree = "<group>"; };
 		63C430CC1CC97369005519BE /* SetupImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupImage.swift; sourceTree = "<group>"; };
 		63C430CD1CC97369005519BE /* TerminosYCondicionesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminosYCondicionesViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +236,9 @@
 		63F22F741CCAAFE500F49248 /* backgroundMan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundMan@2x.png"; sourceTree = "<group>"; };
 		63F22F971CCACE3500F49248 /* cerrasX@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cerrasX@2x.png"; sourceTree = "<group>"; };
 		63F22F991CCACEAA00F49248 /* WebDetalleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebDetalleViewController.swift; sourceTree = "<group>"; };
+		63F8E47B1CCBCB4A009BBDBE /* iconoFondoImagenes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFondoImagenes.png; sourceTree = "<group>"; };
+		63F8E47D1CCBD540009BBDBE /* MiperfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiperfilViewController.swift; sourceTree = "<group>"; };
+		63F8E47F1CCBDCC6009BBDBE /* AsociadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsociadoViewController.swift; sourceTree = "<group>"; };
 		85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSolidario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,7 +303,7 @@
 			children = (
 				63C4316C1CC97529005519BE /* PARSE */,
 				63C430A11CC9730E005519BE /* AppDelegate.swift */,
-				63F22F991CCACEAA00F49248 /* WebDetalleViewController.swift */,
+				63F22F9B1CCAD67000F49248 /* VCWEB */,
 				63C431651CC974B8005519BE /* OBJC */,
 				63C4315F1CC9745B005519BE /* IMAGENES */,
 				63C431031CC97404005519BE /* VCASOCIACIONES */,
@@ -328,10 +326,8 @@
 			isa = PBXGroup;
 			children = (
 				63C430BF1CC97369005519BE /* DetalleConcursosViewController.swift */,
-				63C430B71CC97369005519BE /* CBConcursosViewController.swift */,
 				63C430BA1CC97369005519BE /* ConcursosTableViewCell.swift */,
 				63C430BB1CC97369005519BE /* ConcursosTableViewController.swift */,
-				63C430C81CC97369005519BE /* QRConcursosViewController.swift */,
 			);
 			name = VCCONTURSOS;
 			sourceTree = "<group>";
@@ -367,6 +363,7 @@
 			children = (
 				63C430C21CC97369005519BE /* IntroRegisterViewController.swift */,
 				63C430CB1CC97369005519BE /* RegistrerViewController.swift */,
+				63F8E47D1CCBD540009BBDBE /* MiperfilViewController.swift */,
 				63C430CD1CC97369005519BE /* TerminosYCondicionesViewController.swift */,
 				63C430C31CC97369005519BE /* MenuController.swift */,
 			);
@@ -386,11 +383,9 @@
 		63C431021CC973EA005519BE /* VCCUPONES */ = {
 			isa = PBXGroup;
 			children = (
-				63C430B81CC97369005519BE /* CBCuponesViewController.swift */,
 				63C430BC1CC97369005519BE /* CuponesTableViewCell.swift */,
 				63C430BD1CC97369005519BE /* CuponesTableViewController.swift */,
 				63C430C01CC97369005519BE /* DetalleCuponesViewController.swift */,
-				63C430C91CC97369005519BE /* QRCuponesViewController.swift */,
 			);
 			name = VCCUPONES;
 			sourceTree = "<group>";
@@ -417,6 +412,7 @@
 		63C4315F1CC9745B005519BE /* IMAGENES */ = {
 			isa = PBXGroup;
 			children = (
+				63F8E47B1CCBCB4A009BBDBE /* iconoFondoImagenes.png */,
 				63F22F971CCACE3500F49248 /* cerrasX@2x.png */,
 				63F22F711CCAAFE500F49248 /* qr2@2x.png */,
 				63F22F721CCAAFE500F49248 /* qr1@2x.png */,
@@ -504,6 +500,15 @@
 				63C431731CC97558005519BE /* SystemConfiguration.framework */,
 			);
 			name = APPLE;
+			sourceTree = "<group>";
+		};
+		63F22F9B1CCAD67000F49248 /* VCWEB */ = {
+			isa = PBXGroup;
+			children = (
+				63F22F991CCACEAA00F49248 /* WebDetalleViewController.swift */,
+				63F8E47F1CCBDCC6009BBDBE /* AsociadoViewController.swift */,
+			);
+			name = VCWEB;
 			sourceTree = "<group>";
 		};
 		E565097C66715B879E5DD0EF /* Pods */ = {
@@ -631,6 +636,7 @@
 				63C431481CC97450005519BE /* icon180x180@3x.png in Resources */,
 				63C4314D1CC97450005519BE /* like.png in Resources */,
 				63C4313C1CC97450005519BE /* background@2x.png in Resources */,
+				63F8E47C1CCBCB4A009BBDBE /* iconoFondoImagenes.png in Resources */,
 				63F22F761CCAAFE500F49248 /* qr1@2x.png in Resources */,
 				63C430A91CC9730E005519BE /* Assets.xcassets in Resources */,
 				63C4314C1CC97450005519BE /* letter.png in Resources */,
@@ -700,17 +706,15 @@
 			files = (
 				63C430E41CC97369005519BE /* DetalleCuponesViewController.swift in Sources */,
 				63F22F6A1CC9FE1900F49248 /* SWRevealViewController.m in Sources */,
-				63C430EC1CC97369005519BE /* QRConcursosViewController.swift in Sources */,
+				63F8E4801CCBDCC6009BBDBE /* AsociadoViewController.swift in Sources */,
 				63C430D91CC97369005519BE /* AsociacionesTableViewCell.swift in Sources */,
 				63C430FC1CC97369005519BE /* TOUsuarioModel.swift in Sources */,
 				63C430E21CC97369005519BE /* DetalleAsociacionesViewController.swift in Sources */,
 				63C430F61CC97369005519BE /* TOBannersModel.swift in Sources */,
-				63C430DB1CC97369005519BE /* CBConcursosViewController.swift in Sources */,
 				63C430A21CC9730E005519BE /* AppDelegate.swift in Sources */,
 				63F22F9A1CCACEAA00F49248 /* WebDetalleViewController.swift in Sources */,
 				63C430EA1CC97369005519BE /* OfertasTableViewCell.swift in Sources */,
 				63C430F71CC97369005519BE /* TOConstantesModel.swift in Sources */,
-				63C430DC1CC97369005519BE /* CBCuponesViewController.swift in Sources */,
 				63C430F41CC97369005519BE /* TOAsociacionModel.swift in Sources */,
 				63C430E11CC97369005519BE /* CuponesTableViewController.swift in Sources */,
 				63C430F91CC97369005519BE /* TOMovimientoModel.swift in Sources */,
@@ -725,9 +729,9 @@
 				63C430FB1CC97369005519BE /* TOPromocionModel.swift in Sources */,
 				63C430EB1CC97369005519BE /* OfertasTableViewController.swift in Sources */,
 				63C430E81CC97369005519BE /* MovimientosTableViewCell.swift in Sources */,
+				63F8E47E1CCBD540009BBDBE /* MiperfilViewController.swift in Sources */,
 				63C430FA1CC97369005519BE /* TOOfertaModel.swift in Sources */,
 				63C430F01CC97369005519BE /* SetupImage.swift in Sources */,
-				63C430ED1CC97369005519BE /* QRCuponesViewController.swift in Sources */,
 				63C430E61CC97369005519BE /* IntroRegisterViewController.swift in Sources */,
 				63C430E51CC97369005519BE /* DetalleOfertasViewController.swift in Sources */,
 				63C430E31CC97369005519BE /* DetalleConcursosViewController.swift in Sources */,

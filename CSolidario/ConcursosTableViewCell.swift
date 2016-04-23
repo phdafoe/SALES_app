@@ -22,8 +22,8 @@ class ConcursosTableViewCell: UITableViewCell {
         
         
         myLogoImageIV.layer.cornerRadius = myLogoImageIV.frame.width / 16
-        myLogoImageIV.layer.borderColor = UIColor.whiteColor().CGColor
-        myLogoImageIV.layer.borderWidth = 1.0
+        myLogoImageIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myLogoImageIV.layer.borderWidth = 1.5
         myLogoImageIV.layer.shadowColor = UIColor.blackColor().CGColor
         myLogoImageIV.layer.shadowOffset = CGSizeMake(0, 15)
         // Initialization code

@@ -17,6 +17,7 @@ import Parse
 //Localidades
 //Actividades
 //Banners
+//SaveUser
 
 class TOAPIDatabaseManager: NSObject {
 
@@ -141,6 +142,8 @@ class TOAPIDatabaseManager: NSObject {
         
         numberOfRows = readableJSON["puntos"].count
 
+        if (numberOfRows != 0){
+        
         for index in 0...numberOfRows - 1 {
             
             let dataModel = TOMovimientoModel(aFecha: getString("puntos", index: index, nombre: "fecha", nombreObjeto: readableJSON, segundoNivel: nil),
@@ -150,6 +153,7 @@ class TOAPIDatabaseManager: NSObject {
             
             
             arrayMovimientoModel.append(dataModel)
+        }
         }
         
         return arrayMovimientoModel

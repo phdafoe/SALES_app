@@ -121,7 +121,7 @@ class AsociacionesTableViewController: UITableViewController {
         detalleAsociacionesVC.detalleDescripcionData = asociacionModel.descripcion
         detalleAsociacionesVC.detalleTelefonoFijoData = asociacionModel.telefonoFijo
         detalleAsociacionesVC.detalleTelefonoMovilData = asociacionModel.telefonoMovil
-        detalleAsociacionesVC.detallePersonaContactoData = asociacionModel.nombre
+        detalleAsociacionesVC.detallePersonaContactoData = asociacionModel.personaContacto
         detalleAsociacionesVC.detalleWebData = asociacionModel.web
         detalleAsociacionesVC.detalleDireccionData = asociacionModel.direccion
         

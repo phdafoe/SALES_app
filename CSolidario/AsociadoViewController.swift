@@ -1,20 +1,18 @@
 //
-//  DetalleAsociacionesViewController.swift
-//  TusOfertas
+//  AsociadoViewController.swift
+//  CSolidario
 //
-//  Created by User on 16/4/16.
+//  Created by User on 23/4/16.
 //  Copyright © 2016 iCologic. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-
-class DetalleAsociacionesViewController: UIViewController {
-
+class AsociadoViewController: UIViewController {
     
     //MARK: - VARIABLES LOCALES
-    var detalleImageAsociacionAData : UIImage?
+    var detalleImageAsociadoData : UIImage?
     var detalleDescripcionData : String?
     var detalleTelefonoFijoData : String?
     var detalleTelefonoMovilData : String?
@@ -32,7 +30,6 @@ class DetalleAsociacionesViewController: UIViewController {
     let BASE_BANNER_URL = "http://app.clubsinergias.es/uploads/banners"
     
     
-
     //MARK: - IBOUTLET
     @IBOutlet weak var myImageAsociacionIV: UIImageView!
     @IBOutlet weak var myDescripcionLBL: UILabel!
@@ -44,6 +41,15 @@ class DetalleAsociacionesViewController: UIViewController {
     @IBOutlet weak var myLogoIV: UIImageView!
     @IBOutlet weak var myWebGifPublicidad: UIWebView!
     
+    
+    
+    
+    //MARK: - IBACTION
+    @IBAction func cerrarACTION(sender: AnyObject) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     
     //MARK: - IBACTION
     
@@ -57,12 +63,9 @@ class DetalleAsociacionesViewController: UIViewController {
         
         
     }
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         myLogoIV.layer.cornerRadius = myLogoIV.frame.width / 16
         myLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
@@ -70,9 +73,8 @@ class DetalleAsociacionesViewController: UIViewController {
         myLogoIV.layer.shadowColor = UIColor.blackColor().CGColor
         myLogoIV.layer.shadowOffset = CGSizeMake(0, 15)
         
-
-
-        myImageAsociacionIV.image = detalleImageAsociacionAData!
+        
+        myImageAsociacionIV.image = detalleImageAsociadoData!
         myDescripcionLBL.text = detalleDescripcionData
         myTelefonoFijoLBL.text = detalleTelefonoFijoData
         myTelefonoMovilLBL.text = detalleTelefonoMovilData
@@ -82,12 +84,12 @@ class DetalleAsociacionesViewController: UIViewController {
         
         self.title = detallePersonaContactoData
         
-        
         //BANNER
         arrayBanners = TOAPIDatabaseManager.sharedInstance.getBanners(PFUser.currentUser()!["idLocalidad"] as! String)
         runBanner()
         timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(DetalleOfertasViewController.runBanner), userInfo: nil, repeats: true)
-        
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,7 +97,7 @@ class DetalleAsociacionesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+
     //MARK: - RUN BANNERS
     func runBanner(){
         urlString = getURL(arrayBanners[indexActual].id!, imagenURL: arrayBanners[indexActual].imagenURL!)
@@ -117,6 +119,3 @@ class DetalleAsociacionesViewController: UIViewController {
 
 
 }
-
-
-

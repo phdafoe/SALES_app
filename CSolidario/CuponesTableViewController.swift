@@ -123,6 +123,11 @@ class CuponesTableViewController: UITableViewController {
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
         
         
+        //ID DE SOCIO OJO
+        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        
+        
         //DETALLE ASOCIADO
         detalleOfertasVC.detalleImagenAsociado = imageData
         detalleOfertasVC.detallenombreAsociado = ofertasModel.asociado?.nombre

@@ -16,6 +16,7 @@ class OfertasTableViewController: UITableViewController {
     let OFERTAS = "oferta"
     let BASE_PHOTO_URL = "http://app.clubsinergias.es/uploads/promociones/"
     var arrayOferta = [TOPromocionModel]()
+    
     var refresh : UIRefreshControl?
     
     
@@ -41,7 +42,6 @@ class OfertasTableViewController: UITableViewController {
             //revealViewController().rightViewRevealWidth = 150
             //extraButton.target = revealViewController()
             //extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-
             //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
@@ -50,6 +50,7 @@ class OfertasTableViewController: UITableViewController {
     func getSingletonApiDataBaseManager(){
         
         arrayOferta = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: OFERTAS)
+        
     }
     
     
@@ -123,8 +124,13 @@ class OfertasTableViewController: UITableViewController {
         detalleOfertasVC.detalleFechaFinData = ofertasModel.fechaValidez
         detalleOfertasVC.detalleMasInformacionData = ofertasModel.descripcion
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
-        detalleOfertasVC.qrData = ofertasModel.tipo
-        detalleOfertasVC.codeBarData = ofertasModel.tipo
+        
+        
+        //ID DE SOCIO OJO
+        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        
+        
         
         //DETALLE ASOCIADO
         detalleOfertasVC.detalleImagenAsociado = imageData

@@ -54,8 +54,17 @@ class DetalleOfertasViewController: UIViewController {
     @IBOutlet weak var myFechaFinOfertaLBL: UILabel!
     @IBOutlet weak var myWebViewToBanners: UIWebView!
     
+    //MARK: - IDSOCIO
+    @IBOutlet weak var idSocio: UILabel!
+    
+    //Coloco un outlet de tipo label que trae el current user -> qrData ->codigo de barras
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        idSocio.textColor = UIColor.whiteColor()
+        idSocio.text = qrData
+        
         
         myImageOfertaIV.image = detalleImagenOfertaData!
         myNombreOfertaLBL.text = detalleNombreOfertaData
@@ -71,18 +80,18 @@ class DetalleOfertasViewController: UIViewController {
     //MARK: - IBACTION
     @IBAction func showDataAsociaciones(sender: AnyObject) {
         
-        let asociacionesModel = self.storyboard?.instantiateViewControllerWithIdentifier("detalleAsociaciones") as! DetalleAsociacionesViewController
+        let asociacionesModel = self.storyboard?.instantiateViewControllerWithIdentifier("detalleAsociado") as! AsociadoViewController
         
         //PASO DE DATOS A VISTA ASOCIADO
-        asociacionesModel.detalleImageAsociacionAData = detalleImagenAsociado
+        asociacionesModel.detalleImageAsociadoData = detalleImagenAsociado
         asociacionesModel.detalleDescripcionData = detalleDescripcionAsociado
         asociacionesModel.detalleTelefonoFijoData = detalleTelefonoFijoAsociado
         asociacionesModel.detalleTelefonoMovilData = detalleTelefonoMovilAsociado
         asociacionesModel.detalleWebData = detalleWebAsociado
         asociacionesModel.detalleDireccionData = detalleDireccionAsociado
         asociacionesModel.detallePersonaContactoData = detallenombreAsociado
-        
-        self.navigationController!.pushViewController(asociacionesModel, animated: true)
+
+        presentViewController(asociacionesModel, animated: true, completion: nil)
     }
     
     
@@ -94,9 +103,9 @@ class DetalleOfertasViewController: UIViewController {
         background.tag = imageGroupTag
         self.view.addSubview(background)
         
-        if myNombreOfertaLBL.text != qrData{
+        if idSocio.text == qrData{
             
-            let imageView = UIImageView(frame: CGRect(x: 80, y: 150, width: self.view.frame.width / 2, height: self.view.frame.height / 3))
+            let imageView = UIImageView(frame: CGRect(x: 50, y: 150, width: self.view.frame.width / 1.5, height: self.view.frame.height / 3))
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
             imageView.tag = imageGroupTag
             imageView.image = fromString(codeBarData!)
@@ -127,12 +136,12 @@ class DetalleOfertasViewController: UIViewController {
         background.tag = imageGroupTag
         self.view.addSubview(background)
         
-        if myNombreOfertaLBL.text != qrData{
+        if idSocio.text == qrData{
             
-            let imageView = UIImageView(frame: CGRect(x: 80, y: 150, width: self.view.frame.width / 2, height: self.view.frame.height / 3))
+            let imageView = UIImageView(frame: CGRect(x: 80, y: 150, width: self.view.frame.width / 1.8, height: self.view.frame.height / 3))
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
             imageView.tag = imageGroupTag
-            let dataQR = myNombreOfertaLBL.text?.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            let dataQR = idSocio.text?.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
             let filter = CIFilter(name: "CIQRCodeGenerator")
             filter?.setValue(dataQR!, forKey: "inputMessage")
             filter?.setValue("Q", forKey: "inputCorrectionLevel")
@@ -147,6 +156,9 @@ class DetalleOfertasViewController: UIViewController {
         let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
         longGestureRecognizer.minimumPressDuration = 1
         background.addGestureRecognizer(longGestureRecognizer)
+        
+        
+        
         
         
     }
@@ -164,7 +176,8 @@ class DetalleOfertasViewController: UIViewController {
         //labelData.backgroundColor = UIColor.whiteColor()
         labelData.textColor = UIColor.whiteColor()
         labelData.tag = imageGroupTag
-        labelData.text = myNombreOfertaLBL.text
+        labelData.numberOfLines = 0
+        labelData.text = idSocio.text!
         self.view.addSubview(labelData)
 
 
