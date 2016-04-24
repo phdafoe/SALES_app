@@ -127,8 +127,8 @@ class OfertasTableViewController: UITableViewController {
         
         
         //ID DE SOCIO OJO
-        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as! String
-        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as! String
+        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
         
         
         

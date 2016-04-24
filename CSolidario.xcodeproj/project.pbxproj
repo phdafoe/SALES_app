@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		638E37BA1CC97D4B00E64C9D /* Pods_CSolidario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */; };
-		638E37BB1CC97D4B00E64C9D /* Pods_CSolidario.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63C430A21CC9730E005519BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430A11CC9730E005519BE /* AppDelegate.swift */; };
 		63C430A91CC9730E005519BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C430A81CC9730E005519BE /* Assets.xcassets */; };
 		63C430AC1CC9730E005519BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C430AA1CC9730E005519BE /* LaunchScreen.storyboard */; };
@@ -100,8 +98,6 @@
 		63C4317C1CC97567005519BE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4317B1CC97567005519BE /* libz.tbd */; };
 		63C4317E1CC9756F005519BE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C4317D1CC9756F005519BE /* libsqlite3.tbd */; };
 		63C431811CC976BF005519BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 63C431801CC976BF005519BE /* Podfile */; };
-		63C431831CC97B06005519BE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431821CC97B06005519BE /* SwiftyJSON.framework */; };
-		63C431841CC97B06005519BE /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63C431821CC97B06005519BE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63F22F6A1CC9FE1900F49248 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F22F691CC9FE1900F49248 /* SWRevealViewController.m */; };
 		63F22F701CCA0A7400F49248 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F22F6F1CCA0A7400F49248 /* MapKit.framework */; };
 		63F22F751CCAAFE500F49248 /* qr2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F22F711CCAAFE500F49248 /* qr2@2x.png */; };
@@ -122,8 +118,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				63C431841CC97B06005519BE /* SwiftyJSON.framework in Embed Frameworks */,
-				638E37BB1CC97D4B00E64C9D /* Pods_CSolidario.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +125,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0EF1A9D973292872D2CF6A37 /* Pods-CSolidario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.debug.xcconfig"; sourceTree = "<group>"; };
 		63C4309E1CC9730D005519BE /* CSolidario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSolidario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C430A11CC9730E005519BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63C430A81CC9730E005519BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,7 +218,6 @@
 		63C4317B1CC97567005519BE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		63C4317D1CC9756F005519BE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		63C431801CC976BF005519BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		63C431821CC97B06005519BE /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftyJSON.framework; path = "/Users/David/Library/Developer/Xcode/DerivedData/CSolidario-arobwizoesbrdvcnttuwvvzeragc/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<absolute>"; };
 		63F22F681CC9FE1900F49248 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		63F22F691CC9FE1900F49248 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		63F22F6C1CC9FE8600F49248 /* CSolidario-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSolidario-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -239,8 +231,6 @@
 		63F8E47B1CCBCB4A009BBDBE /* iconoFondoImagenes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFondoImagenes.png; sourceTree = "<group>"; };
 		63F8E47D1CCBD540009BBDBE /* MiperfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiperfilViewController.swift; sourceTree = "<group>"; };
 		63F8E47F1CCBDCC6009BBDBE /* AsociadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsociadoViewController.swift; sourceTree = "<group>"; };
-		85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSolidario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,10 +243,8 @@
 				63C4317C1CC97567005519BE /* libz.tbd in Frameworks */,
 				63C431741CC97558005519BE /* AudioToolbox.framework in Frameworks */,
 				63C431751CC97558005519BE /* CFNetwork.framework in Frameworks */,
-				63C431831CC97B06005519BE /* SwiftyJSON.framework in Frameworks */,
 				63C431761CC97558005519BE /* CoreGraphics.framework in Frameworks */,
 				63C431771CC97558005519BE /* CoreLocation.framework in Frameworks */,
-				638E37BA1CC97D4B00E64C9D /* Pods_CSolidario.framework in Frameworks */,
 				63C431781CC97558005519BE /* Security.framework in Frameworks */,
 				63C4317A1CC97558005519BE /* SystemConfiguration.framework in Frameworks */,
 				63C4316B1CC97522005519BE /* ParseUI.framework in Frameworks */,
@@ -272,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				63F22F6F1CCA0A7400F49248 /* MapKit.framework */,
-				85F14120EFACD333A85ED4B4 /* Pods_CSolidario.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -280,12 +267,10 @@
 		63C430951CC9730D005519BE = {
 			isa = PBXGroup;
 			children = (
-				63C431821CC97B06005519BE /* SwiftyJSON.framework */,
 				63C431801CC976BF005519BE /* Podfile */,
 				63C4317F1CC9759D005519BE /* APPLE */,
 				63C430A01CC9730E005519BE /* CSolidario */,
 				63C4309F1CC9730D005519BE /* Products */,
-				E565097C66715B879E5DD0EF /* Pods */,
 				279E1E498555C03F132061D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -511,15 +496,6 @@
 			name = VCWEB;
 			sourceTree = "<group>";
 		};
-		E565097C66715B879E5DD0EF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0EF1A9D973292872D2CF6A37 /* Pods-CSolidario.debug.xcconfig */,
-				CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -556,12 +532,13 @@
 				TargetAttributes = {
 					63C4309D1CC9730D005519BE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = HGV75A95KZ;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -773,8 +750,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -796,7 +773,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "49aa6296-a820-46d7-ba87-1f64f8b127b2";
+				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -820,8 +797,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -836,7 +813,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "49aa6296-a820-46d7-ba87-1f64f8b127b2";
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -844,22 +822,24 @@
 		};
 		63C430B11CC9730E005519BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EF1A9D973292872D2CF6A37 /* Pods-CSolidario.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CSolidario",
 				);
 				INFOPLIST_FILE = CSolidario/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -867,25 +847,92 @@
 		};
 		63C430B21CC9730E005519BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC492B4DA5E1F2F66157BA06 /* Pods-CSolidario.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CSolidario",
 				);
 				INFOPLIST_FILE = CSolidario/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 			};
 			name = Release;
+		};
+		63F8E4831CCCEBDB009BBDBE /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		63F8E4841CCCEBDB009BBDBE /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CSolidario",
+				);
+				INFOPLIST_FILE = CSolidario/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
+			};
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -895,6 +942,7 @@
 			buildConfigurations = (
 				63C430AE1CC9730E005519BE /* Debug */,
 				63C430AF1CC9730E005519BE /* Release */,
+				63F8E4831CCCEBDB009BBDBE /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -904,6 +952,7 @@
 			buildConfigurations = (
 				63C430B11CC9730E005519BE /* Debug */,
 				63C430B21CC9730E005519BE /* Release */,
+				63F8E4841CCCEBDB009BBDBE /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
