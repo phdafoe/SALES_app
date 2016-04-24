@@ -35,7 +35,6 @@ class DetalleAsociacionesViewController: UIViewController {
 
     //MARK: - IBOUTLET
     @IBOutlet weak var myImageAsociacionIV: UIImageView!
-    @IBOutlet weak var myDescripcionLBL: UILabel!
     @IBOutlet weak var myTelefonoFijoLBL: UILabel!
     @IBOutlet weak var myTelefonoMovilLBL: UILabel!
     @IBOutlet weak var myPersonaContactoLBL: UILabel!
@@ -43,6 +42,7 @@ class DetalleAsociacionesViewController: UIViewController {
     @IBOutlet weak var myDireccionLBL: UILabel!
     @IBOutlet weak var myLogoIV: UIImageView!
     @IBOutlet weak var myWebGifPublicidad: UIWebView!
+    @IBOutlet weak var myDescripcionTV: UITextView!
     
     
     //MARK: - IBACTION
@@ -73,7 +73,7 @@ class DetalleAsociacionesViewController: UIViewController {
 
 
         myImageAsociacionIV.image = detalleImageAsociacionAData!
-        myDescripcionLBL.text = detalleDescripcionData
+        myDescripcionTV.text = detalleDescripcionData
         myTelefonoFijoLBL.text = detalleTelefonoFijoData
         myTelefonoMovilLBL.text = detalleTelefonoMovilData
         myPersonaContactoLBL.text = detallePersonaContactoData

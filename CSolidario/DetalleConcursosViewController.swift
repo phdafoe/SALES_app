@@ -20,7 +20,7 @@ class DetalleConcursosViewController: UIViewController {
     var timer = NSTimer()
     let BANNERS = "banners"
     let BASE_BANNER_URL = "http://app.clubsinergias.es/uploads/banners"
-    var qrData : String?
+    var qrData : String!
     var codeBarData : String?
     var qrcodeImage : CIImage!
     var imageGroupTag = 3
@@ -60,7 +60,7 @@ class DetalleConcursosViewController: UIViewController {
         super.viewDidLoad()
         
         idSocio.textColor = UIColor.whiteColor()
-        idSocio.text = qrData
+        idSocio.text = qrData!
         
         myImageOfertaIV.image = detalleImagenOfertaData!
         myNombreOfertaLBL.text = detalleNombreOfertaData
@@ -180,7 +180,7 @@ class DetalleConcursosViewController: UIViewController {
         labelData.textColor = UIColor.whiteColor()
         labelData.tag = imageGroupTag
         labelData.numberOfLines = 0
-        labelData.text = idSocio.text!
+        labelData.text = "\(idSocio.text!)"
         self.view.addSubview(labelData)
         
         

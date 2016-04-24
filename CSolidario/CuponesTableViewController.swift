@@ -92,7 +92,7 @@ class CuponesTableViewController: UITableViewController {
         cell.myImporte.text = ofertasModel.tipo
         
         ImageLoader.sharedLoader.imageForUrl(getImagePath(CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
-            cell.myImagenCupon.image = image!
+            cell.myImagenCupon.image = image
         }
         
         return cell
@@ -124,8 +124,8 @@ class CuponesTableViewController: UITableViewController {
         
         
         //ID DE SOCIO OJO
-        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
-        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as! String
+        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as! String
         
         
         //DETALLE ASOCIADO

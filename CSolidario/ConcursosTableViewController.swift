@@ -95,7 +95,7 @@ class ConcursosTableViewController: UITableViewController {
         cell.myImporte.text = ofertasModel.tipo
         
         ImageLoader.sharedLoader.imageForUrl(getImagePath(CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
-            cell.myImagenConcurso.image = image!
+            cell.myImagenConcurso.image = image
         }
         
         return cell
@@ -125,8 +125,8 @@ class ConcursosTableViewController: UITableViewController {
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
         
         //ID DE SOCIO OJO
-        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
-        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as! String
+        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as! String
         
         
         

@@ -92,7 +92,7 @@ class AsociacionesTableViewController: UITableViewController {
         cell.myWebLBL.text = asociacionModel.web
   
         ImageLoader.sharedLoader.imageForUrl(getImagePath(ASOCIACIONES, id: asociacionModel.id!, name: asociacionModel.imagenURL!)) { (image, url) in
-            cell.myImageAsociacionesIV.image = image!
+            cell.myImageAsociacionesIV.image = image
         }
         
         

@@ -181,6 +181,7 @@ class RegistrerViewController: UIViewController {
         
         postImage["imagenURL"] = imageFile
         postImage["username"] = PFUser.currentUser()?.username
+        
         postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success{
                 self.displayAlertVC("Publicacion completada", messageData: "Tu foto ha sido publicada")

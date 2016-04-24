@@ -32,7 +32,6 @@ class AsociadoViewController: UIViewController {
     
     //MARK: - IBOUTLET
     @IBOutlet weak var myImageAsociacionIV: UIImageView!
-    @IBOutlet weak var myDescripcionLBL: UILabel!
     @IBOutlet weak var myTelefonoFijoLBL: UILabel!
     @IBOutlet weak var myTelefonoMovilLBL: UILabel!
     @IBOutlet weak var myPersonaContactoLBL: UILabel!
@@ -40,6 +39,10 @@ class AsociadoViewController: UIViewController {
     @IBOutlet weak var myDireccionLBL: UILabel!
     @IBOutlet weak var myLogoIV: UIImageView!
     @IBOutlet weak var myWebGifPublicidad: UIWebView!
+    @IBOutlet weak var myDescripcionTV : UITextView!
+    
+    
+    
     
     
     
@@ -75,7 +78,7 @@ class AsociadoViewController: UIViewController {
         
         
         myImageAsociacionIV.image = detalleImageAsociadoData!
-        myDescripcionLBL.text = detalleDescripcionData
+        myDescripcionTV.text = detalleDescripcionData
         myTelefonoFijoLBL.text = detalleTelefonoFijoData
         myTelefonoMovilLBL.text = detalleTelefonoMovilData
         myPersonaContactoLBL.text = detallePersonaContactoData
