@@ -13,10 +13,8 @@ class AsociacionesTableViewController: UITableViewController {
     
  
     //MARK: - VARIABLES LOCALES GLOBALES
-    let CONCURSOS = 2
-    let ASOCIACIONES = "asociaciones"
-    let BASE_PHOTO_URL = "http://app.clubsinergias.es/uploads/"
     var refresh : UIRefreshControl?
+    let CONSTANTES = Constants()
 
     
     var arrayAsociaciones = [TOAsociacionModel]()
@@ -49,6 +47,7 @@ class AsociacionesTableViewController: UITableViewController {
     func refreshControll(){
         
         getSingletonApiDataBaseManager()
+        tableView.reloadData()
         self.refresh?.endRefreshing()
         
     }
@@ -91,7 +90,7 @@ class AsociacionesTableViewController: UITableViewController {
         cell.myDireccionLBL.text = asociacionModel.direccion
         cell.myWebLBL.text = asociacionModel.web
   
-        ImageLoader.sharedLoader.imageForUrl(getImagePath(ASOCIACIONES, id: asociacionModel.id!, name: asociacionModel.imagenURL!)) { (image, url) in
+        ImageLoader.sharedLoader.imageForUrl(getImagePath(CONSTANTES.ASOCIACIONES_IMAGENES, id: asociacionModel.id!, name: asociacionModel.imagenURL!)) { (image, url) in
             cell.myImageAsociacionesIV.image = image
         }
         
@@ -101,7 +100,7 @@ class AsociacionesTableViewController: UITableViewController {
     
     func getImagePath(type: String, id : String, name : String) -> String{
 
-            return BASE_PHOTO_URL + type + "/" + "/" + id  + "/" + name
+            return CONSTANTES.BASE_PHOTO_URL_ASOCIACIONES + type + "/" + "/" + id  + "/" + name
         
     }
     
@@ -113,7 +112,7 @@ class AsociacionesTableViewController: UITableViewController {
         
         
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(ASOCIACIONES, id: asociacionModel.id!, name: asociacionModel.imagenURL!))!)!)
+        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.ASOCIACIONES_IMAGENES, id: asociacionModel.id!, name: asociacionModel.imagenURL!))!)!)
         
         
         

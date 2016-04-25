@@ -26,8 +26,7 @@ class AsociadoViewController: UIViewController {
     var urlString : String?
     var indexActual : Int = 0
     var timer = NSTimer()
-    let BANNERS = "banners"
-    let BASE_BANNER_URL = "http://app.clubsinergias.es/uploads/banners"
+    let CONSTANTES = Constants()
     
     
     //MARK: - IBOUTLET
@@ -116,8 +115,8 @@ class AsociadoViewController: UIViewController {
     }
     
     func getURL(id : String,  imagenURL : String) -> String{
-        return BASE_BANNER_URL + "/"  + id + "/" + imagenURL
         
+        return CONSTANTES.BASE_BANNER_URL + "/"  + id + "/" + imagenURL
     }
 
 

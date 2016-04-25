@@ -13,10 +13,9 @@ import Parse
 class CuponesTableViewController: UITableViewController {
     
     //MARK: - VARIABLES LOCALES (TIPO OFERTAS)
-    let CUPONES = "cupon"
-    let BASE_PHOTO_URL = "http://app.clubsinergias.es/uploads/promociones/"
     var arrayCupones = [TOPromocionModel]()
     var refresh : UIRefreshControl?
+    let CONSTANTES = Constants()
     
 
     @IBOutlet var menuButton:UIBarButtonItem!
@@ -48,13 +47,14 @@ class CuponesTableViewController: UITableViewController {
     
     func getSingletonApiDataBaseManager(){
         
-        arrayCupones = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CUPONES)
+        arrayCupones = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.CUPONES)
     }
     
     
     func refreshControll(){
         
         getSingletonApiDataBaseManager()
+        tableView.reloadData()
         self.refresh?.endRefreshing()
         
     }
@@ -91,7 +91,7 @@ class CuponesTableViewController: UITableViewController {
         cell.myMasInformacion.text = ofertasModel.descripcion
         cell.myImporte.text = ofertasModel.tipo
         
-        ImageLoader.sharedLoader.imageForUrl(getImagePath(CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
+        ImageLoader.sharedLoader.imageForUrl(getImagePath(CONSTANTES.CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
             cell.myImagenCupon.image = image
         }
         
@@ -101,7 +101,7 @@ class CuponesTableViewController: UITableViewController {
     
     func getImagePath(type: String, id : String!, name : String!) -> String{
         
-        return BASE_PHOTO_URL + id + "/" + name
+        return CONSTANTES.BASE_PHOTO_URL + id + "/" + name
         
     }
     
@@ -114,7 +114,7 @@ class CuponesTableViewController: UITableViewController {
 
         
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
+        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
 
         detalleOfertasVC.detalleImagenOfertaData = imageData
         detalleOfertasVC.detalleNombreOfertaData = ofertasModel.tipo

@@ -12,8 +12,6 @@ import Parse
 class MovimientosTableViewController: UITableViewController {
     
     //MARK: - VARIABLES LOCALES GLOBALES
-    let idCliente = "132"
-    let MOVIMIENTOS = "movimientos"
     var arrayMovimientos = [TOMovimientoModel]()
     var sumaMovimientos : Float = 0
     var label: UILabel = UILabel()
@@ -32,9 +30,7 @@ class MovimientosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         arrayMovimientos = TOAPIDatabaseManager.sharedInstance.getMovimientos((PFUser.currentUser()?.username)!)
-        
         myLabelTotalMovimientos.text = "Total puntos: \(setupTotalPuntos())"
         
     }
@@ -74,15 +70,11 @@ class MovimientosTableViewController: UITableViewController {
     
     //MARK: - UTILS
     func setupTotalPuntos() -> String!{
-
         for i in 0 ..< arrayMovimientos.count{
-            
             let movimientoModel : TOMovimientoModel = arrayMovimientos[i]
-            
             sumaMovimientos = sumaMovimientos + Float(movimientoModel.puntosConseguidos!)! - Float(movimientoModel.puntosCanjeados!)!
          }
         return String(sumaMovimientos)
- 
     }
 }
 

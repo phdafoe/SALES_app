@@ -14,20 +14,15 @@ class RegistrerViewController: UIViewController {
     
     //MARK: - VARIABLES LOCALES GLOBALES
     var photoSelected = false
-    //var movimientos = [TOMovimientoModel]()
     var saveNewUser = TOUsuarioModel?()
-    
     var parseId : String?
     var id : String?
     var totalPuntos : Int?
-    
     var idLocalidadSeleccionada : String = "6"
     var idAsociacionSeleccionada : String = ""
-    
-
-    
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()
+    let CONSTANTES = Constants()
 
     
     //MARK: - IBOUTLET
@@ -50,23 +45,23 @@ class RegistrerViewController: UIViewController {
         
         if myUsernameTF.text == "" || myPasswordTF.text == "" || myNameTF.text == "" || myLastNameTF.text == "" || myEmailTF.text == "" || myLocationCity.text == "" || myAssociationSend.text == "" || myImageView.image == nil{
             
-            errorInitial = "Por favor rellena todos los campos obligatorios, muchas gracias"
+            errorInitial = CONSTANTES.ERRORESPACIOSENBLANCO
             
         }else{
             
             //Fase 2 iCoSelf -> Aqui traemos desde parse del registro del usuario
             
             let user = PFUser()
-            user["idLocalidad"] = idLocalidadSeleccionada
-            user["asociacion"] = idAsociacionSeleccionada
-            user["nombre"] = myNameTF.text
-            user["apellidos"] = myLastNameTF.text
-            user["telefonoMovil"] = myPhoneNumberTF.text
+            user[CONSTANTES.IDLOCALIDAD] = idLocalidadSeleccionada
+            user[CONSTANTES.IDASOCIACION] = idAsociacionSeleccionada
+            user[CONSTANTES.IDNOMBRE] = myNameTF.text
+            user[CONSTANTES.IDAPELLIDOS] = myLastNameTF.text
+            user[CONSTANTES.IDTELEFONOMOVIL] = myPhoneNumberTF.text
             user.username = myUsernameTF.text
             user.password = myPasswordTF.text
             user.email = myEmailTF.text
             
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             user.signUpInBackgroundWithBlock {
                 
@@ -74,7 +69,7 @@ class RegistrerViewController: UIViewController {
                 (succeeded: Bool, signUpError: NSError?) -> Void in
                 
                 //->  ActivityIndicator
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                //UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 let errorData = signUpError
                 var errorDataPost = ""
@@ -84,16 +79,16 @@ class RegistrerViewController: UIViewController {
                 }
                 
                 if errorDataPost != ""{
-                    self.displayAlertVC("Error en los datos", messageData: errorDataPost)
+                    self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: errorDataPost)
                 }
                 
                 if errorData != nil {
                     
                     if let errorString = errorData!.userInfo["error"] as? NSString{
-                        self.displayAlertVC("Error al registrar", messageData: errorString as String)
+                        self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: errorString as String)
                         
                     }else{
-                        self.displayAlertVC("Error al registrar el Usuario", messageData: "Por favor Reintenta el Registro")
+                        self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: "Por favor Reintenta el Registro")
                     }
                     
                 } else {
@@ -107,7 +102,7 @@ class RegistrerViewController: UIViewController {
         }
         
         if errorInitial != ""{
-            displayAlertVC("Error al registrar", messageData: errorInitial)
+            displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: errorInitial)
         }
         
         
@@ -162,6 +157,13 @@ class RegistrerViewController: UIViewController {
         
     }
     
+    
+    
+    //MARK: - DOWNKEYBOARD
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: - UTILS
     
     func displayAlertVC(titleData:String, messageData:String){
@@ -174,19 +176,16 @@ class RegistrerViewController: UIViewController {
     func signUpAndPostImage(){
 
         let postImage = PFObject(className: "ImageProfile")
-        
         let imageData = UIImageJPEGRepresentation(self.myImageView.image!, 0.6)
-        
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
-        
-        postImage["imagenURL"] = imageFile
-        postImage["username"] = PFUser.currentUser()?.username
+        postImage[self.CONSTANTES.IDIMAGENURL] = imageFile
+        postImage[self.CONSTANTES.USERNAMEPARSE] = PFUser.currentUser()?.username
         
         postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success{
                 self.displayAlertVC("Publicacion completada", messageData: "Tu foto ha sido publicada")
             }else{
-                self.displayAlertVC("No se pudo publicar", messageData: "no se pudo subir los datos")
+                self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: "no se pudo subir los datos")
             }
             self.photoSelected = false
             self.myImageView.image = UIImage(named: "placeholderPerson.png")
@@ -219,7 +218,7 @@ class RegistrerViewController: UIViewController {
             if error == nil {
                 
                 let user = PFUser.currentUser()!
-                user["lastLocation"] = geoPoint
+                user[self.CONSTANTES.IDLOCALIZACIONPARSE] = geoPoint
                 user.saveInBackground()
                 
             }else{
@@ -234,14 +233,11 @@ class RegistrerViewController: UIViewController {
         
         let databaseID = TOAPIDatabaseManager.sharedInstance.getSaveUser((PFUser.currentUser()?.objectId)!)
         let myUser = PFUser.currentUser()
-        myUser!["databaseID"] = databaseID
+        myUser![self.CONSTANTES.IDDATABASEID] = databaseID
         myUser?.saveInBackground() 
     }
 
-    //MARK: - DOWNKEYBOARD
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+    
 
 }
 

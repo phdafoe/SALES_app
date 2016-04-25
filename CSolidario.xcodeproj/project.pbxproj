@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		636CBC461CCD4191007F56B4 /* icon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC431CCD4191007F56B4 /* icon29x29.png */; };
+		636CBC471CCD4191007F56B4 /* icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC441CCD4191007F56B4 /* icon57x57.png */; };
+		636CBC481CCD4191007F56B4 /* icon114x114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC451CCD4191007F56B4 /* icon114x114@2x.png */; };
+		636CBC4A1CCD4204007F56B4 /* icon120x120@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC491CCD4204007F56B4 /* icon120x120@3x.png */; };
+		636CBC4C1CCDE1BF007F56B4 /* APIConstantesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636CBC4B1CCDE1BF007F56B4 /* APIConstantesManager.swift */; };
 		63C430A21CC9730E005519BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C430A11CC9730E005519BE /* AppDelegate.swift */; };
 		63C430A91CC9730E005519BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C430A81CC9730E005519BE /* Assets.xcassets */; };
 		63C430AC1CC9730E005519BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C430AA1CC9730E005519BE /* LaunchScreen.storyboard */; };
@@ -61,8 +66,6 @@
 		63C431431CC97450005519BE /* icon58x58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C431161CC97450005519BE /* icon58x58@2x.png */; };
 		63C431441CC97450005519BE /* icon80x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C431171CC97450005519BE /* icon80x80@2x.png */; };
 		63C431451CC97450005519BE /* icon87x87@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C431181CC97450005519BE /* icon87x87@3x.png */; };
-		63C431461CC97450005519BE /* icon120x120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C431191CC97450005519BE /* icon120x120@2x.png */; };
-		63C431471CC97450005519BE /* icon120x120@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C4311A1CC97450005519BE /* icon120x120@3x.png */; };
 		63C431481CC97450005519BE /* icon180x180@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C4311B1CC97450005519BE /* icon180x180@3x.png */; };
 		63C431491CC97450005519BE /* iconoCMSAppStore.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C4311C1CC97450005519BE /* iconoCMSAppStore.png */; };
 		63C4314A1CC97450005519BE /* iconoLaunchScreeniOS.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C4311D1CC97450005519BE /* iconoLaunchScreeniOS.png */; };
@@ -109,6 +112,7 @@
 		63F8E47C1CCBCB4A009BBDBE /* iconoFondoImagenes.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F8E47B1CCBCB4A009BBDBE /* iconoFondoImagenes.png */; };
 		63F8E47E1CCBD540009BBDBE /* MiperfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8E47D1CCBD540009BBDBE /* MiperfilViewController.swift */; };
 		63F8E4801CCBDCC6009BBDBE /* AsociadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8E47F1CCBDCC6009BBDBE /* AsociadoViewController.swift */; };
+		975190F50DD7E15376227744 /* Pods_CSolidario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78023362BAC368810A919B45 /* Pods_CSolidario.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,6 +129,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3CF446A99180AF389B1125EB /* Pods-CSolidario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.release.xcconfig"; sourceTree = "<group>"; };
+		636CBC431CCD4191007F56B4 /* icon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29x29.png; sourceTree = "<group>"; };
+		636CBC441CCD4191007F56B4 /* icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57.png; sourceTree = "<group>"; };
+		636CBC451CCD4191007F56B4 /* icon114x114@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon114x114@2x.png"; sourceTree = "<group>"; };
+		636CBC491CCD4204007F56B4 /* icon120x120@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon120x120@3x.png"; sourceTree = "<group>"; };
+		636CBC4B1CCDE1BF007F56B4 /* APIConstantesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstantesManager.swift; sourceTree = "<group>"; };
 		63C4309E1CC9730D005519BE /* CSolidario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSolidario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C430A11CC9730E005519BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63C430A81CC9730E005519BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,8 +191,6 @@
 		63C431161CC97450005519BE /* icon58x58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon58x58@2x.png"; sourceTree = "<group>"; };
 		63C431171CC97450005519BE /* icon80x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon80x80@2x.png"; sourceTree = "<group>"; };
 		63C431181CC97450005519BE /* icon87x87@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon87x87@3x.png"; sourceTree = "<group>"; };
-		63C431191CC97450005519BE /* icon120x120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon120x120@2x.png"; sourceTree = "<group>"; };
-		63C4311A1CC97450005519BE /* icon120x120@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon120x120@3x.png"; sourceTree = "<group>"; };
 		63C4311B1CC97450005519BE /* icon180x180@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon180x180@3x.png"; sourceTree = "<group>"; };
 		63C4311C1CC97450005519BE /* iconoCMSAppStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoCMSAppStore.png; sourceTree = "<group>"; };
 		63C4311D1CC97450005519BE /* iconoLaunchScreeniOS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoLaunchScreeniOS.png; sourceTree = "<group>"; };
@@ -231,6 +239,9 @@
 		63F8E47B1CCBCB4A009BBDBE /* iconoFondoImagenes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFondoImagenes.png; sourceTree = "<group>"; };
 		63F8E47D1CCBD540009BBDBE /* MiperfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiperfilViewController.swift; sourceTree = "<group>"; };
 		63F8E47F1CCBDCC6009BBDBE /* AsociadoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsociadoViewController.swift; sourceTree = "<group>"; };
+		78023362BAC368810A919B45 /* Pods_CSolidario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSolidario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F2CA07978B85F65EABE2DC /* Pods-CSolidario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.debug.xcconfig"; sourceTree = "<group>"; };
+		9A80544D4221F22E81F7A06C /* Pods-CSolidario.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.distribution.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +261,7 @@
 				63C4316B1CC97522005519BE /* ParseUI.framework in Frameworks */,
 				63C4316A1CC97522005519BE /* Parse.framework in Frameworks */,
 				63C431691CC97522005519BE /* Bolts.framework in Frameworks */,
+				975190F50DD7E15376227744 /* Pods_CSolidario.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,8 +272,19 @@
 			isa = PBXGroup;
 			children = (
 				63F22F6F1CCA0A7400F49248 /* MapKit.framework */,
+				78023362BAC368810A919B45 /* Pods_CSolidario.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		334BC5A427C5CCF8045F559A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89F2CA07978B85F65EABE2DC /* Pods-CSolidario.debug.xcconfig */,
+				3CF446A99180AF389B1125EB /* Pods-CSolidario.release.xcconfig */,
+				9A80544D4221F22E81F7A06C /* Pods-CSolidario.distribution.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		63C430951CC9730D005519BE = {
@@ -272,6 +295,7 @@
 				63C430A01CC9730E005519BE /* CSolidario */,
 				63C4309F1CC9730D005519BE /* Products */,
 				279E1E498555C03F132061D2 /* Frameworks */,
+				334BC5A427C5CCF8045F559A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,6 +363,7 @@
 			children = (
 				63C430CC1CC97369005519BE /* SetupImage.swift */,
 				63C430CF1CC97369005519BE /* TOAPIDatabaseManager.swift */,
+				636CBC4B1CCDE1BF007F56B4 /* APIConstantesManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -420,11 +445,13 @@
 				63C431131CC97450005519BE /* cupones@2x.png */,
 				63C431141CC97450005519BE /* degradado@2x.png */,
 				63C431151CC97450005519BE /* fondo.png */,
+				636CBC431CCD4191007F56B4 /* icon29x29.png */,
+				636CBC441CCD4191007F56B4 /* icon57x57.png */,
+				636CBC491CCD4204007F56B4 /* icon120x120@3x.png */,
+				636CBC451CCD4191007F56B4 /* icon114x114@2x.png */,
 				63C431161CC97450005519BE /* icon58x58@2x.png */,
 				63C431171CC97450005519BE /* icon80x80@2x.png */,
 				63C431181CC97450005519BE /* icon87x87@3x.png */,
-				63C431191CC97450005519BE /* icon120x120@2x.png */,
-				63C4311A1CC97450005519BE /* icon120x120@3x.png */,
 				63C4311B1CC97450005519BE /* icon180x180@3x.png */,
 				63C4311C1CC97450005519BE /* iconoCMSAppStore.png */,
 				63C4311D1CC97450005519BE /* iconoLaunchScreeniOS.png */,
@@ -567,7 +594,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C431471CC97450005519BE /* icon120x120@3x.png in Resources */,
 				63C431581CC97450005519BE /* shape.png in Resources */,
 				63C431501CC97450005519BE /* menu@2x.png in Resources */,
 				63C4314A1CC97450005519BE /* iconoLaunchScreeniOS.png in Resources */,
@@ -577,11 +603,13 @@
 				63C4314B1CC97450005519BE /* legal@2x.png in Resources */,
 				63C431321CC97450005519BE /* backgroundIntro1.jpg in Resources */,
 				63C4315C1CC97450005519BE /* technology.png in Resources */,
+				636CBC471CCD4191007F56B4 /* icon57x57.png in Resources */,
 				63C431571CC97450005519BE /* reloadImage.png in Resources */,
 				63C431331CC97450005519BE /* codigo-qr.jpg in Resources */,
 				63C431431CC97450005519BE /* icon58x58@2x.png in Resources */,
 				63F22F771CCAAFE500F49248 /* qr@2x.png in Resources */,
 				63C4314F1CC97450005519BE /* mail@2x.png in Resources */,
+				636CBC4A1CCD4204007F56B4 /* icon120x120@3x.png in Resources */,
 				63C4313A1CC97450005519BE /* AJ_6.png in Resources */,
 				63C430B41CC97338005519BE /* Main.storyboard in Resources */,
 				63F22F981CCACE3500F49248 /* cerrasX@2x.png in Resources */,
@@ -596,8 +624,8 @@
 				63C4313F1CC97450005519BE /* concursos@2x.png in Resources */,
 				63C4315B1CC97450005519BE /* symbols.png in Resources */,
 				63C431541CC97450005519BE /* placeholderPerson.png in Resources */,
-				63C431461CC97450005519BE /* icon120x120@2x.png in Resources */,
 				63C431341CC97450005519BE /* Adolfo-círculo.png in Resources */,
+				636CBC481CCD4191007F56B4 /* icon114x114@2x.png in Resources */,
 				63C431521CC97450005519BE /* ofertas.png in Resources */,
 				63F22F751CCAAFE500F49248 /* qr2@2x.png in Resources */,
 				63C431551CC97450005519BE /* puntos@2x.png in Resources */,
@@ -614,6 +642,7 @@
 				63C4313C1CC97450005519BE /* background@2x.png in Resources */,
 				63F8E47C1CCBCB4A009BBDBE /* iconoFondoImagenes.png in Resources */,
 				63F22F761CCAAFE500F49248 /* qr1@2x.png in Resources */,
+				636CBC461CCD4191007F56B4 /* icon29x29.png in Resources */,
 				63C430A91CC9730E005519BE /* Assets.xcassets in Resources */,
 				63C4314C1CC97450005519BE /* letter.png in Resources */,
 				63C4313D1CC97450005519BE /* barcode.png in Resources */,
@@ -700,6 +729,7 @@
 				63C430E71CC97369005519BE /* MenuController.swift in Sources */,
 				63C430DA1CC97369005519BE /* AsociacionesTableViewController.swift in Sources */,
 				63C430F31CC97369005519BE /* TOAPIDatabaseManager.swift in Sources */,
+				636CBC4C1CCDE1BF007F56B4 /* APIConstantesManager.swift in Sources */,
 				63C430F21CC97369005519BE /* TOActividadModel.swift in Sources */,
 				63C430EF1CC97369005519BE /* RegistrerViewController.swift in Sources */,
 				63C430FB1CC97369005519BE /* TOPromocionModel.swift in Sources */,
@@ -750,8 +780,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -773,7 +803,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "2045071c-ee09-4b34-836b-40141e9eefa2";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -797,8 +827,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -814,7 +844,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "2045071c-ee09-4b34-836b-40141e9eefa2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -822,11 +852,12 @@
 		};
 		63C430B11CC9730E005519BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89F2CA07978B85F65EABE2DC /* Pods-CSolidario.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -839,7 +870,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "2045071c-ee09-4b34-836b-40141e9eefa2";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -847,11 +878,12 @@
 		};
 		63C430B21CC9730E005519BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CF446A99180AF389B1125EB /* Pods-CSolidario.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Mel (HGV75A95KZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joaquin Mel (9S6P3YKYV3)";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -864,7 +896,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "2045071c-ee09-4b34-836b-40141e9eefa2";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 			};
 			name = Release;
@@ -904,7 +936,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "2045071c-ee09-4b34-836b-40141e9eefa2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -912,6 +944,7 @@
 		};
 		63F8E4841CCCEBDB009BBDBE /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A80544D4221F22E81F7A06C /* Pods-CSolidario.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -929,7 +962,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "2045071c-ee09-4b34-836b-40141e9eefa2";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 			};
 			name = Distribution;

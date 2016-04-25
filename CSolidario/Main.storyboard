@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lb-BJ-kcb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1lb-BJ-kcb">
                                 <rect key="frame" x="-20" y="0.0" width="360" height="578"/>
                                 <subviews>
                                     <pageControl opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="j26-SH-wIv">
@@ -42,6 +42,7 @@
                                         <rect key="frame" x="20" y="20" width="320" height="481"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="481" id="BV9-Xo-0W7"/>
+                                            <constraint firstAttribute="width" constant="320" id="dyG-ys-ajo"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -51,8 +52,6 @@
                                     <constraint firstItem="j26-SH-wIv" firstAttribute="leading" secondItem="1lb-BJ-kcb" secondAttribute="leading" constant="36" id="JkJ-0H-uf9"/>
                                     <constraint firstAttribute="bottom" secondItem="j26-SH-wIv" secondAttribute="bottom" constant="60" id="N4Y-T7-nR6"/>
                                     <constraint firstItem="vew-p1-gI5" firstAttribute="leading" secondItem="1lb-BJ-kcb" secondAttribute="leading" constant="40" id="b6B-iV-DpL"/>
-                                    <constraint firstItem="Scp-B4-DmD" firstAttribute="leading" secondItem="1lb-BJ-kcb" secondAttribute="leading" constant="20" id="cVf-ez-GRJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Scp-B4-DmD" secondAttribute="trailing" constant="20" id="d4o-0x-eLM"/>
                                     <constraint firstAttribute="bottom" secondItem="vew-p1-gI5" secondAttribute="bottom" constant="20" id="eHI-ge-G76"/>
                                     <constraint firstItem="vew-p1-gI5" firstAttribute="top" secondItem="Scp-B4-DmD" secondAttribute="bottom" constant="8" symbolic="YES" id="fVx-5C-UjK"/>
                                     <constraint firstItem="Scp-B4-DmD" firstAttribute="centerX" secondItem="j26-SH-wIv" secondAttribute="centerX" id="mIm-p9-lkS"/>
@@ -1775,7 +1774,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzo-M3-11q">
                                         <rect key="frame" x="24" y="529" width="320" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MPI-Jo-d8Y">
@@ -1991,7 +1990,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFl-hE-fKB">
                                         <rect key="frame" x="24" y="507" width="320" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="h7A-je-ais">
@@ -2153,7 +2152,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tR-gG-5JV">
                                         <rect key="frame" x="24" y="508" width="320" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Yo-tT-ATq">
@@ -2722,7 +2721,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
         <image name="tusOfertas.png" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rdv-Ti-nD1"/>
+        <segue reference="16h-eJ-4Jl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14117647059999999" green="0.1333333333" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

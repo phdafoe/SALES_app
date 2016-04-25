@@ -12,12 +12,14 @@ import Parse
 
 class DetalleCuponesViewController: UIViewController {
     
+    //MARK: - VARIABLES BANNERS
     var arrayBanners = [TOBannersModel]()
     var urlString : String?
     var indexActual : Int = 0
     var timer = NSTimer()
-    let BANNERS = "banners"
-    let BASE_BANNER_URL = "http://app.clubsinergias.es/uploads/banners"
+    let CONSTANTES = Constants()
+
+    //MARK: - VARIABLES QR
     var qrData : String?
     var codeBarData : String?
     var qrcodeImage : CIImage!
@@ -236,7 +238,7 @@ class DetalleCuponesViewController: UIViewController {
     }
     
     func getURL(id : String,  imagenURL : String) -> String{
-        return BASE_BANNER_URL + "/"  + id + "/" + imagenURL
+        return CONSTANTES.BASE_BANNER_URL + "/"  + id + "/" + imagenURL
         
     }
 

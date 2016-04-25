@@ -24,27 +24,15 @@ class TOAPIDatabaseManager: NSObject {
     //MARK: - VARIABLES LOCALES
     var numberOfRows = 0
     var json : JSON = JSON.null
-    
-    let BASE_URL = "https://app.clubsinergias.es/api_comercios.php"
-    let PROMOCIONES_SERVICE = "promociones"
-    let ACTIVIDADES_SERVICE = "actividades"
-    let ASOCIACIONES_SERVICE = "asociaciones"
-    let MOVIMIENTOS_SERVICE = "movimientos"
-    
-    let BANNERS_SERVICE = "banners"
-    let LOCALIDADES_SERVICE = "localidades"
-    let PUNTOS_SERVICE = "puntos"
-    let NUEVOCLIENTE_SERVICE = "nuevocliente"
-    let ASOCIADOS_SERVICE = "asociados"
+    let CONSTANTES = Constants()
+
     
  
 
     
     //MARK: - SINGLETON
     class var sharedInstance : TOAPIDatabaseManager {
-        
         struct SingletonAPP {
-            
             static let instancia = TOAPIDatabaseManager()
         }
         return SingletonAPP.instancia
@@ -59,7 +47,7 @@ class TOAPIDatabaseManager: NSObject {
         let idLocalidad = PFUser.currentUser()!["idLocalidad"] as! String
         
         var arrayPromocionModel = [TOPromocionModel]()
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idLocalidad + "&tipo=" + tipo + "&p=" + PROMOCIONES_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idLocalidad + "&tipo=" + tipo + "&p=" + CONSTANTES.PROMOCIONES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
@@ -104,7 +92,7 @@ class TOAPIDatabaseManager: NSObject {
         var arrayAsociacionModel = [TOAsociacionModel]()
         
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idlocalidad + "&p=" + ASOCIACIONES_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idlocalidad + "&p=" + CONSTANTES.ASOCIACIONES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
@@ -139,7 +127,7 @@ class TOAPIDatabaseManager: NSObject {
 
 
         var arrayMovimientoModel = [TOMovimientoModel]()
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idcliente=" + idCliente + "&p=" + PUNTOS_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idcliente=" + idCliente + "&p=" + CONSTANTES.PUNTOS_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
@@ -171,7 +159,7 @@ class TOAPIDatabaseManager: NSObject {
         
         var arrayLocalidadesModel = [TOLocalidadModel]()
 
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + "&p=" + LOCALIDADES_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + "&p=" + CONSTANTES.LOCALIDADES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
@@ -198,7 +186,7 @@ class TOAPIDatabaseManager: NSObject {
         
         var arrayActividadesModel = [TOActividadModel]()
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + "&p=" + ACTIVIDADES_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + "&p=" + CONSTANTES.ACTIVIDADES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
@@ -225,7 +213,7 @@ class TOAPIDatabaseManager: NSObject {
         //Esto hay que borrarlo
         var arrayBannersModel = [TOBannersModel]()
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idlocalidad + "&p=" + BANNERS_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idlocalidad + "&p=" + CONSTANTES.BANNERS_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
         
@@ -248,7 +236,7 @@ class TOAPIDatabaseManager: NSObject {
     //MARK: - GET SAVEUSER
     func getSaveUser(parseID : String!) -> String{
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?parseid=" + parseID + "&p=" + NUEVOCLIENTE_SERVICE)
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?parseid=" + parseID + "&p=" + CONSTANTES.NUEVOCLIENTE_SERVICE)
         let id = NSData(contentsOfURL: url!)
         return String(id)
   

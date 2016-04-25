@@ -12,6 +12,10 @@ import Parse
 
 class MenuController: UITableViewController {
     
+    //MARK: - VARIABLES LOCALES
+    let CONSTANTES = Constants()
+    
+    
     //MARK: - IBOUTLET
     @IBOutlet weak var myNameLBL: UILabel!
     @IBOutlet weak var myImageProfileIV: UIImageView!
@@ -88,16 +92,15 @@ class MenuController: UITableViewController {
     }
     
     func findAndGetDataFromImageProfile(){
-        
         let query = PFQuery(className:"ImageProfile")
-        query.whereKey("username", equalTo:(PFUser.currentUser()?.username)!)
+        query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.currentUser()?.username)!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
                     for objectData in objects {
-                        self.myNameLBL.text = objectData["username"] as? String
-                        let userImageFile = objectData["imagenURL"] as! PFFile
+                        self.myNameLBL.text = objectData[self.CONSTANTES.USERNAMEPARSE] as? String
+                        let userImageFile = objectData[self.CONSTANTES.IDIMAGENURL] as! PFFile
                         userImageFile.getDataInBackgroundWithBlock {
                             (imageData: NSData?, error: NSError?) -> Void in
                             if error == nil {

@@ -73,8 +73,6 @@ class IntroRegisterViewController: UIViewController {
 extension IntroRegisterViewController : UIScrollViewDelegate{
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        
-        
         let pageControllerData = CGFloat(myScrollDataPicture.contentOffset.x / myScrollDataPicture.frame.size.width)
         myPageControllerDataPicture.currentPage = Int(pageControllerData)
     }

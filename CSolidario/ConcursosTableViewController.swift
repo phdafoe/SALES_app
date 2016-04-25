@@ -13,10 +13,9 @@ import Parse
 class ConcursosTableViewController: UITableViewController {
     
     //MARK: - VARIABLES LOCALES
-    let CONCURSO = "concurso"
-    let BASE_PHOTO_URL = "http://app.clubsinergias.es/uploads/promociones/"
     var refresh : UIRefreshControl?
     var arrayConcursos = [TOPromocionModel]()
+    let CONSTANTES = Constants()
     
 
     @IBOutlet var menuButton:UIBarButtonItem!
@@ -50,13 +49,14 @@ class ConcursosTableViewController: UITableViewController {
     
     func getSingletonApiDataBaseManager(){
         
-        arrayConcursos = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONCURSO)
+        arrayConcursos = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.CONCURSO)
     }
     
     
     func refreshControll(){
         
         getSingletonApiDataBaseManager()
+        tableView.reloadData()
         self.refresh?.endRefreshing()
         
     }
@@ -94,7 +94,7 @@ class ConcursosTableViewController: UITableViewController {
         cell.myMasInformacion.text = ofertasModel.descripcion
         cell.myImporte.text = ofertasModel.tipo
         
-        ImageLoader.sharedLoader.imageForUrl(getImagePath(CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
+        ImageLoader.sharedLoader.imageForUrl(getImagePath(CONSTANTES.CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
             cell.myImagenConcurso.image = image
         }
         
@@ -104,7 +104,7 @@ class ConcursosTableViewController: UITableViewController {
     
     func getImagePath(type: String, id : String!, name : String!) -> String{
         
-        return BASE_PHOTO_URL + id + "/" + name
+        return CONSTANTES.BASE_PHOTO_URL + id + "/" + name
         
     }
     
@@ -116,7 +116,7 @@ class ConcursosTableViewController: UITableViewController {
         let ofertasModel : TOPromocionModel = arrayConcursos[indexPath.row]
 
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
+        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
         
         detalleOfertasVC.detalleImagenOfertaData = imageData
         detalleOfertasVC.detalleNombreOfertaData = ofertasModel.tipo

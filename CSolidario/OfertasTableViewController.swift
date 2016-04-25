@@ -13,16 +13,14 @@ import Parse
 class OfertasTableViewController: UITableViewController {
     
      //MARK: - VARIABLES LOCALES
-    let OFERTAS = "oferta"
-    let BASE_PHOTO_URL = "http://app.clubsinergias.es/uploads/promociones/"
     var arrayOferta = [TOPromocionModel]()
-    
     var refresh : UIRefreshControl?
+    let CONSTANTES = Constants()
     
     
     
     @IBOutlet var menuButton:UIBarButtonItem!
-    @IBOutlet var extraButton:UIBarButtonItem!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +47,7 @@ class OfertasTableViewController: UITableViewController {
     
     func getSingletonApiDataBaseManager(){
         
-        arrayOferta = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: OFERTAS)
+        arrayOferta = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.OFERTAS)
         
     }
     
@@ -57,14 +55,22 @@ class OfertasTableViewController: UITableViewController {
     func refreshControll(){
         
         getSingletonApiDataBaseManager()
+        tableView.reloadData()
         self.refresh?.endRefreshing()
         
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +102,10 @@ class OfertasTableViewController: UITableViewController {
         cell.myMasInformacion.text = ofertasModel.descripcion
         cell.myImporte.text = ofertasModel.tipo
         
-        ImageLoader.sharedLoader.imageForUrl(getImagePath(OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
+        print("id:" + ofertasModel.id! + "imagen" + ofertasModel.imagenURL!)
+        
+        
+        ImageLoader.sharedLoader.imageForUrl(getImagePath(CONSTANTES.OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
             cell.myImagenCupon.image = image
         }
         
@@ -106,7 +115,7 @@ class OfertasTableViewController: UITableViewController {
 
     func getImagePath(type: String, id : String!, name : String!) -> String{
         
-        return BASE_PHOTO_URL + id + "/" + name
+        return CONSTANTES.BASE_PHOTO_URL + id + "/" + name
         
     }
     
@@ -117,7 +126,7 @@ class OfertasTableViewController: UITableViewController {
         
         let ofertasModel : TOPromocionModel = arrayOferta[indexPath.row]
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
+        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
 
         detalleOfertasVC.detalleImagenOfertaData = imageData
         detalleOfertasVC.detalleNombreOfertaData = ofertasModel.titulo

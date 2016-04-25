@@ -21,6 +21,8 @@ class MiperfilViewController: UIViewController {
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()
     
+    let CONSTANTES = Constants()
+    
     
     //MARK: - IBOUTLET
     @IBOutlet weak var myImageView: UIImageView!
@@ -88,7 +90,7 @@ class MiperfilViewController: UIViewController {
     func findDataFromParse(){
         
         let query = PFUser.query()!
-        query.whereKey("username", equalTo: (PFUser.currentUser()?.username)!)
+        query.whereKey(CONSTANTES.USERNAMEPARSE, equalTo: (PFUser.currentUser()?.username)!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -98,10 +100,10 @@ class MiperfilViewController: UIViewController {
                     for objectData in objects {
                         
                         //print("El usurio es \(objectData)")
-                        self.myNameTF.text = objectData["nombre"] as? String
-                        self.myLastNameTF.text = objectData["apellidos"] as? String
-                        self.myPhoneNumberTF.text = objectData["telefonoMovil"] as? String
-                        self.myEmailTF.text = objectData["email"] as? String
+                        self.myNameTF.text = objectData[self.CONSTANTES.IDNOMBRE] as? String
+                        self.myLastNameTF.text = objectData[self.CONSTANTES.IDAPELLIDOS] as? String
+                        self.myPhoneNumberTF.text = objectData[self.CONSTANTES.IDTELEFONOMOVIL] as? String
+                        self.myEmailTF.text = objectData[self.CONSTANTES.IDMAIL] as? String
                         
                     }
                 }
@@ -115,40 +117,32 @@ class MiperfilViewController: UIViewController {
     func actualizarDatos(){
         
         let userData = PFUser.currentUser()!
-        userData["idLocalidad"] = idLocalidadSeleccionada
-        userData["asociacion"] = idAsociacionSeleccionada
-        userData["nombre"] = myNameTF.text
-        userData["apellidos"] = myLastNameTF.text
-        userData["telefonoMovil"] = myPhoneNumberTF.text
+        userData[self.CONSTANTES.IDLOCALIDAD] = idLocalidadSeleccionada
+        userData[self.CONSTANTES.IDASOCIACION] = idAsociacionSeleccionada
+        userData[self.CONSTANTES.IDNOMBRE] = myNameTF.text
+        userData[self.CONSTANTES.IDAPELLIDOS] = myLastNameTF.text
+        userData[self.CONSTANTES.IDTELEFONOMOVIL] = myPhoneNumberTF.text
         userData.email = myEmailTF.text
         
         userData.saveInBackgroundWithBlock { (success, error) in
             
             if success{
-                
-                print("El Usurio ha sido modificado correctamente")
+                print("El Usuario ha sido modificado correctamente")
                 self.updatePhoto()
-                
             }else{
-                print("NO se ha logrado modificar el usuario")
+                print(self.CONSTANTES.ERRORREGISTRO)
             }
         }
-        
-        
-        
-    
-        
-  
-        
     }
+    
     
     func updatePhoto(){
         
         let postImage = PFObject(className: "ImageProfile")
         let imageData = UIImageJPEGRepresentation(self.myImageView.image!, 0.6)
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
-        postImage["imagenURL"] = imageFile
-        postImage["username"] = PFUser.currentUser()?.username
+        postImage[self.CONSTANTES.IDIMAGENURL] = imageFile
+        postImage[self.CONSTANTES.USERNAMEPARSE] = PFUser.currentUser()?.username
         postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success{
                 self.displayAlertVC("Publicacion completada", messageData: "Tu foto ha sido publicada")
