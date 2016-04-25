@@ -61,7 +61,7 @@ class RegistrerViewController: UIViewController {
             user.password = myPasswordTF.text
             user.email = myEmailTF.text
             
-            //UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             user.signUpInBackgroundWithBlock {
                 
@@ -69,7 +69,7 @@ class RegistrerViewController: UIViewController {
                 (succeeded: Bool, signUpError: NSError?) -> Void in
                 
                 //->  ActivityIndicator
-                //UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 let errorData = signUpError
                 var errorDataPost = ""
@@ -156,9 +156,7 @@ class RegistrerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-    
-    
-    
+
     //MARK: - DOWNKEYBOARD
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -175,7 +173,7 @@ class RegistrerViewController: UIViewController {
     
     func signUpAndPostImage(){
 
-        let postImage = PFObject(className: "ImageProfile")
+        let postImage = PFObject(className: self.CONSTANTES.IDNOMBRETABLAIMAGEN)
         let imageData = UIImageJPEGRepresentation(self.myImageView.image!, 0.6)
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
         postImage[self.CONSTANTES.IDIMAGENURL] = imageFile
@@ -216,11 +214,10 @@ class RegistrerViewController: UIViewController {
             (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
             
             if error == nil {
-                
                 let user = PFUser.currentUser()!
                 user[self.CONSTANTES.IDLOCALIZACIONPARSE] = geoPoint
                 user.saveInBackground()
-                
+            
             }else{
                 print(error)
             }
@@ -307,11 +304,8 @@ extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
         if pickerView.tag == 1{
-            
             return locationData.count
-            
         }else{
-            
             return AssociationData.count
         }
     }
@@ -319,11 +313,8 @@ extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1{
-            
             return locationData[row].nombre
-            
         }else{
-            
             return AssociationData[row].nombre
         }
     }

@@ -92,7 +92,7 @@ class MenuController: UITableViewController {
     }
     
     func findAndGetDataFromImageProfile(){
-        let query = PFQuery(className:"ImageProfile")
+        let query = PFQuery(className:self.CONSTANTES.IDNOMBRETABLAIMAGEN)
         query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.currentUser()?.username)!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in

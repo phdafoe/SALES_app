@@ -99,6 +99,34 @@ class MiperfilViewController: UIViewController {
                     
                     for objectData in objects {
                         
+                        
+                        let query = PFQuery(className:self.CONSTANTES.IDNOMBRETABLAIMAGEN)
+                        query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.currentUser()?.username)!)
+                        query.findObjectsInBackgroundWithBlock {
+                            (objects: [PFObject]?, error: NSError?) -> Void in
+                            if error == nil {
+                                if let objects = objects {
+                                    for objectData in objects {
+                                        
+                                        let userImageFile = objectData[self.CONSTANTES.IDIMAGENURL] as! PFFile
+                                        userImageFile.getDataInBackgroundWithBlock {
+                                            (imageData: NSData?, error: NSError?) -> Void in
+                                            if error == nil {
+                                                if let imageData = imageData {
+                                                    let image = UIImage(data:imageData)
+                                                    self.myImageView.image = image
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            } else {
+                                // Log details of the failure
+                                print("Error: \(error!) \(error!.userInfo)")
+                            }
+                        }
+                        
                         //print("El usurio es \(objectData)")
                         self.myNameTF.text = objectData[self.CONSTANTES.IDNOMBRE] as? String
                         self.myLastNameTF.text = objectData[self.CONSTANTES.IDAPELLIDOS] as? String
@@ -124,7 +152,11 @@ class MiperfilViewController: UIViewController {
         userData[self.CONSTANTES.IDTELEFONOMOVIL] = myPhoneNumberTF.text
         userData.email = myEmailTF.text
         
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        
         userData.saveInBackgroundWithBlock { (success, error) in
+            
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
             
             if success{
                 print("El Usuario ha sido modificado correctamente")

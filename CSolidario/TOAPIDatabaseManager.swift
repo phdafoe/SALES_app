@@ -125,7 +125,8 @@ class TOAPIDatabaseManager: NSObject {
     //MARK: - GET MOVIMIENTOS
     func  getMovimientos(idCliente : String) -> [TOMovimientoModel]{
 
-
+        
+        
         var arrayMovimientoModel = [TOMovimientoModel]()
         let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idcliente=" + idCliente + "&p=" + CONSTANTES.PUNTOS_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
@@ -134,6 +135,7 @@ class TOAPIDatabaseManager: NSObject {
         numberOfRows = readableJSON["puntos"].count
 
         if numberOfRows != 0{
+            
             for index in 0...numberOfRows - 1 {
                 
                 let dataModel = TOMovimientoModel(aFecha: getString("puntos", index: index, nombre: "fecha", nombreObjeto: readableJSON, segundoNivel: nil),
@@ -144,6 +146,7 @@ class TOAPIDatabaseManager: NSObject {
                 
                 arrayMovimientoModel.append(dataModel)
             }
+            
         }else{
             print("no tienes puntos")
         }
@@ -235,9 +238,14 @@ class TOAPIDatabaseManager: NSObject {
     
     //MARK: - GET SAVEUSER
     func getSaveUser(parseID : String!) -> String{
+        //var idweb = ""
+        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idparse=" + parseID + "&p=" + CONSTANTES.NUEVOCLIENTE_SERVICE)
+        //let id = NSURLRequest(URL: url!)
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?parseid=" + parseID + "&p=" + CONSTANTES.NUEVOCLIENTE_SERVICE)
-        let id = NSData(contentsOfURL: url!)
+        let data = NSData(contentsOfURL: url!)
+        
+        let id = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+        print( "iswebOptional: " + String(id))
         return String(id)
   
     }

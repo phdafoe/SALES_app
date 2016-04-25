@@ -38,7 +38,8 @@ struct Constants {
     let IDAPELLIDOS = "apellidos"
     let IDTELEFONOMOVIL = "telefonoMovil"
     let IDMAIL = "email"
-    let IDIMAGENURL = "imagenURL"
+    let IDIMAGENURL = "imagenFile"
+    let IDNOMBRETABLAIMAGEN = "ImageProfile"
     
     
     

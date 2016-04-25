@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         installation.saveInBackground()
         
         
-        PFPush.subscribeToChannelInBackground("") { (succeeded: Bool, error: NSError?) in
+        PFPush.subscribeToChannelInBackground("comerciosolidario") { (succeeded: Bool, error: NSError?) in
             if succeeded {
                 print("ParseStarterProject successfully subscribed to push notifications on the broadcast channel.\n");
             } else {

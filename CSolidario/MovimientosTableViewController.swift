@@ -30,7 +30,7 @@ class MovimientosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        arrayMovimientos = TOAPIDatabaseManager.sharedInstance.getMovimientos((PFUser.currentUser()?.username)!)
+        arrayMovimientos = TOAPIDatabaseManager.sharedInstance.getMovimientos((PFUser.currentUser()?["databaseID"])! as! String)
         myLabelTotalMovimientos.text = "Total puntos: \(setupTotalPuntos())"
         
     }
