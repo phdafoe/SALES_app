@@ -238,12 +238,9 @@ class TOAPIDatabaseManager: NSObject {
     
     //MARK: - GET SAVEUSER
     func getSaveUser(parseID : String!) -> String{
-        //var idweb = ""
+        
         let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idparse=" + parseID + "&p=" + CONSTANTES.NUEVOCLIENTE_SERVICE)
-        //let id = NSURLRequest(URL: url!)
-        
         let data = NSData(contentsOfURL: url!)
-        
         let id = NSString(data: data!, encoding: NSUTF8StringEncoding)!
         print( "iswebOptional: " + String(id))
         return String(id)

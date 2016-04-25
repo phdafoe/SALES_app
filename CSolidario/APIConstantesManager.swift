@@ -41,8 +41,6 @@ struct Constants {
     let IDIMAGENURL = "imagenFile"
     let IDNOMBRETABLAIMAGEN = "ImageProfile"
     
-    
-    
     let IDLOCALIZACIONPARSE = "lastLocation"
     let IDDATABASEID = "databaseID"
     let ERRORREGISTRO = "Error al registrar el Usuario"

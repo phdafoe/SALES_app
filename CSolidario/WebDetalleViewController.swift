@@ -21,7 +21,6 @@ class WebDetalleViewController: UIViewController {
     
     
     //MARK: - IBACTION
-    
     @IBAction func closeWindow(sender: AnyObject) {
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -36,11 +35,7 @@ class WebDetalleViewController: UIViewController {
         let url = NSURL(string: detalleWebPublicidad!)
         let request = NSURLRequest(URL: url!)
         myWebView.loadRequest(request)
-        
         myWebView.delegate = self
-        
-        
-
         // Do any additional setup after loading the view.
     }
 

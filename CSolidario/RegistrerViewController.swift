@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class RegistrerViewController: UIViewController {
+class RegistrerViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - VARIABLES LOCALES GLOBALES
     var photoSelected = false
@@ -35,7 +35,7 @@ class RegistrerViewController: UIViewController {
     @IBOutlet weak var myLastNameTF: UITextField!
     @IBOutlet weak var myEmailTF: UITextField!
     @IBOutlet weak var myPhoneNumberTF: UITextField!
-    
+    @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
 
     
     //MARK: - IBACTION
@@ -61,6 +61,8 @@ class RegistrerViewController: UIViewController {
             user.password = myPasswordTF.text
             user.email = myEmailTF.text
             
+            myActivityIndicator.hidden = false
+            myActivityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             user.signUpInBackgroundWithBlock {
@@ -69,6 +71,8 @@ class RegistrerViewController: UIViewController {
                 (succeeded: Bool, signUpError: NSError?) -> Void in
                 
                 //->  ActivityIndicator
+                self.myActivityIndicator.hidden = true
+                self.myActivityIndicator.stopAnimating()
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
                 let errorData = signUpError
@@ -114,6 +118,7 @@ class RegistrerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myActivityIndicator.hidden = true
 
         
         locationData = TOAPIDatabaseManager.sharedInstance.getLocalidades()
@@ -142,7 +147,7 @@ class RegistrerViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         
         //Comprobamos que si algun usuario ha accedido
         if PFUser.currentUser() != nil{

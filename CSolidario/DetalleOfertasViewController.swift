@@ -152,9 +152,15 @@ class DetalleOfertasViewController: UIViewController {
             displayAlertVC("Hola", messageData: "Tenemos problemas para genera el QR")
         }
         
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        
+        /*let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
         longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)
+        background.addGestureRecognizer(longGestureRecognizer)*/
         
         
         
@@ -201,7 +207,7 @@ class DetalleOfertasViewController: UIViewController {
     
     
     //MARK: - GESTURE RECOGNIZER
-    func actionGesture(gestureRecognizer: UIGestureRecognizer){
+    func actionGesture(gestureRecognizer: UITapGestureRecognizer){
         for subview in self.view.subviews{
             if subview.tag == self.imageGroupTag{
                 subview.removeFromSuperview()

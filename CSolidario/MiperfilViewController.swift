@@ -197,7 +197,8 @@ class MiperfilViewController: UIViewController {
     
     //MARK: - DOWNKEYBOARD
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
 
