@@ -18,7 +18,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     var parseId : String?
     var id : String?
     var totalPuntos : Int?
-    var idLocalidadSeleccionada : String = "6"
+    var idLocalidadSeleccionada : String = ""
     var idAsociacionSeleccionada : String = ""
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()

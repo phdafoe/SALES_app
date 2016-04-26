@@ -14,14 +14,15 @@ import Parse
 class MiperfilViewController: UIViewController {
     
     //MARK: - VARIABLES LOCALES GLOBALES
+    let CONSTANTES = Constants()
     var photoSelected = false
-    var idLocalidadSeleccionada : String = "6"
+    var idLocalidadSeleccionada : String = "0"
     var idAsociacionSeleccionada : String = ""
     
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()
     
-    let CONSTANTES = Constants()
+    
     
     
     //MARK: - IBOUTLET
@@ -57,7 +58,7 @@ class MiperfilViewController: UIViewController {
         super.viewDidLoad()
         
         locationData = TOAPIDatabaseManager.sharedInstance.getLocalidades()
-        
+        idLocalidadSeleccionada = self.locationData[0].id!
         
         let pickerViewLocationData = UIPickerView()
         pickerViewLocationData.delegate = self
@@ -273,11 +274,8 @@ extension MiperfilViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1{
-            
             return locationData.count
-            
         }else{
-            
             return AssociationData.count
         }
     }
@@ -285,11 +283,8 @@ extension MiperfilViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1{
-            
             return locationData[row].nombre
-            
         }else{
-            
             return AssociationData[row].nombre
         }
     }
@@ -299,12 +294,10 @@ extension MiperfilViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 1{
-            
             self.myLocationCity.text = self.locationData[row].nombre!
             self.idLocalidadSeleccionada = self.locationData[row].id!
             
         }else{
-            
             self.myAssociationSend.text = self.AssociationData[row].nombre!
             self.idAsociacionSeleccionada = self.AssociationData[row].id!
         }
