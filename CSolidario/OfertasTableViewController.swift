@@ -134,11 +134,9 @@ class OfertasTableViewController: UITableViewController {
         detalleOfertasVC.detalleMasInformacionData = ofertasModel.descripcion
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
         
-        
         //ID DE SOCIO OJO
         detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
         detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
-        
         
         
         //DETALLE ASOCIADO
@@ -152,7 +150,6 @@ class OfertasTableViewController: UITableViewController {
         detalleOfertasVC.detalleTelefonoMovilAsociado = ofertasModel.asociado?.telefonoMovil
         detalleOfertasVC.detalleWebAsociado = ofertasModel.asociado?.web
         
-
         navigationController?.pushViewController(detalleOfertasVC, animated: true)
         
         print("Seleccionado \(arrayOferta[indexPath.row])")  

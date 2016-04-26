@@ -78,7 +78,7 @@ class MenuController: UITableViewController {
     func showRateMe() {
         let alert = UIAlertController(title: "Valóranos", message: "Gracias por usar TusOfertas", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Valora TusOfertas", style: UIAlertActionStyle.Default, handler: { alertAction in
-            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1007362230")!)
+            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1107387171")!)
             alert.dismissViewControllerAnimated(true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "No Gracias", style: UIAlertActionStyle.Default, handler: { alertAction in
