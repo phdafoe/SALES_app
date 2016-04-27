@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63559A881CCFE26A0092ED77 /* AsociacionParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A871CCFE26A0092ED77 /* AsociacionParse.swift */; };
+		63559A8B1CD0917D0092ED77 /* APIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A8A1CD0917D0092ED77 /* APIUtils.swift */; };
+		63559A8D1CD0971D0092ED77 /* MovimientoParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A8C1CD0971D0092ED77 /* MovimientoParse.swift */; };
+		63559A8F1CD099960092ED77 /* LocalidadesParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A8E1CD099960092ED77 /* LocalidadesParse.swift */; };
+		63559A911CD09ABE0092ED77 /* ActividadesParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A901CD09ABE0092ED77 /* ActividadesParse.swift */; };
+		63559A931CD09BB30092ED77 /* BannersParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A921CD09BB30092ED77 /* BannersParse.swift */; };
+		63559A951CD09D160092ED77 /* PromocionesParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63559A941CD09D160092ED77 /* PromocionesParse.swift */; };
 		636CBC461CCD4191007F56B4 /* icon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC431CCD4191007F56B4 /* icon29x29.png */; };
 		636CBC471CCD4191007F56B4 /* icon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC441CCD4191007F56B4 /* icon57x57.png */; };
 		636CBC481CCD4191007F56B4 /* icon114x114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 636CBC451CCD4191007F56B4 /* icon114x114@2x.png */; };
@@ -131,6 +138,13 @@
 
 /* Begin PBXFileReference section */
 		3CF446A99180AF389B1125EB /* Pods-CSolidario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSolidario.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSolidario/Pods-CSolidario.release.xcconfig"; sourceTree = "<group>"; };
+		63559A871CCFE26A0092ED77 /* AsociacionParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsociacionParse.swift; sourceTree = "<group>"; };
+		63559A8A1CD0917D0092ED77 /* APIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIUtils.swift; sourceTree = "<group>"; };
+		63559A8C1CD0971D0092ED77 /* MovimientoParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimientoParse.swift; sourceTree = "<group>"; };
+		63559A8E1CD099960092ED77 /* LocalidadesParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalidadesParse.swift; sourceTree = "<group>"; };
+		63559A901CD09ABE0092ED77 /* ActividadesParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActividadesParse.swift; sourceTree = "<group>"; };
+		63559A921CD09BB30092ED77 /* BannersParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannersParse.swift; sourceTree = "<group>"; };
+		63559A941CD09D160092ED77 /* PromocionesParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromocionesParse.swift; sourceTree = "<group>"; };
 		636CBC431CCD4191007F56B4 /* icon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29x29.png; sourceTree = "<group>"; };
 		636CBC441CCD4191007F56B4 /* icon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57x57.png; sourceTree = "<group>"; };
 		636CBC451CCD4191007F56B4 /* icon114x114@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon114x114@2x.png"; sourceTree = "<group>"; };
@@ -289,6 +303,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		63559A891CCFE9A80092ED77 /* PARSER */ = {
+			isa = PBXGroup;
+			children = (
+				63559A871CCFE26A0092ED77 /* AsociacionParse.swift */,
+				63559A8C1CD0971D0092ED77 /* MovimientoParse.swift */,
+				63559A8E1CD099960092ED77 /* LocalidadesParse.swift */,
+				63559A901CD09ABE0092ED77 /* ActividadesParse.swift */,
+				63559A921CD09BB30092ED77 /* BannersParse.swift */,
+				63559A941CD09D160092ED77 /* PromocionesParse.swift */,
+			);
+			name = PARSER;
+			sourceTree = "<group>";
+		};
 		63C430951CC9730D005519BE = {
 			isa = PBXGroup;
 			children = (
@@ -365,7 +392,9 @@
 			children = (
 				63C430CC1CC97369005519BE /* SetupImage.swift */,
 				63C430CF1CC97369005519BE /* TOAPIDatabaseManager.swift */,
+				63559A8A1CD0917D0092ED77 /* APIUtils.swift */,
 				636CBC4B1CCDE1BF007F56B4 /* APIConstantesManager.swift */,
+				63559A891CCFE9A80092ED77 /* PARSER */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -714,6 +743,7 @@
 			files = (
 				63C430E41CC97369005519BE /* DetalleCuponesViewController.swift in Sources */,
 				63F22F6A1CC9FE1900F49248 /* SWRevealViewController.m in Sources */,
+				63559A951CD09D160092ED77 /* PromocionesParse.swift in Sources */,
 				63F8E4801CCBDCC6009BBDBE /* AsociadoViewController.swift in Sources */,
 				63C430D91CC97369005519BE /* AsociacionesTableViewCell.swift in Sources */,
 				63C430FC1CC97369005519BE /* TOUsuarioModel.swift in Sources */,
@@ -736,7 +766,9 @@
 				63C430F21CC97369005519BE /* TOActividadModel.swift in Sources */,
 				63C430EF1CC97369005519BE /* RegistrerViewController.swift in Sources */,
 				63C430FB1CC97369005519BE /* TOPromocionModel.swift in Sources */,
+				63559A8B1CD0917D0092ED77 /* APIUtils.swift in Sources */,
 				63D27EED1CCEB91E0048B787 /* LoginViewController.swift in Sources */,
+				63559A8D1CD0971D0092ED77 /* MovimientoParse.swift in Sources */,
 				63C430EB1CC97369005519BE /* OfertasTableViewController.swift in Sources */,
 				63C430E81CC97369005519BE /* MovimientosTableViewCell.swift in Sources */,
 				63F8E47E1CCBD540009BBDBE /* MiperfilViewController.swift in Sources */,
@@ -744,11 +776,15 @@
 				63C430F01CC97369005519BE /* SetupImage.swift in Sources */,
 				63C430E61CC97369005519BE /* IntroRegisterViewController.swift in Sources */,
 				63C430E51CC97369005519BE /* DetalleOfertasViewController.swift in Sources */,
+				63559A931CD09BB30092ED77 /* BannersParse.swift in Sources */,
+				63559A8F1CD099960092ED77 /* LocalidadesParse.swift in Sources */,
+				63559A911CD09ABE0092ED77 /* ActividadesParse.swift in Sources */,
 				63C430E31CC97369005519BE /* DetalleConcursosViewController.swift in Sources */,
 				63C430DE1CC97369005519BE /* ConcursosTableViewCell.swift in Sources */,
 				63C430E01CC97369005519BE /* CuponesTableViewCell.swift in Sources */,
 				63C430F11CC97369005519BE /* TerminosYCondicionesViewController.swift in Sources */,
 				63C430DF1CC97369005519BE /* ConcursosTableViewController.swift in Sources */,
+				63559A881CCFE26A0092ED77 /* AsociacionParse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,7 +843,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "931ee369-8a43-43c2-b207-11208c677155";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -848,7 +884,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "931ee369-8a43-43c2-b207-11208c677155";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -874,7 +910,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "931ee369-8a43-43c2-b207-11208c677155";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -900,7 +936,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "931ee369-8a43-43c2-b207-11208c677155";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 			};
 			name = Release;
@@ -940,7 +976,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "931ee369-8a43-43c2-b207-11208c677155";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -966,7 +1002,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = es.clubsinergias.CSolidario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f86f254-245a-4288-8e83-5b54321d04c9";
+				PROVISIONING_PROFILE = "931ee369-8a43-43c2-b207-11208c677155";
 				SWIFT_OBJC_BRIDGING_HEADER = "CSolidario/CSolidario-Bridging-Header.h";
 			};
 			name = Distribution;

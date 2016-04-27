@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 struct Constants {
     
@@ -47,6 +48,22 @@ struct Constants {
     let ERRORESPACIOSENBLANCO = "Por favor rellena todos los campos obligatorios, muchas gracias"
     
     let USERNAMEPARSE = "username"
+    
+    let BASEURLIDPARSE = "http://app.clubsinergias.es/api_comercios.php?idparse="
+    let BASEURLIDLOCALIDAD = "http://app.clubsinergias.es/api_comercios.php?idlocalidad="
+    let BASEURLIDCLIENTE = "http://app.clubsinergias.es/api_comercios.php?idcliente="
+    let BASEIDP = "&p="
+    let BASEIDTIPO = "&tipo="
+    
+    let PFUSERIDLOCALIDAD = PFUser.currentUser()!["idLocalidad"] as! String
+    
+    let TITLEDATA = "Atención"
+    let MESSAGEDATA = "Por favor revise toda la información"
+    
+    let TITLEDATAEXITOSO = "Atención"
+    let MESSAGEDATAEXITOSO = "La información se ha subido correctamente"
+    
+    
 }
 
 

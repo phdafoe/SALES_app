@@ -40,7 +40,7 @@
                                             <segue destination="pxa-X6-V5l" kind="modal" id="yLF-RH-jYg"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scp-B4-DmD">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scp-B4-DmD">
                                         <rect key="frame" x="20" y="20" width="320" height="481"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="481" id="9bw-o6-MaP"/>
@@ -64,7 +64,6 @@
                                     <constraint firstAttribute="bottom" secondItem="j26-SH-wIv" secondAttribute="bottom" constant="60" id="Er1-19-c1D"/>
                                     <constraint firstItem="Scp-B4-DmD" firstAttribute="centerX" secondItem="1lb-BJ-kcb" secondAttribute="centerX" id="MHf-Jz-Aob"/>
                                     <constraint firstItem="2FH-o4-iWl" firstAttribute="leading" secondItem="vew-p1-gI5" secondAttribute="trailing" constant="11" id="MRs-vc-bsl"/>
-                                    <constraint firstItem="Scp-B4-DmD" firstAttribute="leading" secondItem="1lb-BJ-kcb" secondAttribute="leading" constant="20" id="P52-Md-lgl"/>
                                     <constraint firstItem="j26-SH-wIv" firstAttribute="leading" secondItem="1lb-BJ-kcb" secondAttribute="leading" constant="36" id="XQK-1v-wAL"/>
                                     <constraint firstItem="Scp-B4-DmD" firstAttribute="centerX" secondItem="j26-SH-wIv" secondAttribute="centerX" id="abL-ie-oRh"/>
                                     <constraint firstItem="2FH-o4-iWl" firstAttribute="width" secondItem="vew-p1-gI5" secondAttribute="width" id="bWh-tj-ztf"/>
@@ -74,7 +73,6 @@
                                     <constraint firstItem="vew-p1-gI5" firstAttribute="top" secondItem="Scp-B4-DmD" secondAttribute="bottom" constant="10" id="kQW-fu-uKn"/>
                                     <constraint firstItem="Scp-B4-DmD" firstAttribute="top" secondItem="1lb-BJ-kcb" secondAttribute="top" constant="20" id="mef-Ra-JVh"/>
                                     <constraint firstAttribute="trailing" secondItem="2FH-o4-iWl" secondAttribute="trailing" constant="24" id="mkt-eX-VOV"/>
-                                    <constraint firstAttribute="trailing" secondItem="Scp-B4-DmD" secondAttribute="trailing" constant="20" id="oaT-4Q-8Qx"/>
                                     <constraint firstItem="2FH-o4-iWl" firstAttribute="leading" secondItem="vew-p1-gI5" secondAttribute="trailing" constant="11" id="pBF-xc-RIC"/>
                                     <constraint firstItem="vew-p1-gI5" firstAttribute="baseline" secondItem="2FH-o4-iWl" secondAttribute="firstBaseline" id="qSQ-AX-RaP"/>
                                     <constraint firstItem="2FH-o4-iWl" firstAttribute="baseline" secondItem="vew-p1-gI5" secondAttribute="firstBaseline" id="qiE-0r-j4u"/>
@@ -1682,7 +1680,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNE-Wj-G0Q">
                                 <rect key="frame" x="-1" y="0.0" width="321" height="588"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8j-D7-G3x">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8j-D7-G3x">
                                         <rect key="frame" x="1" y="509" width="320" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="rgz-ZU-Oxi"/>
@@ -1691,48 +1689,48 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDw-ea-qFh">
+                                    <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDw-ea-qFh">
                                         <rect key="frame" x="1" y="479" width="320" height="89"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                     </webView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc2-eS-OWf">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc2-eS-OWf">
                                         <rect key="frame" x="1" y="479" width="320" height="89"/>
                                         <connections>
                                             <action selector="showWeb:" destination="64y-8U-J9v" eventType="touchUpInside" id="5Ku-nx-0DY"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="rK1-FH-v9e">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="rK1-FH-v9e">
                                         <rect key="frame" x="-3" y="0.0" width="328" height="193"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="193" id="2pb-Dx-yWx"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="degradado.png" translatesAutoresizingMaskIntoConstraints="NO" id="WKB-SP-Y1Q">
+                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="degradado.png" translatesAutoresizingMaskIntoConstraints="NO" id="WKB-SP-Y1Q">
                                         <rect key="frame" x="-3" y="126" width="328" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="3dR-96-R0t"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SfQ-GS-7Ei">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfQ-GS-7Ei">
                                         <rect key="frame" x="10" y="227" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bV-mn-pOu">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bV-mn-pOu">
                                         <rect key="frame" x="10" y="336" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0P0-8P-Orb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0P0-8P-Orb">
                                         <rect key="frame" x="10" y="367" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="NwO-Bu-ifb"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJJ-fs-TCp">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJJ-fs-TCp">
                                         <rect key="frame" x="1" y="193" width="320" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-wr-n00">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-wr-n00">
                                         <rect key="frame" x="293" y="164" width="22" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -1766,19 +1764,19 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                             <action selector="socioACTION:" destination="64y-8U-J9v" eventType="touchUpInside" id="rgg-i4-67h"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre oferta" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jk-Id-A4l">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nombre oferta" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jk-Id-A4l">
                                         <rect key="frame" x="76" y="199" width="241" height="26"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mas informacion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJj-kj-gfZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mas informacion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJj-kj-gfZ">
                                         <rect key="frame" x="12" y="250" width="305" height="85"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fecha fin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOP-BV-Oma">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="fecha fin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOP-BV-Oma">
                                         <rect key="frame" x="138" y="343" width="173" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="Rkg-bq-AYc"/>
@@ -2029,7 +2027,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLc-6J-Cr3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="623"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-O4-HRr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-O4-HRr">
                                         <rect key="frame" x="0.0" y="507" width="320" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="etp-OT-weK"/>
@@ -2038,7 +2036,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-wg-Hl2">
+                                    <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WVR-wg-Hl2">
                                         <rect key="frame" x="0.0" y="479" width="320" height="89"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                     </webView>
@@ -2078,7 +2076,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre oferta" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNK-qM-mCa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nombre oferta" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNK-qM-mCa">
                                         <rect key="frame" x="72" y="198" width="244" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2093,13 +2091,13 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mas informacion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIs-Id-FCf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mas informacion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIs-Id-FCf">
                                         <rect key="frame" x="11" y="250" width="305" height="84"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fecha fin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4s-02-5H9">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="fecha fin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4s-02-5H9">
                                         <rect key="frame" x="126" y="341" width="186" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="186" id="diE-sg-DU7"/>
@@ -2117,41 +2115,41 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="345-py-DNf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="345-py-DNf">
                                         <rect key="frame" x="0.0" y="194" width="320" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="wbo-zf-GfE"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-yw-H4F">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-yw-H4F">
                                         <rect key="frame" x="9" y="337" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ptP-00-8rl"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CGo-fr-L5g">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CGo-fr-L5g">
                                         <rect key="frame" x="9" y="368" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="b51-Af-jHS"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C0g-QI-kUb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C0g-QI-kUb">
                                         <rect key="frame" x="9" y="228" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="QhF-Xr-Ojc"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="gMB-LJ-Myf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="gMB-LJ-Myf">
                                         <rect key="frame" x="-4" y="20" width="328" height="174"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="174" id="VXr-sy-CDQ"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="degradado.png" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-0B-QcO">
+                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="degradado.png" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-0B-QcO">
                                         <rect key="frame" x="-4" y="126" width="328" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="xEb-zd-2Dn"/>
@@ -2167,7 +2165,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                             <action selector="barrasACTION:" destination="sVq-2K-Xr7" eventType="touchUpInside" id="X8Q-ih-24v"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5N-2I-sJQ">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5N-2I-sJQ">
                                         <rect key="frame" x="0.0" y="479" width="320" height="89"/>
                                         <connections>
                                             <action selector="showWeb:" destination="sVq-2K-Xr7" eventType="touchUpInside" id="rvF-Dz-T5m"/>
@@ -2190,7 +2188,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                             <action selector="socioACTION:" destination="sVq-2K-Xr7" eventType="touchUpInside" id="s5G-eP-mSC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-uM-mxm">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxu-uM-mxm">
                                         <rect key="frame" x="292" y="164" width="22" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -2323,7 +2321,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlE-wR-Obn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfj-YF-gbW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="id Socio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfj-YF-gbW">
                                         <rect key="frame" x="0.0" y="508" width="320" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="x8F-2B-ujk"/>
@@ -2332,44 +2330,44 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bve-FJ-wiS">
+                                    <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bve-FJ-wiS">
                                         <rect key="frame" x="0.0" y="479" width="320" height="89"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                     </webView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mas informacion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4a-6S-jVG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="mas informacion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4a-6S-jVG">
                                         <rect key="frame" x="11" y="247" width="305" height="86"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre oferta" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZb-v2-GWI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nombre oferta" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZb-v2-GWI">
                                         <rect key="frame" x="66" y="198" width="248" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fecha fin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc2-k7-McO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="fecha fin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc2-k7-McO">
                                         <rect key="frame" x="132" y="338" width="180" height="27"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-Uf-cWb">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mO-Uf-cWb">
                                         <rect key="frame" x="9" y="367" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="BjT-8h-xba"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CEm-MJ-IdI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEm-MJ-IdI">
                                         <rect key="frame" x="9" y="336" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E94-2R-l4U">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E94-2R-l4U">
                                         <rect key="frame" x="9" y="227" width="303" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vwQ-zq-nMf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwQ-zq-nMf">
                                         <rect key="frame" x="0.0" y="193" width="320" height="1"/>
                                         <color key="backgroundColor" red="0.68158865319999995" green="0.72407670449999995" blue="0.13924383260000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -2430,25 +2428,25 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
                                         <color key="textColor" red="0.13725490200000001" green="0.2274509804" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-kN-cQK">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconoFondoImagenes.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0V-kN-cQK">
                                         <rect key="frame" x="-4" y="20" width="328" height="174"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="174" id="17u-f7-XR5"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="degradado.png" translatesAutoresizingMaskIntoConstraints="NO" id="YhO-Wz-U7X">
+                                    <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="degradado.png" translatesAutoresizingMaskIntoConstraints="NO" id="YhO-Wz-U7X">
                                         <rect key="frame" x="-4" y="125" width="328" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="sdb-xe-hNt"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCT-xQ-tHz">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCT-xQ-tHz">
                                         <rect key="frame" x="0.0" y="479" width="320" height="89"/>
                                         <connections>
                                             <action selector="showWeb:" destination="3Ih-HV-9Ox" eventType="touchUpInside" id="MtV-TU-SUK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-55-hvB">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-55-hvB">
                                         <rect key="frame" x="292" y="164" width="22" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -3105,7 +3103,7 @@ Ante cualquier conflicto, la Ley aplicable será la Peruana y la jurisdicción c
         <image name="tusOfertas.png" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OcP-LC-BBy"/>
+        <segue reference="16h-eJ-4Jl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.14117647059999999" green="0.1333333333" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

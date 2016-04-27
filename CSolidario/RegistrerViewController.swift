@@ -18,8 +18,10 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     var parseId : String?
     var id : String?
     var totalPuntos : Int?
+    
     var idLocalidadSeleccionada : String = ""
     var idAsociacionSeleccionada : String = ""
+    
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()
     let CONSTANTES = Constants()
@@ -83,20 +85,18 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 if errorDataPost != ""{
-                    self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: errorDataPost)
+                    self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
                 }
                 
                 if errorData != nil {
                     
                     if let errorString = errorData!.userInfo["error"] as? NSString{
-                        self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: errorString as String)
-                        
+                        self.displayAlertVCErrorRegistro(errorString)
                     }else{
-                        self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: "Por favor Reintenta el Registro")
+                        self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
                     }
                     
                 } else {
-                    
                     self.signUpAndPostImage()
                     self.saveUserID()
                     self.geoPointParse()
@@ -104,9 +104,8 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        
         if errorInitial != ""{
-            displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: errorInitial)
+            self.displayAlertVCEspaciosEnBlanco(CONSTANTES.ERRORESPACIOSENBLANCO)
         }
         
         
@@ -119,11 +118,10 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         myActivityIndicator.hidden = true
-
         
         locationData = TOAPIDatabaseManager.sharedInstance.getLocalidades()
-        
-        
+        idLocalidadSeleccionada = self.locationData[0].id!
+
         let pickerViewLocationData = UIPickerView()
         pickerViewLocationData.delegate = self
         pickerViewLocationData.tag = 1
@@ -131,7 +129,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         myLocationCity.text = locationData[0].nombre
         
         AssociationData = TOAPIDatabaseManager.sharedInstance.getAsociaciones(idLocalidadSeleccionada)
-        
+
         let pickerViewAssociationData = UIPickerView()
         pickerViewAssociationData.delegate = self
         pickerViewAssociationData.tag = 2
@@ -167,14 +165,24 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    //MARK: - UTILS
-    
-    func displayAlertVC(titleData:String, messageData:String){
-        
-        let alertVC = UIAlertController (title: titleData, message: messageData, preferredStyle: .Alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alertVC, animated: true, completion: nil)
+    //MARK: - MENSAJES DE ERROR
+    func displayAlertVC(){
+        presentViewController(utilsDisplayAlertVCGeneral(), animated: true, completion: nil)
     }
+    
+    func displayAlertVCErrorRegistro(errorString : NSString){
+        presentViewController(utilsDisplayAlertErrorRegistro(errorString as String), animated: true, completion: nil)
+    }
+    
+    func displayAlertVCExitoso(){
+        presentViewController(utilsDisplayAlertVCExitoso(), animated: true, completion: nil)
+    }
+    
+    func displayAlertVCEspaciosEnBlanco(espaciosEnBlanco : String){
+        presentViewController(utilsDisplayAlertVCEspaciosEnBlanco(espaciosEnBlanco), animated: true, completion: nil)
+    }
+    
+    
     
     func signUpAndPostImage(){
 
@@ -186,17 +194,14 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         
         postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success{
-                self.displayAlertVC("Publicacion completada", messageData: "Tu foto ha sido publicada")
+                self.displayAlertVCExitoso()
             }else{
-                self.displayAlertVC(self.CONSTANTES.ERRORREGISTRO, messageData: "no se pudo subir los datos")
+                self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
             }
             self.photoSelected = false
             self.myImageView.image = UIImage(named: "placeholderPerson.png")
         })
-        
-        
-        
-        //OJO EL TIPO DE SEGUE TIENE QUE SER MODAL Y NO PUSH GENERA UN PROBLEMA DE SOPORTE
+
         self.performSegueWithIdentifier("jumpToViewContoller", sender: self)
         
         print("El Usuario ha logrado Registrarse")
@@ -212,27 +217,22 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //MARK: - GEOPOINT
     func geoPointParse(){
-        
-        //GEOPOINT
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-            
             if error == nil {
                 let user = PFUser.currentUser()!
                 user[self.CONSTANTES.IDLOCALIZACIONPARSE] = geoPoint
                 user.saveInBackground()
-            
             }else{
                 print(error)
             }
-            
         }
     }
     
-    
+    //MARK: - SAVE USER ID
     func saveUserID(){
-        
         let databaseID = TOAPIDatabaseManager.sharedInstance.getSaveUser((PFUser.currentUser()?.objectId)!)
         let myUser = PFUser.currentUser()
         myUser![self.CONSTANTES.IDDATABASEID] = databaseID
@@ -300,9 +300,7 @@ extension RegistrerViewController : UIImagePickerControllerDelegate, UINavigatio
 
 //MARK: - PICKERVIEW DELEGATE
 extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource{
-    
-    
-    
+
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -7,29 +7,18 @@
 //
 
 import UIKit
-import SwiftyJSON
-import Parse
-
-//Promociones OK
-//Asociaciones OK
-//Movimientos OK
-
-//Localidades
-//Actividades
-//Banners
-//SaveUser
 
 class TOAPIDatabaseManager: NSObject {
 
     //MARK: - VARIABLES LOCALES
-    var numberOfRows = 0
-    var json : JSON = JSON.null
     let CONSTANTES = Constants()
+    let asociaciones = AsociacionParse()
+    let movimientos = MovimientoParse()
+    let localidades = LocalidadesParse()
+    let actividades = ActividadesParse()
+    let banners = BannersParse()
+    let promociones = PromocionesParse()
 
-    
- 
-
-    
     //MARK: - SINGLETON
     class var sharedInstance : TOAPIDatabaseManager {
         struct SingletonAPP {
@@ -37,236 +26,71 @@ class TOAPIDatabaseManager: NSObject {
         }
         return SingletonAPP.instancia
     }
-    
-    
+
     //MARK: - GET PROMOCIONES
     func getPromociones(idLocalidad : String, tipo : String) -> [TOPromocionModel]{
-        
-        print("HAS ENTRADO A PROMOCIONES")
-        
-        let idLocalidad = PFUser.currentUser()!["idLocalidad"] as! String
-        
-        var arrayPromocionModel = [TOPromocionModel]()
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idLocalidad + "&tipo=" + tipo + "&p=" + CONSTANTES.PROMOCIONES_SERVICE)
-        let jsonData = NSData(contentsOfURL: url!)
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        numberOfRows = readableJSON["promociones"].count
-        
-        if numberOfRows != 0{
 
-            for index in 0...numberOfRows - 1{
-                
-                let toAsociadoModel = TOAsociadoModel(aId: getString("promociones", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aNombre:getString("promociones", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aIdActividad: getString("promociones", index: index, nombre: "idActividad", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aIdLocalidad: getString("promociones", index: index, nombre: "idLocalidad", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aDescripcion: getString("promociones", index: index, nombre: "descripcion", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aDireccion: getString ("promociones", index: index, nombre: "direccion", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aCondicionesEspeciales: getString("promociones", index: index, nombre: "condicionesEspeciales", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aEmail: getString("promociones", index: index, nombre: "mail", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aImagenURL: getString("promociones", index: index, nombre: "imagen", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aTelefonoFijo: getString("promociones", index: index, nombre: "telefonoFijo", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aTelefonoMovil: getString("promociones", index: index, nombre: "telefonoMovil", nombreObjeto: readableJSON, segundoNivel: "asociado"),
-                                                      aWeb: getString("promociones", index: index, nombre: "web", nombreObjeto: readableJSON, segundoNivel: "asociado"))
-                
-                let dataModel = TOPromocionModel(aImagenURL:getString("promociones", index: index, nombre: "imagen", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                 aTitulo:getString("promociones", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                 aDescripcion:getString("promociones", index: index, nombre: "masInformacion", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                 aAsociado:toAsociadoModel,
-                                                 aId:getString("promociones", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                 aFechaValidez:getString("promociones", index: index, nombre: "fechaFin", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                 aTipo:getString("promociones", index: index, nombre: "tipoPromocion", nombreObjeto: readableJSON, segundoNivel: nil))
-                
-                arrayPromocionModel.append(dataModel)
-            }
-        }
+        let idLocalidad = CONSTANTES.PFUSERIDLOCALIDAD
+        let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + idLocalidad + CONSTANTES.BASEIDTIPO + tipo + CONSTANTES.BASEIDP + CONSTANTES.PROMOCIONES_SERVICE)
+        let jsonData = NSData(contentsOfURL: url!)
+        let arrayPromocionModel = promociones.getPromocionesModel(jsonData!)
         return arrayPromocionModel
         
     }
     
-    
     //MARK: - GET ASOCIACIONES
     func getAsociaciones(idlocalidad : String) -> [TOAsociacionModel]{
         
-        var arrayAsociacionModel = [TOAsociacionModel]()
-        
-        
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idlocalidad + "&p=" + CONSTANTES.ASOCIACIONES_SERVICE)
+        let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + idlocalidad + CONSTANTES.BASEIDP + CONSTANTES.ASOCIACIONES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        numberOfRows = readableJSON["asociaciones"].count
-        
-        for index in 0...numberOfRows - 1{
-
-            let dataModel = TOAsociacionModel(aId: getString("asociaciones", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aNombre: getString("asociaciones", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aDescripcion: getString("asociaciones", index: index, nombre: "descripcion", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aDireccion: getString("asociaciones", index: index, nombre: "direccion", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aIdLocalidad: getString("asociaciones", index: index, nombre: "idLocalidad", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aImagenURL: getString("asociaciones", index: index, nombre: "logo", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aTelefonoFijo: getString("asociaciones", index: index, nombre: "telefonoFijo", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aTelefonoMovil: getString("asociaciones", index: index, nombre: "telefonoMovil", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aWeb: getString("asociaciones", index: index, nombre: "web", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aEmail: getString("asociaciones", index: index, nombre: "mail", nombreObjeto: readableJSON, segundoNivel: nil),
-                                              aPersonaContacto: getString("asociaciones", index: index, nombre: "personaContacto", nombreObjeto: readableJSON, segundoNivel: nil))
-            
-            arrayAsociacionModel.append(dataModel)
-        }
-        
-        return arrayAsociacionModel
+        let arrayAsociones =  asociaciones.getAsociacionesModel(jsonData!)
+        return arrayAsociones
     }
-    
-    
-    
-    
-    //AQUI TENGO QUE GESTIONAR EL VALOR NIL OJO
+
     //MARK: - GET MOVIMIENTOS
     func  getMovimientos(idCliente : String) -> [TOMovimientoModel]{
 
-        
-        
-        var arrayMovimientoModel = [TOMovimientoModel]()
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idcliente=" + idCliente + "&p=" + CONSTANTES.PUNTOS_SERVICE)
+        let url = NSURL(string: CONSTANTES.BASEURLIDCLIENTE + idCliente + CONSTANTES.BASEIDP + CONSTANTES.PUNTOS_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        numberOfRows = readableJSON["puntos"].count
-
-        if numberOfRows != 0{
-            
-            for index in 0...numberOfRows - 1 {
-                
-                let dataModel = TOMovimientoModel(aFecha: getString("puntos", index: index, nombre: "fecha", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                  aNombre: getString("puntos", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                  aPuntosConseguidos: getString("puntos", index: index, nombre: "puntosConseguidos", nombreObjeto: readableJSON, segundoNivel: nil),
-                                                  aPuntosCanjeados: getString("puntos", index: index, nombre: "puntosCanjeados", nombreObjeto: readableJSON, segundoNivel: nil))
-                
-                
-                arrayMovimientoModel.append(dataModel)
-            }
-            
-        }else{
-            print("no tienes puntos")
-        }
-        
+        let arrayMovimientoModel = movimientos.getMovimientosModel(jsonData!)
         return arrayMovimientoModel
     }
-    
-    
-    
 
     //MARK: - GET LOCALIDADES
     func getLocalidades() -> [TOLocalidadModel]{
         
-        var arrayLocalidadesModel = [TOLocalidadModel]()
-
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + "&p=" + CONSTANTES.LOCALIDADES_SERVICE)
+        let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + CONSTANTES.BASEIDP + CONSTANTES.LOCALIDADES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        numberOfRows = readableJSON["localidades"].count
-        
-        for index in 0...numberOfRows - 1{
-            
-            let dataModel = TOLocalidadModel(aId: getString("localidades", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
-                                             aNombre: getString("localidades", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil),
-                                             aProvincia: getString("localidades", index: index, nombre: "provincia", nombreObjeto: readableJSON, segundoNivel: nil),
-                                             aPais: getString("localidades", index: index, nombre: "pais", nombreObjeto: readableJSON, segundoNivel: nil))
-            
-            
-            arrayLocalidadesModel.append(dataModel)
-        }
-        
+        let arrayLocalidadesModel = localidades.getLocalidadesModel(jsonData!)
         return arrayLocalidadesModel
     }
-    
-    
     
     //MARK: - GET ACTIVIDADES
     func getActividades() -> [TOActividadModel]{
         
-        var arrayActividadesModel = [TOActividadModel]()
-        
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + "&p=" + CONSTANTES.ACTIVIDADES_SERVICE)
+        let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + CONSTANTES.BASEIDP + CONSTANTES.ACTIVIDADES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        
-        numberOfRows = readableJSON["actividades"].count
-        
-        for index in 0...numberOfRows - 1{
-            
-            let dataModel = TOActividadModel(aId: getString("actividades", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
-                                             aNombre: getString("actividades", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil))
-            
-            
-            arrayActividadesModel.append(dataModel)
-        }
-        
+        let arrayActividadesModel = actividades.getActividadesModel(jsonData!)
         return arrayActividadesModel
     }
     
-    
     //MARK: - GET BANNERS
     func getBanners(idlocalidad : String) -> [TOBannersModel]{
-        //Esto hay que borrarlo
-        let idlocalidad = PFUser.currentUser()!["idLocalidad"] as! String
-        //Esto hay que borrarlo
-        var arrayBannersModel = [TOBannersModel]()
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idlocalidad=" + idlocalidad + "&p=" + CONSTANTES.BANNERS_SERVICE)
+        let idlocalidad = CONSTANTES.PFUSERIDLOCALIDAD
+        let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + idlocalidad + CONSTANTES.BASEIDP + CONSTANTES.BANNERS_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        
-        numberOfRows = readableJSON["banners"].count
-        
-        for index in 0...numberOfRows - 1{
-            
-            let dataModel = TOBannersModel(aId: getString("banners", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
-                                           aImagenURL: getString("banners", index: index, nombre: "imagen", nombreObjeto: readableJSON, segundoNivel: nil),
-                                           aOrden: getString("banners", index: index, nombre: "orden", nombreObjeto: readableJSON, segundoNivel: nil),
-                                           aTitulo: getString("banners", index: index, nombre: "titulo", nombreObjeto: readableJSON, segundoNivel: nil),
-                                           aTargetURL: getString("banners", index: index, nombre: "target_url", nombreObjeto: readableJSON, segundoNivel: nil))
-            
-            arrayBannersModel.append(dataModel)
-        }
+        let arrayBannersModel = banners.getBannersModel(jsonData!)
         return arrayBannersModel
     }
-    
     
     //MARK: - GET SAVEUSER
     func getSaveUser(parseID : String!) -> String{
         
-        let url = NSURL(string: "http://app.clubsinergias.es/api_comercios.php?idparse=" + parseID + "&p=" + CONSTANTES.NUEVOCLIENTE_SERVICE)
+        let url = NSURL(string: CONSTANTES.BASEURLIDPARSE + parseID + CONSTANTES.BASEIDP + CONSTANTES.NUEVOCLIENTE_SERVICE)
         let data = NSData(contentsOfURL: url!)
         let id = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-        print( "iswebOptional: " + String(id))
         return String(id)
   
     }
-
-    
-    //MARK: - GET STRING -> UTILS
-    func getString(array : String, index : Int, nombre : String, nombreObjeto : JSON!, segundoNivel : String?) -> String{
-        
-        if segundoNivel != nil{
-            if let stringResult = nombreObjeto[array][index][segundoNivel!][nombre].string{
-                return stringResult
-            }else{
-                return ""
-            }
-            
-        }else{
-            
-            if let stringResult = nombreObjeto[array][index][nombre].string{
-                return stringResult
-            }else{
-                return ""
-            }
-        }
-    }
-    
-    
 }

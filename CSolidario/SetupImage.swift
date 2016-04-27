@@ -13,13 +13,13 @@ import UIKit
 public class ImageLoader{
 
     var cache = NSCache()
-    
     class var sharedLoader: ImageLoader {
         struct SingletonImage {
             static let instance : ImageLoader = ImageLoader()
         }
         return SingletonImage.instance
     }
+    
     
     func imageForUrl(urlString : String!, completionHandler: (image: UIImage!, url: String!) -> ()){
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) { () -> Void in
@@ -33,7 +33,6 @@ public class ImageLoader{
             }
             
             if urlString != nil{
-            
                 let downloadTask : NSURLSessionDataTask = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)!, completionHandler: { (dataSource, response, error) -> Void in
                     
                     if error != nil{
