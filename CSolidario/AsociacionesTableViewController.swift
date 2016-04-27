@@ -13,10 +13,8 @@ class AsociacionesTableViewController: UITableViewController {
     
  
     //MARK: - VARIABLES LOCALES GLOBALES
-    var refresh : UIRefreshControl?
+    var refresh = UIRefreshControl()
     let CONSTANTES = Constants()
-
-    
     var arrayAsociaciones = [TOAsociacionModel]()
     
     
@@ -28,50 +26,40 @@ class AsociacionesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        refresh = UIRefreshControl()
-        refresh?.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh?.addTarget(self, action: #selector(AsociacionesTableViewController.refreshControll), forControlEvents: .ValueChanged)
-        tableView.addSubview(refresh!)
-        
+        refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
+        refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
+        refresh.addTarget(self, action: #selector(AsociacionesTableViewController.refreshController), forControlEvents: .ValueChanged)
+        tableView.addSubview(refresh)
+
         getSingletonApiDataBaseManager()
 
     }
     
     func getSingletonApiDataBaseManager(){
-        
         arrayAsociaciones = TOAPIDatabaseManager.sharedInstance.getAsociaciones(PFUser.currentUser()!["idLocalidad"] as! String)
-        
     }
     
     
-    func refreshControll(){
-        
+    func refreshController(){
         getSingletonApiDataBaseManager()
         tableView.reloadData()
-        self.refresh?.endRefreshing()
+        self.refresh.endRefreshing()
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        getSingletonApiDataBaseManager()
         tableView.reloadData()
+        self.refresh.endRefreshing()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return arrayAsociaciones.count
     }
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -82,9 +70,8 @@ class AsociacionesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! AsociacionesTableViewCell
-
-        let asociacionModel : TOAsociacionModel = arrayAsociaciones[indexPath.row]
         
+        let asociacionModel : TOAsociacionModel = arrayAsociaciones[indexPath.row]
         
         cell.myNombreAsociadoLBL.text = asociacionModel.nombre
         cell.myDireccionLBL.text = asociacionModel.direccion
@@ -110,12 +97,8 @@ class AsociacionesTableViewController: UITableViewController {
 
         let asociacionModel : TOAsociacionModel = arrayAsociaciones[indexPath.row]
         
-        
-        
         let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.ASOCIACIONES_IMAGENES, id: asociacionModel.id!, name: asociacionModel.imagenURL!))!)!)
-        
-        
-        
+
         detalleAsociacionesVC.detalleImageAsociacionAData = imageData
         detalleAsociacionesVC.detalleDescripcionData = asociacionModel.descripcion
         detalleAsociacionesVC.detalleTelefonoFijoData = asociacionModel.telefonoFijo

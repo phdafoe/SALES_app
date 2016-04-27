@@ -17,12 +17,10 @@ class WebDetalleViewController: UIViewController {
     //MARK: - IBOUTLET
     @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
-    
-    
+
     
     //MARK: - IBACTION
     @IBAction func closeWindow(sender: AnyObject) {
-        
         dismissViewControllerAnimated(true, completion: nil)
         
     }
@@ -30,22 +28,22 @@ class WebDetalleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         let url = NSURL(string: detalleWebPublicidad!)
         let request = NSURLRequest(URL: url!)
         myWebView.loadRequest(request)
         myWebView.delegate = self
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
     }
 
 }
 
+//MARK : - UIWebViewDelegate
 extension WebDetalleViewController : UIWebViewDelegate{
     
     func webViewDidStartLoad(webView: UIWebView) {

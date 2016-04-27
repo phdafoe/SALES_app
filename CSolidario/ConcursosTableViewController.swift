@@ -13,7 +13,7 @@ import Parse
 class ConcursosTableViewController: UITableViewController {
     
     //MARK: - VARIABLES LOCALES
-    var refresh : UIRefreshControl?
+    var refresh = UIRefreshControl()
     var arrayConcursos = [TOPromocionModel]()
     let CONSTANTES = Constants()
     
@@ -24,61 +24,46 @@ class ConcursosTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh = UIRefreshControl()
-        refresh?.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh?.addTarget(self, action: #selector(AsociacionesTableViewController.refreshControll), forControlEvents: .ValueChanged)
-        tableView.addSubview(refresh!)
+        refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
+        refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
+        refresh.addTarget(self, action: #selector(ConcursosTableViewController.refreshController), forControlEvents: .ValueChanged)
+        tableView.addSubview(refresh)
         
         getSingletonApiDataBaseManager()
-        
-        
 
         if revealViewController() != nil {
-            //revealViewController().rearViewRevealWidth = 62
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            
-            //revealViewController().rightViewRevealWidth = 150
-            //extraButton.target = revealViewController()
-            //extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
     
     func getSingletonApiDataBaseManager(){
-        
         arrayConcursos = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.CONCURSO)
     }
     
     
-    func refreshControll(){
+    func refreshController(){
         
         getSingletonApiDataBaseManager()
         tableView.reloadData()
-        self.refresh?.endRefreshing()
+        self.refresh.endRefreshing()
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        getSingletonApiDataBaseManager()
         tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.refresh.endRefreshing()
     }
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return arrayConcursos.count
     }
 

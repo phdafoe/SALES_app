@@ -30,7 +30,7 @@ class TOAPIDatabaseManager: NSObject {
     //MARK: - GET PROMOCIONES
     func getPromociones(idLocalidad : String, tipo : String) -> [TOPromocionModel]{
 
-        let idLocalidad = CONSTANTES.PFUSERIDLOCALIDAD
+        //let idLocalidad = CONSTANTES.PFUSERIDLOCALIDAD
         let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + idLocalidad + CONSTANTES.BASEIDTIPO + tipo + CONSTANTES.BASEIDP + CONSTANTES.PROMOCIONES_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let arrayPromocionModel = promociones.getPromocionesModel(jsonData!)

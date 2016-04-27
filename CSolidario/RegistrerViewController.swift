@@ -13,8 +13,8 @@ import Parse
 class RegistrerViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - VARIABLES LOCALES GLOBALES
+    let CONSTANTES = Constants()
     var photoSelected = false
-    var saveNewUser = TOUsuarioModel?()
     var parseId : String?
     var id : String?
     var totalPuntos : Int?
@@ -24,7 +24,8 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()
-    let CONSTANTES = Constants()
+    var saveNewUser = TOUsuarioModel?()
+    
 
     
     //MARK: - IBOUTLET
@@ -50,9 +51,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
             errorInitial = CONSTANTES.ERRORESPACIOSENBLANCO
             
         }else{
-            
-            //Fase 2 iCoSelf -> Aqui traemos desde parse del registro del usuario
-            
+
             let user = PFUser()
             user[CONSTANTES.IDLOCALIDAD] = idLocalidadSeleccionada
             user[CONSTANTES.IDASOCIACION] = idAsociacionSeleccionada
@@ -66,28 +65,20 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
             myActivityIndicator.hidden = false
             myActivityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            
             user.signUpInBackgroundWithBlock {
-                
-                //Cambiemos el nombre de la variable error a signUpError para no tener problemas con nuetro error de arriba
                 (succeeded: Bool, signUpError: NSError?) -> Void in
-                
-                //->  ActivityIndicator
                 self.myActivityIndicator.hidden = true
                 self.myActivityIndicator.stopAnimating()
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                
                 let errorData = signUpError
                 var errorDataPost = ""
                 
                 if !self.photoSelected{
                     errorDataPost = "Por favor elige una foto de la galeria o toma una fotografia"
                 }
-                
                 if errorDataPost != ""{
                     self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
                 }
-                
                 if errorData != nil {
                     
                     if let errorString = errorData!.userInfo["error"] as? NSString{
@@ -95,12 +86,10 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
                     }else{
                         self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
                     }
-                    
                 } else {
                     self.signUpAndPostImage()
                     self.saveUserID()
                     self.geoPointParse()
-                    
                 }
             }
         }

@@ -114,9 +114,8 @@ class DetalleOfertasViewController: UIViewController {
             displayAlertVC("Hola", messageData: "Tenemos problemas para genera el QR")
         }
         
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
-        longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func fromString(string : String) -> UIImage? {
@@ -157,15 +156,6 @@ class DetalleOfertasViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
         view.addGestureRecognizer(tapGesture)
         
-        
-        /*let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
-        longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)*/
-        
-        
-        
-        
-        
     }
     
     @IBAction func socioACTION(sender: AnyObject) {
@@ -186,9 +176,8 @@ class DetalleOfertasViewController: UIViewController {
         self.view.addSubview(labelData)
 
 
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
-        longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
     

@@ -119,10 +119,9 @@ class DetalleConcursosViewController: UIViewController {
             displayAlertVC("Hola", messageData: "Tenemos problemas para genera el QR")
         }
         
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
-        longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)
-    }
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleConcursosViewController.actionGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
+        }
     
     func fromString(string : String) -> UIImage? {
         let data = string.dataUsingEncoding(NSASCIIStringEncoding)
@@ -131,6 +130,8 @@ class DetalleConcursosViewController: UIViewController {
         return UIImage(CIImage: filter!.outputImage!)
         
     }
+    
+    
     
     @IBAction func QRACTION(sender: AnyObject) {
         
@@ -157,15 +158,10 @@ class DetalleConcursosViewController: UIViewController {
             displayAlertVC("Hola", messageData: "Tenemos problemas para genera el QR")
         }
         
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
-        longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)
-        
-        
-        
-        
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleConcursosViewController.actionGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
+    
     
     @IBAction func socioACTION(sender: AnyObject) {
         
@@ -185,9 +181,8 @@ class DetalleConcursosViewController: UIViewController {
         self.view.addSubview(labelData)
         
         
-        let longGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(DetalleOfertasViewController.actionGesture(_:)))
-        longGestureRecognizer.minimumPressDuration = 1
-        background.addGestureRecognizer(longGestureRecognizer)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DetalleConcursosViewController.actionGesture(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
     
@@ -206,7 +201,7 @@ class DetalleConcursosViewController: UIViewController {
     
     
     //MARK: - GESTURE RECOGNIZER
-    func actionGesture(gestureRecognizer: UIGestureRecognizer){
+    func actionGesture(gestureRecognizer: UITapGestureRecognizer){
         for subview in self.view.subviews{
             if subview.tag == self.imageGroupTag{
                 subview.removeFromSuperview()

@@ -14,10 +14,8 @@ class OfertasTableViewController: UITableViewController {
     
      //MARK: - VARIABLES LOCALES
     var arrayOferta = [TOPromocionModel]()
-    var refresh : UIRefreshControl?
+    var refresh = UIRefreshControl()
     let CONSTANTES = Constants()
-    
-    
     
     @IBOutlet var menuButton:UIBarButtonItem!
 
@@ -25,53 +23,42 @@ class OfertasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh = UIRefreshControl()
-        refresh?.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh?.addTarget(self, action: #selector(AsociacionesTableViewController.refreshControll), forControlEvents: .ValueChanged)
-        tableView.addSubview(refresh!)
+        refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
+        refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
+        refresh.addTarget(self, action: #selector(OfertasTableViewController.refreshController), forControlEvents: .ValueChanged)
+        tableView.addSubview(refresh)
         
-        getSingletonApiDataBaseManager()
+         getSingletonApiDataBaseManager()
 
         if revealViewController() != nil {
-            //revealViewController().rearViewRevealWidth = 200
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-
-            //revealViewController().rightViewRevealWidth = 150
-            //extraButton.target = revealViewController()
-            //extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+
+        
     }
     
     
     func getSingletonApiDataBaseManager(){
-        
         arrayOferta = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.OFERTAS)
-        
     }
     
-    
-    func refreshControll(){
-        
+    func refreshController(){
         getSingletonApiDataBaseManager()
         tableView.reloadData()
-        self.refresh?.endRefreshing()
-        
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
+        refresh.endRefreshing()
 
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        getSingletonApiDataBaseManager()
         tableView.reloadData()
-        
+        refresh.endRefreshing()
+
     }
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,35 +67,26 @@ class OfertasTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return arrayOferta.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OfertasTableViewCell
 
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OfertasTableViewCell
         let ofertasModel : TOPromocionModel = arrayOferta[indexPath.row]
         
         cell.myFechaFin.text = ofertasModel.fechaValidez
         cell.myMasInformacion.text = ofertasModel.descripcion
         cell.myImporte.text = ofertasModel.tipo
-        
-        print("id:" + ofertasModel.id! + "imagen" + ofertasModel.imagenURL!)
-        
-        
+            
         ImageLoader.sharedLoader.imageForUrl(getImagePath(CONSTANTES.OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL)) { (image, url) in
             cell.myImagenCupon.image = image
         }
-        
         return cell
     }
     

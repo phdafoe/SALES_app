@@ -17,7 +17,6 @@ class LocalidadesParse: NSObject {
         var numberOfRows = 0
         let readableJSON = JSON(data: dataFromNetworking, options: NSJSONReadingOptions.MutableContainers, error: nil)
         numberOfRows = readableJSON["localidades"].count
-        if numberOfRows != 0{
             for index in 0...numberOfRows - 1{
                 let dataModel = TOLocalidadModel(aId: getString("localidades", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),
                                                  aNombre: getString("localidades", index: index, nombre: "nombre", nombreObjeto: readableJSON, segundoNivel: nil),
@@ -25,7 +24,6 @@ class LocalidadesParse: NSObject {
                                                  aPais: getString("localidades", index: index, nombre: "pais", nombreObjeto: readableJSON, segundoNivel: nil))
                 arrayLocalidadesModel.append(dataModel)
             }
-        }
         return arrayLocalidadesModel
     }
 

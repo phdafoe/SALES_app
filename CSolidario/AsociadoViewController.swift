@@ -40,12 +40,7 @@ class AsociadoViewController: UIViewController {
     @IBOutlet weak var myWebGifPublicidad: UIWebView!
     @IBOutlet weak var myDescripcionTV : UITextView!
     
-    
-    
-    
-    
-    
-    
+
     //MARK: - IBACTION
     @IBAction func cerrarACTION(sender: AnyObject) {
         
@@ -58,8 +53,6 @@ class AsociadoViewController: UIViewController {
     @IBAction func showWebPublicidad(sender: AnyObject) {
         
         let webDetallePublicidad = self.storyboard?.instantiateViewControllerWithIdentifier("detalleWeb") as! WebDetalleViewController
-        
-        //PASO DE DATOS A VISTA ASOCIADO
         webDetallePublicidad.detalleWebPublicidad = arrayBanners[indexActual].targetURL
         self.presentViewController(webDetallePublicidad, animated: true, completion: nil)
         

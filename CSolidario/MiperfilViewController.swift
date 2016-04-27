@@ -80,6 +80,8 @@ class MiperfilViewController: UIViewController {
         findDataFromParse()
     }
 
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -87,9 +89,7 @@ class MiperfilViewController: UIViewController {
     
     
     //MARK: - UTILS
-    
     func findDataFromParse(){
-        
         let query = PFUser.query()!
         query.whereKey(CONSTANTES.USERNAMEPARSE, equalTo: (PFUser.currentUser()?.username)!)
         query.findObjectsInBackgroundWithBlock {
@@ -97,10 +97,7 @@ class MiperfilViewController: UIViewController {
             
             if error == nil {
                 if let objects = objects {
-                    
                     for objectData in objects {
-                        
-                        
                         let query = PFQuery(className:self.CONSTANTES.IDNOMBRETABLAIMAGEN)
                         query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.currentUser()?.username)!)
                         query.findObjectsInBackgroundWithBlock {

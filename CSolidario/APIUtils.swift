@@ -21,7 +21,6 @@ func getString(array : String, index : Int, nombre : String, nombreObjeto : JSON
         }else{
             return ""
         }
-        
     }else{
         
         if let stringResult = nombreObjeto[array][index][nombre].string{
@@ -31,8 +30,6 @@ func getString(array : String, index : Int, nombre : String, nombreObjeto : JSON
         }
     }
 }
-
-
 
 func utilsDisplayAlertVCGeneral() -> UIAlertController{
     let alertVC = UIAlertController (title: CONSTANTES.TITLEDATA, message: CONSTANTES.MESSAGEDATA, preferredStyle: .Alert)

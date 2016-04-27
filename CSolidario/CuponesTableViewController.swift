@@ -14,7 +14,7 @@ class CuponesTableViewController: UITableViewController {
     
     //MARK: - VARIABLES LOCALES (TIPO OFERTAS)
     var arrayCupones = [TOPromocionModel]()
-    var refresh : UIRefreshControl?
+    var refresh = UIRefreshControl()
     let CONSTANTES = Constants()
     
 
@@ -23,46 +23,42 @@ class CuponesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        refresh = UIRefreshControl()
-        refresh?.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh?.addTarget(self, action: #selector(AsociacionesTableViewController.refreshControll), forControlEvents: .ValueChanged)
-        tableView.addSubview(refresh!)
+
+        refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
+        refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
+        refresh.addTarget(self, action: #selector(CuponesTableViewController.refreshController), forControlEvents: .ValueChanged)
+        tableView.addSubview(refresh)
+
         
         getSingletonApiDataBaseManager()
 
         if revealViewController() != nil {
-            //revealViewController().rearViewRevealWidth = 62
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            
-            //revealViewController().rightViewRevealWidth = 150
-            //extraButton.target = revealViewController()
-            //extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-            
-            //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
     }
     
     func getSingletonApiDataBaseManager(){
-        
         arrayCupones = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.CUPONES)
     }
     
     
-    func refreshControll(){
+    func refreshController(){
         
         getSingletonApiDataBaseManager()
         tableView.reloadData()
-        self.refresh?.endRefreshing()
+        self.refresh.endRefreshing()
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        getSingletonApiDataBaseManager()
         tableView.reloadData()
+        self.refresh.endRefreshing()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
