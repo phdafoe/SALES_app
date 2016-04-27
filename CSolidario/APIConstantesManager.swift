@@ -55,7 +55,7 @@ struct Constants {
     let BASEIDP = "&p="
     let BASEIDTIPO = "&tipo="
     
-    let PFUSERIDLOCALIDAD = PFUser.currentUser()!["idLocalidad"] as! String
+    //let PFUSERIDLOCALIDAD = PFUser.currentUser()!["idLocalidad"] as! String
     
     let TITLEDATA = "Atención"
     let MESSAGEDATA = "Por favor revise toda la información"

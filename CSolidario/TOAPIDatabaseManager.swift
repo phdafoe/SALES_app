@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class TOAPIDatabaseManager: NSObject {
 
@@ -77,7 +78,7 @@ class TOAPIDatabaseManager: NSObject {
     //MARK: - GET BANNERS
     func getBanners(idlocalidad : String) -> [TOBannersModel]{
         
-        let idlocalidad = CONSTANTES.PFUSERIDLOCALIDAD
+        let idlocalidad = PFUser.currentUser()!["idLocalidad"] as! String
         let url = NSURL(string: CONSTANTES.BASEURLIDLOCALIDAD + idlocalidad + CONSTANTES.BASEIDP + CONSTANTES.BANNERS_SERVICE)
         let jsonData = NSData(contentsOfURL: url!)
         let arrayBannersModel = banners.getBannersModel(jsonData!)
