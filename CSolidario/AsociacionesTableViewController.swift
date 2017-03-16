@@ -19,8 +19,8 @@ class AsociacionesTableViewController: UITableViewController {
     
     
     //MARK: - IBACTION
-    @IBAction func closeViewController(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeViewController(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class AsociacionesTableViewController: UITableViewController {
 
         refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
         refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh.addTarget(self, action: #selector(AsociacionesTableViewController.refreshController), forControlEvents: .ValueChanged)
+        refresh.addTarget(self, action: #selector(AsociacionesTableViewController.refreshController), for: .valueChanged)
         tableView.addSubview(refresh)
 
         getSingletonApiDataBaseManager()
@@ -36,7 +36,7 @@ class AsociacionesTableViewController: UITableViewController {
     }
     
     func getSingletonApiDataBaseManager(){
-        arrayAsociaciones = TOAPIDatabaseManager.sharedInstance.getAsociaciones(PFUser.currentUser()!["idLocalidad"] as! String)
+        arrayAsociaciones = TOAPIDatabaseManager.sharedInstance.getAsociaciones(PFUser.current()!["idLocalidad"] as! String)
     }
     
     
@@ -47,7 +47,7 @@ class AsociacionesTableViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getSingletonApiDataBaseManager()
         tableView.reloadData()
@@ -55,21 +55,21 @@ class AsociacionesTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayAsociaciones.count
     }
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! AsociacionesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AsociacionesTableViewCell
         
         let asociacionModel : TOAsociacionModel = arrayAsociaciones[indexPath.row]
         
@@ -85,19 +85,19 @@ class AsociacionesTableViewController: UITableViewController {
         return cell
     }
     
-    func getImagePath(type: String, id : String, name : String) -> String{
+    func getImagePath(_ type: String, id : String, name : String) -> String{
 
             return CONSTANTES.BASE_PHOTO_URL_ASOCIACIONES + type + "/" + "/" + id  + "/" + name
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let detalleAsociacionesVC = self.storyboard?.instantiateViewControllerWithIdentifier("detalleAsociaciones") as! DetalleAsociacionesViewController
+        let detalleAsociacionesVC = self.storyboard?.instantiateViewController(withIdentifier: "detalleAsociaciones") as! DetalleAsociacionesViewController
 
         let asociacionModel : TOAsociacionModel = arrayAsociaciones[indexPath.row]
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.ASOCIACIONES_IMAGENES, id: asociacionModel.id!, name: asociacionModel.imagenURL!))!)!)
+        let imageData = UIImage(data: try! Data(contentsOf: URL(string: getImagePath(CONSTANTES.ASOCIACIONES_IMAGENES, id: asociacionModel.id!, name: asociacionModel.imagenURL!))!))
 
         detalleAsociacionesVC.detalleImageAsociacionAData = imageData
         detalleAsociacionesVC.detalleDescripcionData = asociacionModel.descripcion

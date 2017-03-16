@@ -1,6 +1,13 @@
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
-target 'CSolidario' do
-    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+target 'SALES' do
+    pod 'SwiftyJSON'
+    pod 'Kingfisher'
+    pod 'PKHUD', :git => 'https://github.com/toyship/PKHUD.git'
+    pod 'PromiseKit/Alamofire'
+    pod 'ReachabilitySwift'
+    pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
+    pod 'PromiseKit'
+    pod 'ExpandingMenu'
 end

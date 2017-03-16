@@ -26,13 +26,13 @@ class IntroRegisterViewController: UIViewController {
         for index in 0 ..< 7{
             
             imagenesArray = UIImageView(image: UIImage(named: NSString(format: "AJ_%d.png", index) as String))
-            imagenesArray.frame = CGRectMake(CGFloat(index - 1) * 320, 0, 320, 481)
+            imagenesArray.frame = CGRect(x: CGFloat(index - 1) * 320, y: 0, width: 320, height: 481)
             myScrollDataPicture.addSubview(imagenesArray)
         }
         
         myScrollDataPicture.delegate = self
-        myScrollDataPicture.contentSize = CGSizeMake(6 * 320, 481)
-        myScrollDataPicture.pagingEnabled = true
+        myScrollDataPicture.contentSize = CGSize(width: 6 * 320, height: 481)
+        myScrollDataPicture.isPagingEnabled = true
         
         myPageControllerDataPicture.numberOfPages = 6
         myPageControllerDataPicture.currentPage = 0
@@ -47,19 +47,19 @@ class IntroRegisterViewController: UIViewController {
     
     //Salto al ViewConreoller
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if PFUser.currentUser() != nil{
-            self.performSegueWithIdentifier("jumpToMenuViewContoller", sender: self)
+        if PFUser.current() != nil{
+            self.performSegue(withIdentifier: "jumpToMenuViewContoller", sender: self)
         }
         
     }
     
     //MARK: - Logout App
-    @IBAction func LogoutCompleted(segue: UIStoryboardSegue){
+    @IBAction func LogoutCompleted(_ segue: UIStoryboardSegue){
         
-        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
+        PFUser.logOutInBackground { (error) -> Void in
             if error != nil{
                 print("Error al hacer logout")
             }else{
@@ -72,7 +72,7 @@ class IntroRegisterViewController: UIViewController {
 
 extension IntroRegisterViewController : UIScrollViewDelegate{
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageControllerData = CGFloat(myScrollDataPicture.contentOffset.x / myScrollDataPicture.frame.size.width)
         myPageControllerDataPicture.currentPage = Int(pageControllerData)
     }

@@ -12,10 +12,10 @@ import SwiftyJSON
 class BannersParse: NSObject {
     
     
-    func getBannersModel(dataFromNetworking : NSData) -> [TOBannersModel]{
+    func getBannersModel(_ dataFromNetworking : Data) -> [TOBannersModel]{
         var arrayBannersModel = [TOBannersModel]()
         var numberOfRows = 0
-        let readableJSON = JSON(data: dataFromNetworking, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        let readableJSON = JSON(data: dataFromNetworking, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         numberOfRows = readableJSON["banners"].count
         if numberOfRows != 0{
             for index in 0...numberOfRows - 1{

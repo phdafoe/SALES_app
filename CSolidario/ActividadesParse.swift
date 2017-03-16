@@ -12,10 +12,10 @@ import SwiftyJSON
 class ActividadesParse: NSObject {
     
     
-    func getActividadesModel(dataFromNetworking : NSData) -> [TOActividadModel]{
+    func getActividadesModel(_ dataFromNetworking : Data) -> [TOActividadModel]{
         var arrayActividadesModel = [TOActividadModel]()
         var numberOfRows = 0
-        let readableJSON = JSON(data: dataFromNetworking, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        let readableJSON = JSON(data: dataFromNetworking, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         numberOfRows = readableJSON["actividades"].count
         if numberOfRows != 0{
             for index in 0...numberOfRows - 1{

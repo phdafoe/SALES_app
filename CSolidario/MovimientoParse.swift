@@ -11,10 +11,10 @@ import SwiftyJSON
 
 class MovimientoParse: NSObject {
     
-    func getMovimientosModel(dataFromNetworking : NSData) -> [TOMovimientoModel]{
+    func getMovimientosModel(_ dataFromNetworking : Data) -> [TOMovimientoModel]{
         var arrayMovimientoModel = [TOMovimientoModel]()
         var numberOfRows = 0
-        let readableJSON = JSON(data: dataFromNetworking, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        let readableJSON = JSON(data: dataFromNetworking, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         numberOfRows = readableJSON["puntos"].count
         if numberOfRows != 0{
             for index in 0...numberOfRows - 1 {

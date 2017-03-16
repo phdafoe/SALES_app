@@ -12,10 +12,10 @@ import SwiftyJSON
 class LocalidadesParse: NSObject {
     
     
-    func getLocalidadesModel(dataFromNetworking : NSData) -> [TOLocalidadModel]{
+    func getLocalidadesModel(_ dataFromNetworking : Data) -> [TOLocalidadModel]{
         var arrayLocalidadesModel = [TOLocalidadModel]()
         var numberOfRows = 0
-        let readableJSON = JSON(data: dataFromNetworking, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        let readableJSON = JSON(data: dataFromNetworking, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         numberOfRows = readableJSON["localidades"].count
             for index in 0...numberOfRows - 1{
                 let dataModel = TOLocalidadModel(aId: getString("localidades", index: index, nombre: "id", nombreObjeto: readableJSON, segundoNivel: nil),

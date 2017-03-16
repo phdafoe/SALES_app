@@ -35,19 +35,19 @@ class MiperfilViewController: UIViewController {
     @IBOutlet weak var myPhoneNumberTF: UITextField!
     
      //MARK: - IBACTION
-    @IBAction func selectPhotoOnDeviceACTION(sender: AnyObject) {
+    @IBAction func selectPhotoOnDeviceACTION(_ sender: AnyObject) {
         pickPhoto()
     }
     
 
-    @IBAction func okACTION(sender: AnyObject) {
+    @IBAction func okACTION(_ sender: AnyObject) {
         
-        dismissViewControllerAnimated(true, completion: nil)   
+        dismiss(animated: true, completion: nil)   
         
     }
     
     
-    @IBAction func actualizarDatosPerfil(sender: AnyObject) {
+    @IBAction func actualizarDatosPerfil(_ sender: AnyObject) {
         
         actualizarDatos()
         
@@ -72,7 +72,7 @@ class MiperfilViewController: UIViewController {
         pickerViewAssociationData.delegate = self
         pickerViewAssociationData.tag = 2
         myAssociationSend.inputView = pickerViewAssociationData
-        myAssociationSend.text = AssociationData[0].nombre
+        //myAssociationSend.text = AssociationData[0].nombre
         
         myImageView.layer.cornerRadius = myImageView.frame.size.width / 2
         myImageView.clipsToBounds = true
@@ -91,24 +91,24 @@ class MiperfilViewController: UIViewController {
     //MARK: - UTILS
     func findDataFromParse(){
         let query = PFUser.query()!
-        query.whereKey(CONSTANTES.USERNAMEPARSE, equalTo: (PFUser.currentUser()?.username)!)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
+        query.whereKey(CONSTANTES.USERNAMEPARSE, equalTo: (PFUser.current()?.username)!)
+        query.findObjectsInBackground {
+            (objects, error) -> Void in
             
             if error == nil {
                 if let objects = objects {
                     for objectData in objects {
                         let query = PFQuery(className:self.CONSTANTES.IDNOMBRETABLAIMAGEN)
-                        query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.currentUser()?.username)!)
-                        query.findObjectsInBackgroundWithBlock {
-                            (objects: [PFObject]?, error: NSError?) -> Void in
+                        query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.current()?.username)!)
+                        query.findObjectsInBackground {
+                            (objects, error) -> Void in
                             if error == nil {
                                 if let objects = objects {
                                     for objectData in objects {
                                         
                                         let userImageFile = objectData[self.CONSTANTES.IDIMAGENURL] as! PFFile
-                                        userImageFile.getDataInBackgroundWithBlock {
-                                            (imageData: NSData?, error: NSError?) -> Void in
+                                        userImageFile.getDataInBackground {
+                                            (imageData, error) -> Void in
                                             if error == nil {
                                                 if let imageData = imageData {
                                                     let image = UIImage(data:imageData)
@@ -121,7 +121,7 @@ class MiperfilViewController: UIViewController {
                                 
                             } else {
                                 // Log details of the failure
-                                print("Error: \(error!) \(error!.userInfo)")
+                                print("Error: \(error!)")
                             }
                         }
                         
@@ -135,14 +135,14 @@ class MiperfilViewController: UIViewController {
                 }
             } else {
                 // Log details of the failure
-                print("Error consultando usuarios \(error?.description)")
+                print("Error consultando usuarios")
             }
         }
     }
     
     func actualizarDatos(){
         
-        let userData = PFUser.currentUser()!
+        let userData = PFUser.current()!
         userData[self.CONSTANTES.IDLOCALIDAD] = idLocalidadSeleccionada
         userData[self.CONSTANTES.IDASOCIACION] = idAsociacionSeleccionada
         userData[self.CONSTANTES.IDNOMBRE] = myNameTF.text
@@ -150,11 +150,11 @@ class MiperfilViewController: UIViewController {
         userData[self.CONSTANTES.IDTELEFONOMOVIL] = myPhoneNumberTF.text
         userData.email = myEmailTF.text
         
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         
-        userData.saveInBackgroundWithBlock { (success, error) in
+        userData.saveInBackground { (success, error) in
             
-            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            UIApplication.shared.endIgnoringInteractionEvents()
             
             if success{
                 print("El Usuario ha sido modificado correctamente")
@@ -172,8 +172,8 @@ class MiperfilViewController: UIViewController {
         let imageData = UIImageJPEGRepresentation(self.myImageView.image!, 0.6)
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
         postImage[self.CONSTANTES.IDIMAGENURL] = imageFile
-        postImage[self.CONSTANTES.USERNAMEPARSE] = PFUser.currentUser()?.username
-        postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
+        postImage[self.CONSTANTES.USERNAMEPARSE] = PFUser.current()?.username
+        postImage.saveInBackground(block: { (success, error) -> Void in
             if success{
                 self.displayAlertVC("Publicacion completada", messageData: "Tu foto ha sido publicada")
             }else{
@@ -185,18 +185,18 @@ class MiperfilViewController: UIViewController {
     }
     
     
-    func displayAlertVC(titleData:String, messageData:String){
+    func displayAlertVC(_ titleData:String, messageData:String){
         
-        let alertVC = UIAlertController (title: titleData, message: messageData, preferredStyle: .Alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alertVC, animated: true, completion: nil)
+        let alertVC = UIAlertController (title: titleData, message: messageData, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
     
     
     //MARK: - DOWNKEYBOARD
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, with: event)
     }
     
 
@@ -209,7 +209,7 @@ class MiperfilViewController: UIViewController {
 extension MiperfilViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func pickPhoto(){
-        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
             showPhotoMenu()
         }else{
             choosePhotoFromLIbrary()
@@ -218,43 +218,43 @@ extension MiperfilViewController : UIImagePickerControllerDelegate, UINavigation
     
     func showPhotoMenu(){
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        let cancelAccion = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
-        let takePhotoAction = UIAlertAction(title: "Tomar la foto", style: .Default, handler: {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAccion = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let takePhotoAction = UIAlertAction(title: "Tomar la foto", style: .default, handler: {
             Void in self.takePhotoWithCamera()
         })
-        let chooseFromLibraryAction = UIAlertAction(title: "Escoger desde la Libreria", style: .Default, handler: {
+        let chooseFromLibraryAction = UIAlertAction(title: "Escoger desde la Libreria", style: .default, handler: {
             Void in self.choosePhotoFromLIbrary()
         })
         alertController.addAction(cancelAccion)
         alertController.addAction(takePhotoAction)
         alertController.addAction(chooseFromLibraryAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     
     func takePhotoWithCamera(){
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .Camera
+        imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
     
     func choosePhotoFromLIbrary(){
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         myImageView.image = image
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         self.photoSelected = true
     }
     
@@ -265,10 +265,10 @@ extension MiperfilViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     
     
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 1{
             return locationData.count
@@ -277,7 +277,7 @@ extension MiperfilViewController : UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1{
             return locationData[row].nombre
@@ -285,10 +285,10 @@ extension MiperfilViewController : UIPickerViewDelegate, UIPickerViewDataSource{
             return AssociationData[row].nombre
         }
     }
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 30
     }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 1{
             self.myLocationCity.text = self.locationData[row].nombre!

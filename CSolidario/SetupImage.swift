@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 
-public class ImageLoader{
+open class ImageLoader{
 
-    var cache = NSCache()
+    var cache = NSCache<AnyObject, AnyObject>()
     class var sharedLoader: ImageLoader {
         struct SingletonImage {
             static let instance : ImageLoader = ImageLoader()
@@ -21,32 +21,32 @@ public class ImageLoader{
     }
     
     
-    func imageForUrl(urlString : String!, completionHandler: (image: UIImage!, url: String!) -> ()){
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) { () -> Void in
-            let dataDownload: NSData? = self.cache.objectForKey(urlString) as? NSData
+    func imageForUrl(_ urlString : String!, completionHandler: @escaping (_ image: UIImage?, _ url: String?) -> ()){
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async { () -> Void in
+            let dataDownload: Data? = self.cache.object(forKey: urlString as AnyObject) as? Data
             if let goodData = dataDownload{
                 let image = UIImage(data: goodData)
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(image: image, url: urlString)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionHandler(image, urlString)
                 })
                 return
             }
             
             if urlString != nil{
-                let downloadTask : NSURLSessionDataTask = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)!, completionHandler: { (dataSource, response, error) -> Void in
+                let downloadTask : URLSessionDataTask = URLSession.shared.dataTask(with: URL(string: urlString)!, completionHandler: { (dataSource, response, error) -> Void in
                     
                     if error != nil{
                         
-                        completionHandler(image: nil, url: urlString)
+                        completionHandler(nil, urlString)
                         return
                         
                     }
                     
                     if dataSource != nil{
                         let imageDownload = UIImage(data: dataSource!)
-                        self.cache.setObject(dataSource!, forKey: urlString)
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            completionHandler(image: imageDownload, url: urlString)
+                        self.cache.setObject(dataSource! as AnyObject, forKey: urlString as AnyObject)
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            completionHandler(imageDownload, urlString)
                         })
                         return
                     }

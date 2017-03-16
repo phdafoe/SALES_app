@@ -24,15 +24,15 @@ class MenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myImageProfileIV.layer.cornerRadius = myImageProfileIV.frame.size.width / 2
-        myImageProfileIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myImageProfileIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).cgColor
         myImageProfileIV.layer.borderWidth = 1.5
-        myImageProfileIV.layer.shadowColor = UIColor.blackColor().CGColor
-        myImageProfileIV.layer.shadowOffset = CGSizeMake(0, 15)
+        myImageProfileIV.layer.shadowColor = UIColor.black.cgColor
+        myImageProfileIV.layer.shadowOffset = CGSize(width: 0, height: 15)
         myImageProfileIV.clipsToBounds = true
         findAndGetDataFromImageProfile()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         rateAppTO()
     }
@@ -42,16 +42,16 @@ class MenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         if indexPath.section == 1 && indexPath.row == 2{
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             sendMailToTeam()
         }
         
         if indexPath.section == 1 && indexPath.row == 3{
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             showRateMe()
         }
     }
@@ -63,46 +63,46 @@ class MenuController: UITableViewController {
         var iTryAgainSessions = 6
         
         func rateMe() {
-            let neverRate = NSUserDefaults.standardUserDefaults().boolForKey("neverRate")
-            var numLaunches = NSUserDefaults.standardUserDefaults().integerForKey("numLaunches") + 1
+            let neverRate = UserDefaults.standard.bool(forKey: "neverRate")
+            var numLaunches = UserDefaults.standard.integer(forKey: "numLaunches") + 1
             
             if (!neverRate && (numLaunches == iMinSessions || numLaunches >= (iMinSessions + iTryAgainSessions + 1)))
             {
                 showRateMe()
                 numLaunches = iMinSessions + 1
             }
-            NSUserDefaults.standardUserDefaults().setInteger(numLaunches, forKey: "numLaunches")
+            UserDefaults.standard.set(numLaunches, forKey: "numLaunches")
         }
     }
     
     func showRateMe() {
-        let alert = UIAlertController(title: "Valóranos", message: "Gracias por usar TusOfertas", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Valora TusOfertas", style: UIAlertActionStyle.Default, handler: { alertAction in
-            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1107387171")!)
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        let alert = UIAlertController(title: "Valóranos", message: "Gracias por usar TusOfertas", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Valora TusOfertas", style: UIAlertActionStyle.default, handler: { alertAction in
+            UIApplication.shared.openURL(URL(string : "itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=1107387171")!)
+            alert.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "No Gracias", style: UIAlertActionStyle.Default, handler: { alertAction in
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "neverRate")
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        alert.addAction(UIAlertAction(title: "No Gracias", style: UIAlertActionStyle.default, handler: { alertAction in
+            UserDefaults.standard.set(true, forKey: "neverRate")
+            alert.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Quizá luego", style: UIAlertActionStyle.Default, handler: { alertAction in
-            alert.dismissViewControllerAnimated(true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Quizá luego", style: UIAlertActionStyle.default, handler: { alertAction in
+            alert.dismiss(animated: true, completion: nil)
         }))
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func findAndGetDataFromImageProfile(){
         let query = PFQuery(className:self.CONSTANTES.IDNOMBRETABLAIMAGEN)
-        query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.currentUser()?.username)!)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
+        query.whereKey(self.CONSTANTES.USERNAMEPARSE, equalTo:(PFUser.current()?.username)!)
+        query.findObjectsInBackground {
+            (objects, error) -> Void in
             if error == nil {
                 if let objects = objects {
                     for objectData in objects {
                         self.myNameLBL.text = objectData[self.CONSTANTES.USERNAMEPARSE] as? String
                         let userImageFile = objectData[self.CONSTANTES.IDIMAGENURL] as! PFFile
-                        userImageFile.getDataInBackgroundWithBlock {
-                            (imageData: NSData?, error: NSError?) -> Void in
+                        userImageFile.getDataInBackground {
+                            (imageData, error) -> Void in
                             if error == nil {
                                 if let imageData = imageData {
                                     let image = UIImage(data:imageData)
@@ -115,7 +115,7 @@ class MenuController: UITableViewController {
                 
             } else {
                 // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
+                print("Error: \(error!)")
             }
         }
     }
@@ -132,7 +132,7 @@ extension MenuController : MFMailComposeViewControllerDelegate{
         
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail(){
-            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            self.present(mailComposeViewController, animated: true, completion: nil)
         }else{
             showSendMailErrorAlert()
         }
@@ -150,16 +150,16 @@ extension MenuController : MFMailComposeViewControllerDelegate{
     }
     
     func showSendMailErrorAlert(){
-        let sendMailErrorAlert = UIAlertController(title: "ATENCIÓN!", message: "No se ha logrado enviar el mail", preferredStyle: .Alert)
-        let actionView = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let sendMailErrorAlert = UIAlertController(title: "ATENCIÓN!", message: "No se ha logrado enviar el mail", preferredStyle: .alert)
+        let actionView = UIAlertAction(title: "Ok", style: .default, handler: nil)
         sendMailErrorAlert.addAction(actionView)
-        presentViewController(sendMailErrorAlert, animated: true, completion: nil)
+        present(sendMailErrorAlert, animated: true, completion: nil)
         
     }
     
     //MARK: - DELEGATE
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
     

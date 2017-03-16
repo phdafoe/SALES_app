@@ -20,8 +20,8 @@ class WebDetalleViewController: UIViewController {
 
     
     //MARK: - IBACTION
-    @IBAction func closeWindow(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeWindow(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
         
     }
     
@@ -29,8 +29,8 @@ class WebDetalleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL(string: detalleWebPublicidad!)
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: detalleWebPublicidad!)
+        let request = URLRequest(url: url!)
         myWebView.loadRequest(request)
         myWebView.delegate = self
 
@@ -46,13 +46,13 @@ class WebDetalleViewController: UIViewController {
 //MARK : - UIWebViewDelegate
 extension WebDetalleViewController : UIWebViewDelegate{
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        myActivityIndicator.hidden = false
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        myActivityIndicator.isHidden = false
         myActivityIndicator.startAnimating()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-        myActivityIndicator.hidden = true
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        myActivityIndicator.isHidden = true
         myActivityIndicator.stopAnimating()
     }
     

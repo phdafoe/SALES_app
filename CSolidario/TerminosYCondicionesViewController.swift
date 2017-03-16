@@ -13,15 +13,15 @@ class TerminosYCondicionesViewController: UIViewController {
     //MARK: - IBACTION
     
     
-    @IBAction func okButtonACTION(sender: AnyObject) {
+    @IBAction func okButtonACTION(_ sender: AnyObject) {
         
-        let alertVC = UIAlertController(title: "GENIAL!", message: "Muchas gracias por aceptar las Terminos y condiciones", preferredStyle: .Alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+        let alertVC = UIAlertController(title: "GENIAL!", message: "Muchas gracias por aceptar las Terminos y condiciones", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }))
         
-        presentViewController(alertVC, animated: true, completion: nil)
+        present(alertVC, animated: true, completion: nil)
         
     }
     

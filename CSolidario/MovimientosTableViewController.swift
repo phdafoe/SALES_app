@@ -21,16 +21,16 @@ class MovimientosTableViewController: UITableViewController {
     
     
     //MARK: - IBACTION
-    @IBAction func OKACTION(sender: AnyObject) {
+    @IBAction func OKACTION(_ sender: AnyObject) {
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        arrayMovimientos = TOAPIDatabaseManager.sharedInstance.getMovimientos((PFUser.currentUser()?["databaseID"])! as! String)
+        arrayMovimientos = TOAPIDatabaseManager.sharedInstance.getMovimientos((PFUser.current()?["databaseID"])! as! String)
         myLabelTotalMovimientos.text = "Total puntos: \(setupTotalPuntos())"
         
     }
@@ -43,20 +43,20 @@ class MovimientosTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return arrayMovimientos.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MovimientosTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovimientosTableViewCell
         
         let movimientosModel : TOMovimientoModel = arrayMovimientos[indexPath.row]
         

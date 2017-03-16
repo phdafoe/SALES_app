@@ -26,7 +26,7 @@ class ConcursosTableViewController: UITableViewController {
         
         refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
         refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh.addTarget(self, action: #selector(ConcursosTableViewController.refreshController), forControlEvents: .ValueChanged)
+        refresh.addTarget(self, action: #selector(ConcursosTableViewController.refreshController), for: .valueChanged)
         tableView.addSubview(refresh)
         
         getSingletonApiDataBaseManager()
@@ -39,7 +39,7 @@ class ConcursosTableViewController: UITableViewController {
     
     
     func getSingletonApiDataBaseManager(){
-        arrayConcursos = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.CONCURSO)
+        arrayConcursos = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.current()!["idLocalidad"] as! String, tipo: CONSTANTES.CONCURSO)
     }
     
     
@@ -51,7 +51,7 @@ class ConcursosTableViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getSingletonApiDataBaseManager()
         tableView.reloadData()
@@ -59,18 +59,18 @@ class ConcursosTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayConcursos.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ConcursosTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ConcursosTableViewCell
 
         
         let ofertasModel : TOPromocionModel = arrayConcursos[indexPath.row]
@@ -87,21 +87,21 @@ class ConcursosTableViewController: UITableViewController {
     }
     
     
-    func getImagePath(type: String, id : String!, name : String!) -> String{
+    func getImagePath(_ type: String, id : String!, name : String!) -> String{
         
         return CONSTANTES.BASE_PHOTO_URL + id + "/" + name
         
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let detalleOfertasVC = self.storyboard?.instantiateViewControllerWithIdentifier("detalleConcursos") as! DetalleConcursosViewController
+        let detalleOfertasVC = self.storyboard?.instantiateViewController(withIdentifier: "detalleConcursos") as! DetalleConcursosViewController
         
         let ofertasModel : TOPromocionModel = arrayConcursos[indexPath.row]
 
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
+        let imageData = UIImage(data: try! Data(contentsOf: URL(string: getImagePath(CONSTANTES.CONCURSO, id: ofertasModel.id, name: ofertasModel.imagenURL))!))
         
         detalleOfertasVC.detalleImagenOfertaData = imageData
         detalleOfertasVC.detalleNombreOfertaData = ofertasModel.tipo
@@ -110,8 +110,8 @@ class ConcursosTableViewController: UITableViewController {
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
         
         //ID DE SOCIO OJO
-        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
-        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.qrData = PFUser.current()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.current()!["databaseID"] as? String
         
         
         
@@ -131,7 +131,7 @@ class ConcursosTableViewController: UITableViewController {
         print("Seleccionado \(arrayConcursos[indexPath.row])")  
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
     }
 }

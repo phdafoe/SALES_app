@@ -17,9 +17,9 @@ class TOOfertaModel: NSObject {
     var picture : UIImage?
     var sector : String?
     var activity : String?
-    var validity : NSDate?
+    var validity : Date?
     
-    init(aId : Int, aOfferTitle : String, aDescriptionData : String, aLocation : String, aPicture : UIImage, aSector : String, aActivity : String, aValidity : NSDate) {
+    init(aId : Int, aOfferTitle : String, aDescriptionData : String, aLocation : String, aPicture : UIImage, aSector : String, aActivity : String, aValidity : Date) {
         self.id = aId
         self.offerTitle = aOfferTitle
         self.descriptionData = aDescriptionData

@@ -22,15 +22,15 @@ class OfertasTableViewCell: UITableViewCell {
         
         
         myImageLogoIV.layer.cornerRadius = myImageLogoIV.frame.width / 16
-        myImageLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myImageLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).cgColor
         myImageLogoIV.layer.borderWidth = 1.5
-        myImageLogoIV.layer.shadowColor = UIColor.blackColor().CGColor
-        myImageLogoIV.layer.shadowOffset = CGSizeMake(0, 15)
+        myImageLogoIV.layer.shadowColor = UIColor.black.cgColor
+        myImageLogoIV.layer.shadowOffset = CGSize(width: 0, height: 15)
 
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

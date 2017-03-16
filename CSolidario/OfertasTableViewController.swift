@@ -25,7 +25,7 @@ class OfertasTableViewController: UITableViewController {
         
         refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
         refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh.addTarget(self, action: #selector(OfertasTableViewController.refreshController), forControlEvents: .ValueChanged)
+        refresh.addTarget(self, action: #selector(OfertasTableViewController.refreshController), for: .valueChanged)
         tableView.addSubview(refresh)
         
          getSingletonApiDataBaseManager()
@@ -40,7 +40,7 @@ class OfertasTableViewController: UITableViewController {
     
     
     func getSingletonApiDataBaseManager(){
-        arrayOferta = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.OFERTAS)
+        arrayOferta = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.current()!["idLocalidad"] as! String, tipo: CONSTANTES.OFERTAS)
     }
     
     func refreshController(){
@@ -50,7 +50,7 @@ class OfertasTableViewController: UITableViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getSingletonApiDataBaseManager()
         tableView.reloadData()
@@ -66,18 +66,18 @@ class OfertasTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOferta.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! OfertasTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! OfertasTableViewCell
         let ofertasModel : TOPromocionModel = arrayOferta[indexPath.row]
         
         cell.myFechaFin.text = ofertasModel.fechaValidez
@@ -91,20 +91,20 @@ class OfertasTableViewController: UITableViewController {
     }
     
 
-    func getImagePath(type: String, id : String!, name : String!) -> String{
+    func getImagePath(_ type: String, id : String!, name : String!) -> String{
         
         return CONSTANTES.BASE_PHOTO_URL + id + "/" + name
         
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let detalleOfertasVC = self.storyboard?.instantiateViewControllerWithIdentifier("detalleOfertas") as! DetalleOfertasViewController
+        let detalleOfertasVC = self.storyboard?.instantiateViewController(withIdentifier: "detalleOfertas") as! DetalleOfertasViewController
         
         let ofertasModel : TOPromocionModel = arrayOferta[indexPath.row]
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
+        let imageData = UIImage(data: try! Data(contentsOf: URL(string: getImagePath(CONSTANTES.OFERTAS, id: ofertasModel.id, name: ofertasModel.imagenURL))!))
 
         detalleOfertasVC.detalleImagenOfertaData = imageData
         detalleOfertasVC.detalleNombreOfertaData = ofertasModel.titulo
@@ -113,8 +113,8 @@ class OfertasTableViewController: UITableViewController {
         detalleOfertasVC.detalleTipoOferta = ofertasModel.id
         
         //ID DE SOCIO OJO
-        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
-        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.qrData = PFUser.current()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.current()!["databaseID"] as? String
         
         
         //DETALLE ASOCIADO
@@ -133,7 +133,7 @@ class OfertasTableViewController: UITableViewController {
         print("Seleccionado \(arrayOferta[indexPath.row])")  
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
     }
 

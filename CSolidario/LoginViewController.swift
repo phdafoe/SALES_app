@@ -15,32 +15,32 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var myPasswordTF: UITextField!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     
-    @IBAction func myLoginUserACTION(sender: AnyObject) {
+    @IBAction func myLoginUserACTION(_ sender: AnyObject) {
         if myUserNameTF.text == "" || myPasswordTF.text == "" {
             
             showAlertViewController("Rellene todos los datos", messageData: "El usuario y el password son obligatorios")
         } else {
             
-            myActivityIndicator.hidden = false
+            myActivityIndicator.isHidden = false
             myActivityIndicator.startAnimating()
             
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             
             
-            PFUser.logInWithUsernameInBackground(self.myUserNameTF.text!, password: self.myPasswordTF.text!) {
-                (user: PFUser?, loginError: NSError?) -> Void in
+            PFUser.logInWithUsername(inBackground: self.myUserNameTF.text!, password: self.myPasswordTF.text!) {
+                (user, loginError) -> Void in
                 
-                self.myActivityIndicator.hidden = true
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                self.myActivityIndicator.isHidden = true
+                UIApplication.shared.endIgnoringInteractionEvents()
                 
                 if user != nil {
                     print("El usuario ha podido acceder")
-                    self.performSegueWithIdentifier("jumpLoginToViewContoller", sender: self)
+                    self.performSegue(withIdentifier: "jumpLoginToViewContoller", sender: self)
                     
                     self.myUserNameTF.text = ""
                     self.myPasswordTF.text = ""
                 } else {
-                    if let errorString = loginError!.userInfo["error"] as? NSString{
+                    /*if let errorString = loginError!.userInfo["error"] as? NSString{
                         
                         self.showAlertViewController("Error al acceder", messageData: errorString as String)
                         
@@ -48,7 +48,8 @@ class LoginViewController: UIViewController {
                         
                         self.showAlertViewController("Error al acceder", messageData: "Por favor reintenta el acceso")
                         
-                    }
+                    }*/
+                    self.showAlertViewController("Error al acceder", messageData: "Por favor reintenta el acceso")
                     
                 }
                 
@@ -57,14 +58,14 @@ class LoginViewController: UIViewController {
         
     }
     
-    func showAlertViewController(titleData: String, messageData: String){
+    func showAlertViewController(_ titleData: String, messageData: String){
         
         
-        let alertController = UIAlertController(title: titleData, message: messageData, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: titleData, message: messageData, preferredStyle: .alert)
         
-        alertController.addAction((UIAlertAction(title: "OK", style: .Cancel, handler: nil)))
+        alertController.addAction((UIAlertAction(title: "OK", style: .cancel, handler: nil)))
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
         
     }
     
@@ -75,15 +76,15 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myActivityIndicator.hidden = true
+        myActivityIndicator.isHidden = true
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (PFUser.currentUser()?.username != nil) {
-            self.performSegueWithIdentifier("jumpLoginToViewContoller", sender: self)
+        if (PFUser.current()?.username != nil) {
+            self.performSegue(withIdentifier: "jumpLoginToViewContoller", sender: self)
             
         }
     }

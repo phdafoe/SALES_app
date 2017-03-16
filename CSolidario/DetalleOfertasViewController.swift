@@ -17,7 +17,7 @@ class DetalleOfertasViewController: UIViewController {
     var arrayBanners = [TOBannersModel]()
     var urlString : String?
     var indexActual : Int = 0
-    var timer = NSTimer()
+    var timer = Timer()
     let CONSTANTES = Constants()
 
     //MARK: - VARIABLES QR
@@ -62,7 +62,7 @@ class DetalleOfertasViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idSocio.textColor = UIColor.whiteColor()
+        idSocio.textColor = UIColor.white
         idSocio.text = qrData
         
         myImageOfertaIV.image = detalleImagenOfertaData!
@@ -71,15 +71,15 @@ class DetalleOfertasViewController: UIViewController {
         myFechaFinOfertaLBL.text = detalleFechaFinData
 
         //BANNER
-        arrayBanners = TOAPIDatabaseManager.sharedInstance.getBanners(PFUser.currentUser()!["idLocalidad"] as! String)
-        runBanner()
-        timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(DetalleOfertasViewController.runBanner), userInfo: nil, repeats: true)
+        arrayBanners = TOAPIDatabaseManager.sharedInstance.getBanners(PFUser.current()!["idLocalidad"] as! String)
+        //runBanner()
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(DetalleOfertasViewController.runBanner), userInfo: nil, repeats: true)
     }
     
     //MARK: - IBACTION
-    @IBAction func showDataAsociaciones(sender: AnyObject) {
+    @IBAction func showDataAsociaciones(_ sender: AnyObject) {
         
-        let asociacionesModel = self.storyboard?.instantiateViewControllerWithIdentifier("detalleAsociado") as! AsociadoViewController
+        let asociacionesModel = self.storyboard?.instantiateViewController(withIdentifier: "detalleAsociado") as! AsociadoViewController
         
         //PASO DE DATOS A VISTA ASOCIADO
         asociacionesModel.detalleImageAsociadoData = detalleImagenAsociado
@@ -90,14 +90,14 @@ class DetalleOfertasViewController: UIViewController {
         asociacionesModel.detalleDireccionData = detalleDireccionAsociado
         asociacionesModel.detallePersonaContactoData = detallenombreAsociado
 
-        presentViewController(asociacionesModel, animated: true, completion: nil)
+        present(asociacionesModel, animated: true, completion: nil)
     }
     
     
-    @IBAction func barrasACTION(sender: AnyObject) {
+    @IBAction func barrasACTION(_ sender: AnyObject) {
         
-        let background = UIView(frame: CGRectMake(0,0, self.view.frame.width, self.view.frame.height))
-        background.backgroundColor = UIColor.blackColor()
+        let background = UIView(frame: CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        background.backgroundColor = UIColor.black
         background.alpha = 0.8
         background.tag = imageGroupTag
         self.view.addSubview(background)
@@ -105,7 +105,7 @@ class DetalleOfertasViewController: UIViewController {
         if idSocio.text == qrData{
             
             let imageView = UIImageView(frame: CGRect(x: 50, y: 150, width: self.view.frame.width / 1.5, height: self.view.frame.height / 3))
-            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
             imageView.tag = imageGroupTag
             imageView.image = fromString(codeBarData!)
             self.view.addSubview(imageView)
@@ -118,18 +118,18 @@ class DetalleOfertasViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
-    func fromString(string : String) -> UIImage? {
-        let data = string.dataUsingEncoding(NSASCIIStringEncoding)
+    func fromString(_ string : String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
         let filter = CIFilter(name: "CICode128BarcodeGenerator")
         filter!.setValue(data, forKey: "inputMessage")
-        return UIImage(CIImage: filter!.outputImage!)
+        return UIImage(ciImage: filter!.outputImage!)
         
     }
     
-    @IBAction func QRACTION(sender: AnyObject) {
+    @IBAction func QRACTION(_ sender: AnyObject) {
         
-        let background = UIView(frame: CGRectMake(0,0, self.view.frame.width, self.view.frame.height))
-        background.backgroundColor = UIColor.blackColor()
+        let background = UIView(frame: CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        background.backgroundColor = UIColor.black
         background.alpha = 0.8
         background.tag = imageGroupTag
         self.view.addSubview(background)
@@ -137,14 +137,14 @@ class DetalleOfertasViewController: UIViewController {
         if idSocio.text == qrData{
             
             let imageView = UIImageView(frame: CGRect(x: 80, y: 150, width: self.view.frame.width / 1.8, height: self.view.frame.height / 3))
-            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
             imageView.tag = imageGroupTag
-            let dataQR = idSocio.text?.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            let dataQR = idSocio.text?.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             let filter = CIFilter(name: "CIQRCodeGenerator")
             filter?.setValue(dataQR!, forKey: "inputMessage")
             filter?.setValue("Q", forKey: "inputCorrectionLevel")
             qrcodeImage = filter?.outputImage
-            imageView.image = UIImage(CIImage: qrcodeImage)
+            imageView.image = UIImage(ciImage: qrcodeImage)
             self.view.addSubview(imageView)
             
         }else{
@@ -158,18 +158,18 @@ class DetalleOfertasViewController: UIViewController {
         
     }
     
-    @IBAction func socioACTION(sender: AnyObject) {
+    @IBAction func socioACTION(_ sender: AnyObject) {
         
-        let background = UIView(frame: CGRectMake(0,0, self.view.frame.width, self.view.frame.height))
-        background.backgroundColor = UIColor.blackColor()
+        let background = UIView(frame: CGRect(x: 0,y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        background.backgroundColor = UIColor.black
         background.alpha = 0.8
         background.tag = imageGroupTag
         self.view.addSubview(background)
         
         let labelData = UILabel(frame: CGRect(x: 80, y: 150, width: 220, height: 35))
-        labelData.contentMode = UIViewContentMode.ScaleAspectFit
+        labelData.contentMode = UIViewContentMode.scaleAspectFit
         //labelData.backgroundColor = UIColor.whiteColor()
-        labelData.textColor = UIColor.whiteColor()
+        labelData.textColor = UIColor.white
         labelData.tag = imageGroupTag
         labelData.numberOfLines = 0
         labelData.text = idSocio.text!
@@ -181,14 +181,14 @@ class DetalleOfertasViewController: UIViewController {
     }
     
     
-    @IBAction func showWeb(sender: AnyObject) {
+    @IBAction func showWeb(_ sender: AnyObject) {
         
         
-        let webDetallePublicidad = self.storyboard?.instantiateViewControllerWithIdentifier("detalleWeb") as! WebDetalleViewController
+        let webDetallePublicidad = self.storyboard?.instantiateViewController(withIdentifier: "detalleWeb") as! WebDetalleViewController
         
         //PASO DE DATOS A VISTA ASOCIADO
         webDetallePublicidad.detalleWebPublicidad = arrayBanners[indexActual].targetURL
-        self.presentViewController(webDetallePublicidad, animated: true, completion: nil)
+        self.present(webDetallePublicidad, animated: true, completion: nil)
 
     }
     
@@ -196,7 +196,7 @@ class DetalleOfertasViewController: UIViewController {
     
     
     //MARK: - GESTURE RECOGNIZER
-    func actionGesture(gestureRecognizer: UITapGestureRecognizer){
+    func actionGesture(_ gestureRecognizer: UITapGestureRecognizer){
         for subview in self.view.subviews{
             if subview.tag == self.imageGroupTag{
                 subview.removeFromSuperview()
@@ -205,11 +205,11 @@ class DetalleOfertasViewController: UIViewController {
     }
     
     //MARK: - ALERT TIPO
-    func displayAlertVC(titleData: String, messageData: String){
+    func displayAlertVC(_ titleData: String, messageData: String){
         
-        let alertVC = UIAlertController(title: titleData, message: messageData, preferredStyle: .Alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(alertVC, animated: true, completion: nil)
+        let alertVC = UIAlertController(title: titleData, message: messageData, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
         
     }
 
@@ -218,8 +218,8 @@ class DetalleOfertasViewController: UIViewController {
     //MARK: - RUN BANNERS
     func runBanner(){
         urlString = getURL(arrayBanners[indexActual].id!, imagenURL: arrayBanners[indexActual].imagenURL!)
-        let url = NSURL(string: urlString!)
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: urlString!)
+        let request = URLRequest(url: url!)
         myWebViewToBanners.loadRequest(request)
         print(url)
         if arrayBanners.count > indexActual + 1{
@@ -229,7 +229,7 @@ class DetalleOfertasViewController: UIViewController {
         }
     }
     
-    func getURL(id : String,  imagenURL : String) -> String{
+    func getURL(_ id : String,  imagenURL : String) -> String{
         return CONSTANTES.BASE_BANNER_URL + "/"  + id + "/" + imagenURL
         
     }

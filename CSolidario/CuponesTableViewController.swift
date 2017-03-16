@@ -26,7 +26,7 @@ class CuponesTableViewController: UITableViewController {
 
         refresh.backgroundColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0)
         refresh.attributedTitle = NSAttributedString(string: "Arrastra para recargar")
-        refresh.addTarget(self, action: #selector(CuponesTableViewController.refreshController), forControlEvents: .ValueChanged)
+        refresh.addTarget(self, action: #selector(CuponesTableViewController.refreshController), for: .valueChanged)
         tableView.addSubview(refresh)
 
         
@@ -40,7 +40,7 @@ class CuponesTableViewController: UITableViewController {
     }
     
     func getSingletonApiDataBaseManager(){
-        arrayCupones = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.currentUser()!["idLocalidad"] as! String, tipo: CONSTANTES.CUPONES)
+        arrayCupones = TOAPIDatabaseManager.sharedInstance.getPromociones(PFUser.current()!["idLocalidad"] as! String, tipo: CONSTANTES.CUPONES)
     }
     
     
@@ -52,7 +52,7 @@ class CuponesTableViewController: UITableViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getSingletonApiDataBaseManager()
         tableView.reloadData()
@@ -66,20 +66,20 @@ class CuponesTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return arrayCupones.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CuponesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CuponesTableViewCell
 
         let ofertasModel : TOPromocionModel = arrayCupones[indexPath.row]
         
@@ -95,22 +95,22 @@ class CuponesTableViewController: UITableViewController {
     }
     
     
-    func getImagePath(type: String, id : String!, name : String!) -> String{
+    func getImagePath(_ type: String, id : String!, name : String!) -> String{
         
         return CONSTANTES.BASE_PHOTO_URL + id + "/" + name
         
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let detalleOfertasVC = self.storyboard?.instantiateViewControllerWithIdentifier("detalleCupones") as! DetalleCuponesViewController
+        let detalleOfertasVC = self.storyboard?.instantiateViewController(withIdentifier: "detalleCupones") as! DetalleCuponesViewController
         
         let ofertasModel : TOPromocionModel = arrayCupones[indexPath.row]
 
         
         
-        let imageData = UIImage(data: NSData(contentsOfURL: NSURL(string: getImagePath(CONSTANTES.CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL))!)!)
+        let imageData = UIImage(data: try! Data(contentsOf: URL(string: getImagePath(CONSTANTES.CUPONES, id: ofertasModel.id, name: ofertasModel.imagenURL))!))
 
         detalleOfertasVC.detalleImagenOfertaData = imageData
         detalleOfertasVC.detalleNombreOfertaData = ofertasModel.tipo
@@ -120,8 +120,8 @@ class CuponesTableViewController: UITableViewController {
         
         
         //ID DE SOCIO OJO
-        detalleOfertasVC.qrData = PFUser.currentUser()!["databaseID"] as? String
-        detalleOfertasVC.codeBarData = PFUser.currentUser()!["databaseID"] as? String
+        detalleOfertasVC.qrData = PFUser.current()!["databaseID"] as? String
+        detalleOfertasVC.codeBarData = PFUser.current()!["databaseID"] as? String
         
         
         //DETALLE ASOCIADO
@@ -142,7 +142,7 @@ class CuponesTableViewController: UITableViewController {
     
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
         
     }

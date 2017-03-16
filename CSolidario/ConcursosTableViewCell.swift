@@ -22,14 +22,14 @@ class ConcursosTableViewCell: UITableViewCell {
         
         
         myLogoImageIV.layer.cornerRadius = myLogoImageIV.frame.width / 16
-        myLogoImageIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myLogoImageIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).cgColor
         myLogoImageIV.layer.borderWidth = 1.5
-        myLogoImageIV.layer.shadowColor = UIColor.blackColor().CGColor
-        myLogoImageIV.layer.shadowOffset = CGSizeMake(0, 15)
+        myLogoImageIV.layer.shadowColor = UIColor.black.cgColor
+        myLogoImageIV.layer.shadowOffset = CGSize(width: 0, height: 15)
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

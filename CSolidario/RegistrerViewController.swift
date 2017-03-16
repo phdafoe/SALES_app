@@ -24,7 +24,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     
     var locationData = [TOLocalidadModel]()
     var AssociationData = [TOAsociacionModel]()
-    var saveNewUser = TOUsuarioModel?()
+    //var saveNewUser = TOUsuarioModel?()
     
 
     
@@ -42,11 +42,11 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
 
     
     //MARK: - IBACTION
-    @IBAction func sendInformationToParse(sender: AnyObject) {
+    @IBAction func sendInformationToParse(_ sender: AnyObject) {
         
         var errorInitial = ""
         
-        if myUsernameTF.text == "" || myPasswordTF.text == "" || myNameTF.text == "" || myLastNameTF.text == "" || myEmailTF.text == "" || myLocationCity.text == "" || myAssociationSend.text == "" || myImageView.image == nil{
+        if myUsernameTF.text == "" || myPasswordTF.text == "" || myNameTF.text == "" || myLastNameTF.text == "" || myEmailTF.text == "" || myLocationCity.text == "" || myImageView.image == nil{
             
             errorInitial = CONSTANTES.ERRORESPACIOSENBLANCO
             
@@ -62,14 +62,14 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
             user.password = myPasswordTF.text
             user.email = myEmailTF.text
             
-            myActivityIndicator.hidden = false
+            myActivityIndicator.isHidden = false
             myActivityIndicator.startAnimating()
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-            user.signUpInBackgroundWithBlock {
-                (succeeded: Bool, signUpError: NSError?) -> Void in
-                self.myActivityIndicator.hidden = true
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            user.signUpInBackground {
+                (succeeded, signUpError) -> Void in
+                self.myActivityIndicator.isHidden = true
                 self.myActivityIndicator.stopAnimating()
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 let errorData = signUpError
                 var errorDataPost = ""
                 
@@ -77,15 +77,17 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
                     errorDataPost = "Por favor elige una foto de la galeria o toma una fotografia"
                 }
                 if errorDataPost != ""{
-                    self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
+                    self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO as NSString)
                 }
                 if errorData != nil {
                     
-                    if let errorString = errorData!.userInfo["error"] as? NSString{
+                    /*if let errorString = errorData!.userInfo["error"] as? NSString{
                         self.displayAlertVCErrorRegistro(errorString)
                     }else{
-                        self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
-                    }
+                        
+                    }*/
+                    self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO as NSString)
+                    
                 } else {
                     self.signUpAndPostImage()
                     self.saveUserID()
@@ -100,13 +102,13 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func selectPhotoOnDeviceACTION(sender: AnyObject) {
+    @IBAction func selectPhotoOnDeviceACTION(_ sender: AnyObject) {
         pickPhoto()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myActivityIndicator.hidden = true
+        myActivityIndicator.isHidden = true
         
         locationData = TOAPIDatabaseManager.sharedInstance.getLocalidades()
         idLocalidadSeleccionada = self.locationData[0].id!
@@ -123,7 +125,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         pickerViewAssociationData.delegate = self
         pickerViewAssociationData.tag = 2
         myAssociationSend.inputView = pickerViewAssociationData
-        myAssociationSend.text = AssociationData[0].nombre
+        //myAssociationSend.text = AssociationData[0].nombre
 
         myImageView.layer.cornerRadius = myImageView.frame.size.width / 2
         myImageView.clipsToBounds = true
@@ -132,14 +134,14 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         
         //Comprobamos que si algun usuario ha accedido
-        if PFUser.currentUser() != nil{
+        if PFUser.current() != nil{
             //OJO EL TIPO DE SEGUE TIENE QUE SER MODAL Y NO PUSH GENERA UN PROBLEMA DE SOPORTE
-            self.performSegueWithIdentifier("jumpToViewContoller", sender: self)
+            self.performSegue(withIdentifier: "jumpToViewContoller", sender: self)
         }
         
     }
@@ -150,25 +152,25 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     }
 
     //MARK: - DOWNKEYBOARD
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     //MARK: - MENSAJES DE ERROR
     func displayAlertVC(){
-        presentViewController(utilsDisplayAlertVCGeneral(), animated: true, completion: nil)
+        present(utilsDisplayAlertVCGeneral(), animated: true, completion: nil)
     }
     
-    func displayAlertVCErrorRegistro(errorString : NSString){
-        presentViewController(utilsDisplayAlertErrorRegistro(errorString as String), animated: true, completion: nil)
+    func displayAlertVCErrorRegistro(_ errorString : NSString){
+        present(utilsDisplayAlertErrorRegistro(errorString as String), animated: true, completion: nil)
     }
     
     func displayAlertVCExitoso(){
-        presentViewController(utilsDisplayAlertVCExitoso(), animated: true, completion: nil)
+        present(utilsDisplayAlertVCExitoso(), animated: true, completion: nil)
     }
     
-    func displayAlertVCEspaciosEnBlanco(espaciosEnBlanco : String){
-        presentViewController(utilsDisplayAlertVCEspaciosEnBlanco(espaciosEnBlanco), animated: true, completion: nil)
+    func displayAlertVCEspaciosEnBlanco(_ espaciosEnBlanco : String){
+        present(utilsDisplayAlertVCEspaciosEnBlanco(espaciosEnBlanco), animated: true, completion: nil)
     }
     
     
@@ -179,19 +181,19 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
         let imageData = UIImageJPEGRepresentation(self.myImageView.image!, 0.6)
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
         postImage[self.CONSTANTES.IDIMAGENURL] = imageFile
-        postImage[self.CONSTANTES.USERNAMEPARSE] = PFUser.currentUser()?.username
+        postImage[self.CONSTANTES.USERNAMEPARSE] = PFUser.current()?.username
         
-        postImage.saveInBackgroundWithBlock({ (success, error) -> Void in
+        postImage.saveInBackground(block: { (success, error) -> Void in
             if success{
                 self.displayAlertVCExitoso()
             }else{
-                self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO)
+                self.displayAlertVCErrorRegistro(self.CONSTANTES.ERRORREGISTRO as NSString)
             }
             self.photoSelected = false
             self.myImageView.image = UIImage(named: "placeholderPerson.png")
         })
 
-        self.performSegueWithIdentifier("jumpToViewContoller", sender: self)
+        self.performSegue(withIdentifier: "jumpToViewContoller", sender: self)
         
         print("El Usuario ha logrado Registrarse")
         
@@ -208,10 +210,10 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - GEOPOINT
     func geoPointParse(){
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+        PFGeoPoint.geoPointForCurrentLocation {
+            (geoPoint, error) -> Void in
             if error == nil {
-                let user = PFUser.currentUser()!
+                let user = PFUser.current()!
                 user[self.CONSTANTES.IDLOCALIZACIONPARSE] = geoPoint
                 user.saveInBackground()
             }else{
@@ -222,8 +224,8 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - SAVE USER ID
     func saveUserID(){
-        let databaseID = TOAPIDatabaseManager.sharedInstance.getSaveUser((PFUser.currentUser()?.objectId)!)
-        let myUser = PFUser.currentUser()
+        let databaseID = TOAPIDatabaseManager.sharedInstance.getSaveUser((PFUser.current()?.objectId)!)
+        let myUser = PFUser.current()
         myUser![self.CONSTANTES.IDDATABASEID] = databaseID
         myUser?.saveInBackground() 
     }
@@ -236,7 +238,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
 extension RegistrerViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func pickPhoto(){
-        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
             showPhotoMenu()
         }else{
             choosePhotoFromLIbrary()
@@ -245,43 +247,43 @@ extension RegistrerViewController : UIImagePickerControllerDelegate, UINavigatio
     
     func showPhotoMenu(){
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        let cancelAccion = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
-        let takePhotoAction = UIAlertAction(title: "Tomar la foto", style: .Default, handler: {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAccion = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let takePhotoAction = UIAlertAction(title: "Tomar la foto", style: .default, handler: {
             Void in self.takePhotoWithCamera()
         })
-        let chooseFromLibraryAction = UIAlertAction(title: "Escoger desde la Libreria", style: .Default, handler: {
+        let chooseFromLibraryAction = UIAlertAction(title: "Escoger desde la Libreria", style: .default, handler: {
             Void in self.choosePhotoFromLIbrary()
         })
         alertController.addAction(cancelAccion)
         alertController.addAction(takePhotoAction)
         alertController.addAction(chooseFromLibraryAction)
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     
     func takePhotoWithCamera(){
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .Camera
+        imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
     
     func choosePhotoFromLIbrary(){
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         myImageView.image = image
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         self.photoSelected = true
     }
     
@@ -290,10 +292,10 @@ extension RegistrerViewController : UIImagePickerControllerDelegate, UINavigatio
 //MARK: - PICKERVIEW DELEGATE
 extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource{
 
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
         if pickerView.tag == 1{
             return locationData.count
@@ -302,7 +304,7 @@ extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 1{
             return locationData[row].nombre
@@ -310,10 +312,10 @@ extension RegistrerViewController : UIPickerViewDelegate, UIPickerViewDataSource
             return AssociationData[row].nombre
         }
     }
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 30
     }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 1{
          

@@ -11,10 +11,10 @@ import SwiftyJSON
 
 class AsociacionParse: NSObject {
     
-    func getAsociacionesModel(dataFromNetworking : NSData) -> [TOAsociacionModel]{
+    func getAsociacionesModel(_ dataFromNetworking : Data) -> [TOAsociacionModel]{
         var arrayAsociacionModel = [TOAsociacionModel]()
         var numberOfRows = 0
-        let readableJSON = JSON(data: dataFromNetworking, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        let readableJSON = JSON(data: dataFromNetworking, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
         numberOfRows = readableJSON["asociaciones"].count
         if numberOfRows != 0{
             for index in 0...numberOfRows - 1{

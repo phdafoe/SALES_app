@@ -25,7 +25,7 @@ class AsociadoViewController: UIViewController {
     var arrayBanners = [TOBannersModel]()
     var urlString : String?
     var indexActual : Int = 0
-    var timer = NSTimer()
+    var timer = Timer()
     let CONSTANTES = Constants()
     
     
@@ -42,19 +42,19 @@ class AsociadoViewController: UIViewController {
     
 
     //MARK: - IBACTION
-    @IBAction func cerrarACTION(sender: AnyObject) {
+    @IBAction func cerrarACTION(_ sender: AnyObject) {
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
     }
     
     //MARK: - IBACTION
     
-    @IBAction func showWebPublicidad(sender: AnyObject) {
+    @IBAction func showWebPublicidad(_ sender: AnyObject) {
         
-        let webDetallePublicidad = self.storyboard?.instantiateViewControllerWithIdentifier("detalleWeb") as! WebDetalleViewController
+        let webDetallePublicidad = self.storyboard?.instantiateViewController(withIdentifier: "detalleWeb") as! WebDetalleViewController
         webDetallePublicidad.detalleWebPublicidad = arrayBanners[indexActual].targetURL
-        self.presentViewController(webDetallePublicidad, animated: true, completion: nil)
+        self.present(webDetallePublicidad, animated: true, completion: nil)
         
         
     }
@@ -63,10 +63,10 @@ class AsociadoViewController: UIViewController {
         super.viewDidLoad()
         
         myLogoIV.layer.cornerRadius = myLogoIV.frame.width / 16
-        myLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).CGColor
+        myLogoIV.layer.borderColor = UIColor(red: 0.71, green: 0.75, blue: 0.20, alpha: 1.0).cgColor
         myLogoIV.layer.borderWidth = 1.5
-        myLogoIV.layer.shadowColor = UIColor.blackColor().CGColor
-        myLogoIV.layer.shadowOffset = CGSizeMake(0, 15)
+        myLogoIV.layer.shadowColor = UIColor.black.cgColor
+        myLogoIV.layer.shadowOffset = CGSize(width: 0, height: 15)
         
         
         myImageAsociacionIV.image = detalleImageAsociadoData!
@@ -80,9 +80,9 @@ class AsociadoViewController: UIViewController {
         self.title = detallePersonaContactoData
         
         //BANNER
-        arrayBanners = TOAPIDatabaseManager.sharedInstance.getBanners(PFUser.currentUser()!["idLocalidad"] as! String)
-        runBanner()
-        timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(DetalleOfertasViewController.runBanner), userInfo: nil, repeats: true)
+        arrayBanners = TOAPIDatabaseManager.sharedInstance.getBanners(PFUser.current()!["idLocalidad"] as! String)
+        //runBanner()
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(DetalleOfertasViewController.runBanner), userInfo: nil, repeats: true)
 
         // Do any additional setup after loading the view.
     }
@@ -96,8 +96,8 @@ class AsociadoViewController: UIViewController {
     //MARK: - RUN BANNERS
     func runBanner(){
         urlString = getURL(arrayBanners[indexActual].id!, imagenURL: arrayBanners[indexActual].imagenURL!)
-        let url = NSURL(string: urlString!)
-        let request = NSURLRequest(URL: url!)
+        let url = URL(string: urlString!)
+        let request = URLRequest(url: url!)
         myWebGifPublicidad.loadRequest(request)
         print(url)
         if arrayBanners.count > indexActual + 1{
@@ -107,7 +107,7 @@ class AsociadoViewController: UIViewController {
         }
     }
     
-    func getURL(id : String,  imagenURL : String) -> String{
+    func getURL(_ id : String,  imagenURL : String) -> String{
         
         return CONSTANTES.BASE_BANNER_URL + "/"  + id + "/" + imagenURL
     }
