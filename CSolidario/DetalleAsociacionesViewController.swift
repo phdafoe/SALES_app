@@ -99,9 +99,10 @@ class DetalleAsociacionesViewController: UIViewController {
     func runBanner(){
         urlString = getURL(arrayBanners[indexActual].id!, imagenURL: arrayBanners[indexActual].imagenURL!)
         let url = URL(string: urlString!)
+        print(url!)
         let request = URLRequest(url: url!)
         myWebGifPublicidad.loadRequest(request)
-        print(url)
+        print(url!)
         if arrayBanners.count > indexActual + 1{
             indexActual += 1;
         } else {

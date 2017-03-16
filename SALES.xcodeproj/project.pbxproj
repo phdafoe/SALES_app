@@ -129,7 +129,6 @@
 		683F82CF1E7B311500A78791 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 683F82C71E7B311500A78791 /* PromiseKit.framework */; };
 		683F82D01E7B311500A78791 /* ReachabilitySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 683F82C81E7B311500A78791 /* ReachabilitySwift.framework */; };
 		683F82D11E7B311500A78791 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 683F82C91E7B311500A78791 /* SwiftyJSON.framework */; };
-		92F71CDAF2B59BB0A09A8683 /* Pods_CSolidario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD1232B3AED153AB1EDB7C5 /* Pods_CSolidario.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -306,7 +305,6 @@
 				63C4316B1CC97522005519BE /* ParseUI.framework in Frameworks */,
 				63C4316A1CC97522005519BE /* Parse.framework in Frameworks */,
 				63C431691CC97522005519BE /* Bolts.framework in Frameworks */,
-				92F71CDAF2B59BB0A09A8683 /* Pods_CSolidario.framework in Frameworks */,
 				66F04C1A7140B99762747B92 /* Pods_SALES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

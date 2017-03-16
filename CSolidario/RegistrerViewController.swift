@@ -217,7 +217,7 @@ class RegistrerViewController: UIViewController, UITextFieldDelegate {
                 user[self.CONSTANTES.IDLOCALIZACIONPARSE] = geoPoint
                 user.saveInBackground()
             }else{
-                print(error)
+                print(error!)
             }
         }
     }

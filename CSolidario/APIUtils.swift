@@ -31,6 +31,17 @@ func getString(_ array : String, index : Int, nombre : String, nombreObjeto : JS
     }
 }
 
+
+func dimeString (_ json : JSON, nombre : String) -> String{
+    if let stringResult = json[nombre].string{
+        return stringResult
+    }else{
+        return ""
+    }
+}
+
+
+
 func utilsDisplayAlertVCGeneral() -> UIAlertController{
     let alertVC = UIAlertController (title: CONSTANTES.TITLEDATA, message: CONSTANTES.MESSAGEDATA, preferredStyle: .alert)
     alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

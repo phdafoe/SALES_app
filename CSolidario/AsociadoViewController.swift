@@ -99,7 +99,7 @@ class AsociadoViewController: UIViewController {
         let url = URL(string: urlString!)
         let request = URLRequest(url: url!)
         myWebGifPublicidad.loadRequest(request)
-        print(url)
+        print(url!)
         if arrayBanners.count > indexActual + 1{
             indexActual += 1;
         } else {

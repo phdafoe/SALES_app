@@ -17,7 +17,7 @@ class PromocionesParse: NSObject {
         var arrayPromocionModel = [TOPromocionModel]()
         var numberOfRows = 0
         let readableJSON = JSON(data: dataFromNetworking, options: JSONSerialization.ReadingOptions.mutableContainers, error: nil)
-        print(readableJSON)
+        //print(readableJSON)
         numberOfRows = readableJSON["promociones"].count
         if numberOfRows != 0{
             for index in 0...numberOfRows - 1{
